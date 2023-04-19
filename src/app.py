@@ -1,7 +1,7 @@
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 from config.db import db, app, ma
 
-#importar routes
+#importar routes del API
 from api.roles import routes_roles
 
 #Rutas
