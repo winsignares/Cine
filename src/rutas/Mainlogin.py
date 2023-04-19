@@ -6,4 +6,4 @@ routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 @routes_mainlogin.route('/indexmainlogin', methods=['GET'] )
 def indexmainlogin():
     
-    return render_template('/main/MainLogin.html')
+    return render_template('/Main/MainLogin.html')
