@@ -1,5 +1,24 @@
 {% extends "Main/LayoutMainLogin.html" %}
 {% block body %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Peliculas
+    </title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
 <div class="nav-wrapper">
     <div class="container">
         <div class="nav">
@@ -249,7 +268,7 @@
             <!-- PELICULA -->
             <div class="movie-item">
                 <a href="./verVideo.html">
-                    <img src="{{url_for('static',filename='/images/movies/blood-shot.jpg')}}"alt="">
+                    <img src="{{url_for('static',filename='/assets/movies/blood-shot.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Bloodshot
@@ -277,7 +296,7 @@
             <!-- PELICULA -->
             <div class="movie-item">
                 <a href="./verVideo.html">
-                    <img src="{{url_for('static',filename='/images/series/wanda.png')}}"alt="">
+                    <img src="{{url_for('static',filename='/assets/series/wanda.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Wanda Vision
@@ -305,7 +324,7 @@
             <!-- PELICULA -->
             <div class="movie-item">
                 <a href="./verVideo.html">
-                    <img src="{{url_for('static',filename='/images/movies/bat-man.jpg')}}"alt="">
+                    <img src="{{url_for('static',filename='/assets/movies/bat-man.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         The Dark Knight
@@ -345,7 +364,7 @@
         <div class="movies-slide carousel-nav-center owl-carousel">
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/movies/theatre-dead.jpg')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/movies/theatre-dead.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Theatre of the dead
@@ -371,7 +390,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/movies/transformer.jpg')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/movies/transformer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Transformer
@@ -397,7 +416,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/movies/resident-evil.jpg')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/movies/resident-evil.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Resident Evil
@@ -423,7 +442,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/movies/captain-marvel.png')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/movies/captain-marvel.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Captain Marvel
@@ -449,7 +468,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/movies/hunter-killer.jpg')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/movies/hunter-killer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Hunter Killer
@@ -475,7 +494,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <a href="./verVideo.html" class="movie-item">
-                <img src="{{url_for('static',filename='/images/cartoons/demon-slayer.jpg')}}"alt="">
+                <img src="{{url_for('static',filename='/assets/cartoons/demon-slayer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
                         Infinity Train
@@ -763,5 +782,12 @@
             </div>
         </div>
     </div>
+</body>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- OWL CAROUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
 {% endblock %}
