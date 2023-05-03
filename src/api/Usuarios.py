@@ -8,7 +8,7 @@ from Model.Usuarios import Usuarios, UsuariosSchema
 routes_Usuarios = Blueprint("routes_Usuarios", __name__)
 #Roles
 Usuarios_schema = UsuariosSchema()
-Usuarios_schema = UsuariosSchema(many=True)
+Usuario_schema = UsuariosSchema(many=True)
 
 @routes_Usuarios.route('/indexuusarios', methods=['GET'] )
 def indexRoles():
