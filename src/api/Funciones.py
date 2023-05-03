@@ -4,7 +4,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Funciones import Funciones, Funciones
 
-routes_funciones = Blueprint("routes_rol", __name__)
+routes_funciones = Blueprint("routes_funciones", __name__)
 #Roles
 Funciones_Schema = Funciones()
 Funcione_Schema = Funciones(many=True)

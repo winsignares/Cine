@@ -5,7 +5,7 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Ventas import VentasSchema, VentasSchema
 
-routes_ventas = Blueprint("routes_rol", __name__)
+routes_ventas = Blueprint("routes_ventas", __name__)
 #Roles
 Ventas_Schema = VentasSchema()
 Ventas_Schema = VentasSchema(many=True)
