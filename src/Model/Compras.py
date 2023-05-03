@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
-class Compra(db.Model):
-    __tablename__ = "Compra"
+class Compras(db.Model):
+    __tablename__ = "Compras"
 
     id_compra  = db.Column(db.Integer, primary_key=True)
     id_usuarios  = db.Column(db.Integer, primary_key=True)
