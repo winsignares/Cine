@@ -3,21 +3,21 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Usuarios import Usuarios, RolesSchema
+from Model.Usuarios import Usuarios, UsuariosSchema
 
-routes_roles = Blueprint("routes_Usuarios", __name__)
+routes_Usuarios = Blueprint("routes_Usuarios", __name__)
 #Roles
-Usuarios_schema = RolesSchema()
-Usuarios_schema = RolesSchema(many=True)
+Usuarios_schema = UsuariosSchema()
+Usuarios_schema = UsuariosSchema(many=True)
 
-@routes_roles.route('/indexroles', methods=['GET'] )
+@routes_Usuarios.route('/indexroles', methods=['GET'] )
 def indexRoles():
     
     return "Dainer!!"
 
 #Roles
 #---------SAVE/CREAR------------
-@routes_roles.route('/saveroles', methods=['POST'] )
+@routes_Usuarios.route('/saveroles', methods=['POST'] )
 def guardar_roles():
     #request.form['title']
     #id_usuarios = request.form['id_usuarios']
@@ -39,7 +39,7 @@ def guardar_roles():
     return redirect('/Usuarios')
 
 
-@routes_roles.route('/eliminar/<id>', methods=['GET'] )
+@routes_Usuarios.route('/eliminar/<id>', methods=['GET'] )
 def eliminar(id):
     #id_usuarios = request.form['id_usuarios']
     #id_roles_usuarios = request.form['id_roles_usuarios']
@@ -56,7 +56,7 @@ def eliminar(id):
     db.session.commit()
     return jsonify(Usuarios_schema.dump(Usuarios)) 
 
-@routes_roles.route('/actualizar', methods=['POST'] )
+@routes_Usuarios.route('/actualizar', methods=['POST'] )
 def actualizar():
     #id_usuarios = request.form['id_usuarios']
     #id_roles_usuarios = request.form['id_roles_usuarios']
