@@ -10,7 +10,7 @@ routes_Usuarios = Blueprint("routes_Usuarios", __name__)
 Usuarios_schema = UsuariosSchema()
 Usuarios_schema = UsuariosSchema(many=True)
 
-@routes_Usuarios.route('/indexroles', methods=['GET'] )
+@routes_Usuarios.route('/indexuusarios', methods=['GET'] )
 def indexRoles():
     
     return "Dainer!!"

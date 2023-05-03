@@ -15,6 +15,6 @@ class Funciones(db.Model):
 with app.app_context():
     db.create_all()
 
-class Funciones(ma.Schema):
+class FuncionesSchema(ma.Schema):
     class Meta:
         fields = ('id_funcion','id_peliculas','id_sala','fecha','precio')

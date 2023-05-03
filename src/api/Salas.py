@@ -5,12 +5,12 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Salas import Salas, SalasSchema
 
-routes_salas = Blueprint("routes_rol", __name__)
+routes_salas = Blueprint("routes_salas", __name__)
 #Roles
 Sala_Schema = SalasSchema()
 Salas_Schema = SalasSchema(many=True)
 
-@routes_salas.route('/indexroles', methods=['GET'] )
+@routes_salas.route('/indexsalas', methods=['GET'] )
 def indexRoles():
     
     return "Dainer"

@@ -2,17 +2,17 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Funciones import Funciones, Funciones
+from Model.Funciones import Funciones, FuncionesSchema
 
-routes_funciones = Blueprint("routes_rol", __name__)
+routes_funciones = Blueprint("routes_funciones", __name__)
 #Roles
-Funciones = Funciones()
-Funciones = Funciones(many=True)
+Funcion_Schema = FuncionesSchema()
+Funciones_Schema = FuncionesSchema(many=True)
 
-@routes_funciones.route('/indexroles', methods=['GET'] )
+@routes_funciones.route('/', methods=['GET'] )
 def indexRoles():
     
-    return "Dainer"
+    return "index"
 
 #Roles
 #---------SAVE/CREAR------------
@@ -31,7 +31,7 @@ def guardar_salas():
 def eliminar(id):
     #id = request.args.get('id')
     #id = request.json['id']
-    rol = Funciones.query.get(id)
+    rol = FuncionesSchema.query.get(id)
     db.session.delete(rol)
     db.session.commit()
     return jsonify(Funciones.dump(rol)) 
