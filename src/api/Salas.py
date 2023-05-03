@@ -7,8 +7,8 @@ from Model.Salas import SalasSchema, SalasSchema
 
 routes_salas = Blueprint("routes_rol", __name__)
 #Roles
-SalasSchema = SalasSchema()
-SalasSchema = SalasSchema(many=True)
+Sala_Schema = SalasSchema()
+Salas_Schema = SalasSchema(many=True)
 
 @routes_salas.route('/indexroles', methods=['GET'] )
 def indexRoles():

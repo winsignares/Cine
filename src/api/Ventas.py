@@ -7,8 +7,8 @@ from Model.Ventas import VentasSchema, VentasSchema
 
 routes_ventas = Blueprint("routes_rol", __name__)
 #Roles
-VentasSchema = VentasSchema()
-VentasSchema = VentasSchema(many=True)
+Ventas_Schema = VentasSchema()
+Ventas_Schema = VentasSchema(many=True)
 
 @routes_ventas.route('/indexroles', methods=['GET'] )
 def indexRoles():

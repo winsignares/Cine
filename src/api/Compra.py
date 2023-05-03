@@ -2,12 +2,12 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Funciones import Funciones, Funciones
+from Model.Compras import CompraSchema, Compra
 
 routes_funciones = Blueprint("routes_rol", __name__)
 #Roles
-Funciones_Schema = Funciones()
-Funcione_Schema = Funciones(many=True)
+Compra_Schema = Compra()
+Compra_Schema = Compra(many=True)
 
 @routes_funciones.route('/indexroles', methods=['GET'] )
 def indexRoles():
@@ -21,7 +21,7 @@ def guardar_salas():
     #request.form['title']
     roles = request.json['roles']
     print(roles)
-    new_rol = Funciones(roles)
+    new_rol = Compra(roles)
     db.session.add(new_rol)
     db.session.commit()
     return redirect('/salas')
@@ -31,10 +31,10 @@ def guardar_salas():
 def eliminar(id):
     #id = request.args.get('id')
     #id = request.json['id']
-    rol = Funciones.query.get(id)
+    rol = Compra_Schema.query.get(id)
     db.session.delete(rol)
     db.session.commit()
-    return jsonify(Funciones.dump(rol)) 
+    return jsonify(Compra_Schema.dump(rol)) 
 
 @routes_funciones.route('/actualizar', methods=['POST'] )
 def actualizar():
@@ -43,7 +43,7 @@ def actualizar():
     #Precio = request.form['Precio']git 
     id = request.json['id']
     rol = request.json['roles']
-    rusuario = Funciones.query.get(id)
+    rusuario = Compra.query.get(id)
     rusuario.roles = rol
     db.session.commit()
     return redirect('/Funciones')
