@@ -50,3 +50,6 @@ def actualizar():
     db.session.commit()
     return redirect('/rusuarios')
 
+
+
+
