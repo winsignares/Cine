@@ -12,12 +12,12 @@ from rutas.Mainlogin import routes_mainlogin
 from rutas.index import routes_index
 from rutas.Asientos import routes_asientos
 from rutas.Admin import routes_Admin
+
 #ubicacion del api
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Usuarios, url_prefix="/api" )
 app.register_blueprint(routes_salas, url_prefix="/api")
 app.register_blueprint(routes_funciones, url_prefix="/api")
-
 
 
 #Ubicacion rutas

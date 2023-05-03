@@ -17,4 +17,4 @@ with app.app_context():
 
 class Funciones(ma.Schema):
     class Meta:
-        fields = ('id_funcion','id_peliculas','id_salas','fecha','precio')
+        fields = ('id_funcion','id_peliculas','id_sala','fecha','precio')
