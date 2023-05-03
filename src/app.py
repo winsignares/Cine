@@ -8,6 +8,7 @@ from api.Roles import routes_roles
 from rutas.Mainlogin import routes_mainlogin
 from rutas.index import routes_index
 from rutas.Asientos import routes_asientos
+from rutas.Admin import routes_Admin
 #ubicacion del api
 app.register_blueprint(routes_roles, url_prefix="/api")
 
@@ -16,6 +17,7 @@ app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
 app.register_blueprint(routes_index, url_prefix="/fronted")
 app.register_blueprint(routes_asientos,url_prefix="/fronted")
+app.register_blueprint(routes_Admin, url_prefix="/fronted")
 
 @app.route("/")
 def index():
