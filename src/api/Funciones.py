@@ -1,4 +1,3 @@
-
 from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
@@ -7,14 +6,13 @@ from Model.Funciones import Funciones, Funciones
 
 routes_funciones = Blueprint("routes_rol", __name__)
 #Roles
-FuncionesSchema = Funciones()
-FuncionesSchema = Funciones(many=True)
+Funciones = Funciones()
+Funciones = Funciones(many=True)
 
 @routes_funciones.route('/indexroles', methods=['GET'] )
 def indexRoles():
     
-    return "Mango"
-
+    return "Dainer"
 
 #Roles
 #---------SAVE/CREAR------------
@@ -23,10 +21,10 @@ def guardar_salas():
     #request.form['title']
     roles = request.json['roles']
     print(roles)
-    new_rol = FuncionesSchema(roles)
+    new_rol = Funciones(roles)
     db.session.add(new_rol)
     db.session.commit()
-    return redirect('/funciones')
+    return redirect('/salas')
 
 
 @routes_funciones.route('/eliminar/<id>', methods=['GET'] )
@@ -45,7 +43,7 @@ def actualizar():
     #Precio = request.form['Precio']git 
     id = request.json['id']
     rol = request.json['roles']
-    rusuario = FuncionesSchema.query.get(id)
+    rusuario = Funciones.query.get(id)
     rusuario.roles = rol
     db.session.commit()
-    return redirect('/funciones')
+    return redirect('/Funciones')

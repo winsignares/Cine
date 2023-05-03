@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
 class Usuarios(db.Model):
-    __tablename__ = "TablaUsuarios"
+    __tablename__ = "Usuarios"
 
     id_usuarios = db.Column(db.Integer, primary_key=True)
     id_roles_usuarios = db.Column(db.Integer, primary_key=True)
