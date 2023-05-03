@@ -10,7 +10,7 @@ class Usuarios(db.Model):
     Contraseña = db.Column(db.String(50))
 
     def __init__(self, Usuaios):
-        self.id_usuarios = Usuaios
+        self.id_usuarios = Usuarios
         
 with app.app_context():
     db.create_all()

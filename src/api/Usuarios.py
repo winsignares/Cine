@@ -25,9 +25,15 @@ def guardar_roles():
     #Nombre = request.form['Nombre']git 
     #Correo_electronico = request.form['Correo_electronico']
     #Contraseña = request.form['Contraseña']
-    roles = request.json['roles']
-    print(roles)
-    new_rol = Usuarios_schema(roles)
+    id_usuarios = request.json['id_usuarios']
+    id_roles_usuarios = request.json['id_roles_usuarios']
+    Nombre = request.json['Nombre']
+    Correo_electronico = request.json['Correo_electronico']
+    Contraseña = request.json['Contraseña']
+    rol = Usuarios_schema.query.get(id)
+    Usuarios = request.json['Usuarios']
+    print(Usuarios)
+    new_rol = Usuarios_schema(Usuarios)
     db.session.add(new_rol)
     db.session.commit()
     return redirect('/Usuarios')
@@ -40,10 +46,15 @@ def eliminar(id):
     #Nombre = request.form['Nombre']git 
     #Correo_electronico = request.form['Correo_electronico']
     #Contraseña = request.form['Contraseña']
-    rol = Usuarios_schema.query.get(id)
-    db.session.delete(rol)
+    id_usuarios = request.json['id_usuarios']
+    id_roles_usuarios = request.json['id_roles_usuarios']
+    Nombre = request.json['Nombre']
+    Correo_electronico = request.json['Correo_electronico']
+    Contraseña = request.json['Contraseña']
+    Usuarios = Usuarios_schema.query.get(id)
+    db.session.delete(Usuarios)
     db.session.commit()
-    return jsonify(Usuarios_schema.dump(rol)) 
+    return jsonify(Usuarios_schema.dump(Usuarios)) 
 
 @routes_roles.route('/actualizar', methods=['POST'] )
 def actualizar():
@@ -52,9 +63,12 @@ def actualizar():
     #Nombre = request.form['Nombre']git 
     #Correo_electronico = request.form['Correo_electronico']
     #Contraseña = request.form['Contraseña']
-    id = request.json['id']
-    rol = request.json['roles']
+    id_usuarios = request.json['id_usuarios']
+    id_roles_usuarios = request.json['id_roles_usuarios']
+    Nombre = request.json['Nombre']
+    Correo_electronico = request.json['Correo_electronico']
+    Contraseña = request.json['Contraseña']
     Usuarios_schema = Usuarios_schema.query.get(id)
-    Usuarios_schema.roles = rol
+    Usuarios_schema.roles = Usuarios
     db.session.commit()
     return redirect('/Usuarios')
