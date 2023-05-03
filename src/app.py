@@ -6,6 +6,7 @@ from api.Roles import routes_roles
 from api.Usuarios import routes_Usuarios
 from api.Salas import routes_salas
 from api.Funciones import routes_funciones
+from api.Ventas import routes_ventas
 
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
@@ -17,6 +18,7 @@ app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_Usuarios, url_prefix="/api" )
 app.register_blueprint(routes_salas, url_prefix="/api")
 app.register_blueprint(routes_funciones, url_prefix="/api")
+app.register_blueprint(routes_ventas, url_prefix="/api")
 
 
 #Ubicacion rutas
