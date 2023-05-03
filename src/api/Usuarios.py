@@ -3,12 +3,12 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Usuarios import Usuarios, RolesSchema
+from Model.Usuarios import Usuarios, UsuariosSchema
 
 routes_roles = Blueprint("routes_Usuarios", __name__)
 #Roles
-Usuarios_schema = RolesSchema()
-Usuarios_schema = RolesSchema(many=True)
+Usuarios_schema = UsuariosSchema()
+Usuarios_schema = UsuariosSchema(many=True)
 
 @routes_roles.route('/indexroles', methods=['GET'] )
 def indexRoles():
