@@ -4,12 +4,12 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 
 from Model.Compras import Compra, CompraSchema
 
-routes_compras = Blueprint("routes_rol", __name__)
+routes_compras = Blueprint("routes_compras", __name__)
 #Roles
 Compra_Schema = CompraSchema()
-Compra_Schema = CompraSchema(many=True)
+Compras_Schema = CompraSchema(many=True)
 
-@routes_compras.route('/indexroles', methods=['GET'] )
+@routes_compras.route('/', methods=['GET'] )
 def indexRoles():
     
     return "Dainer"
