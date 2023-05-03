@@ -2,12 +2,12 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Compras import CompraSchema, CompraSchema
+from Model.Compras import Compra, CompraSchema
 
 routes_compras = Blueprint("routes_rol", __name__)
 #Roles
-CompraSchema = CompraSchema()
-CompraSchema = CompraSchema(many=True)
+Compra_Schema = CompraSchema()
+Compra_Schema = CompraSchema(many=True)
 
 @routes_compras.route('/indexroles', methods=['GET'] )
 def indexRoles():
@@ -31,10 +31,10 @@ def guardar_salas():
 def eliminar(id):
     #id = request.args.get('id')
     #id = request.json['id']
-    rol = Compra_Schema.query.get(id)
+    rol = CompraSchema.query.get(id)
     db.session.delete(rol)
     db.session.commit()
-    return jsonify(Compra_Schema.dump(rol)) 
+    return jsonify(CompraSchema.dump(rol)) 
 
 @routes_compras.route('/actualizar', methods=['POST'] )
 def actualizar():
