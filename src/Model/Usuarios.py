@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class RolesUsuarios(db.Model):
+class Usuarios(db.Model):
     __tablename__ = "Usuarios"
 
     id_usuarios = db.Column(db.Integer, primary_key=True)
