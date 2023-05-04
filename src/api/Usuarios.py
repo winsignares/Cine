@@ -14,18 +14,22 @@ usuarios_schema = usuariosSchema(many=True)
 def indexusuarios():
     return "hello world"
 
-@app.route('/Usuarios', methods=['GET'])
+@routes_usuarios.route('/Usuarios', methods=['GET'])
 def usuarios():    
     returnall = usuarios.query.all()
    
-    resultado_usuarios = usuarios_schema.dump(returnall)
+    resultado_usuarios = usuariosSchema.dump(returnall)
     return jsonify(resultado_usuarios)
 
-@app.route('/save_Users', methods=['POST'] )
+
+@routes_usuarios.route('/save_user', methods=['POST'] )
 def guardar_Users():
-    Usuarios = request.json['id,id_roles_usuarios,Nombre,Correo_electronico,Contraseña']
-    print(Usuarios)
-    new_Users = usuarios(Usuarios)
+    id_roles_usuarios = request.json['id_roles_usuarios']
+    nombre = request.json['nombre']
+    correo_electronico = request.json['correo_electronico']
+    contraseña = request.json['contraseña']
+    print(id_roles_usuarios,nombre,correo_electronico,contraseña)
+    new_Users = usuarios(id_roles_usuarios,nombre,correo_electronico,contraseña)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
