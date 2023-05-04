@@ -1,15 +1,10 @@
 {% extends "Main/LayoutAsientos.html" %}
 {% block body %}
 <div class="movie-container">
-    <label> Select a movie:</label>
+    <label>Asientos vendidos</label>
     <select id="movie">
-      <option value="220">Godzilla vs Kong (RS.220)</option>
-      <option value="320">Radhe (RS.320)</option>
-      <option value="250">RRR (RS.250)</option>
-      <option value="260">F9 (RS.260)</option>
     </select>
   </div>
-
   <ul class="showcase">
     <li>
       <div class="seat"></div>
@@ -90,11 +85,9 @@
     </div>
   </div>
 
-  <p class="text">
-    You have selected <span id="count">0</span> seat for a price of RS.<span
+  <p class="text">  
+  Usted ha seleccionado <span id="count">0</span> Asiento por un precio de RS.<span
       id="total"
-      >0</span
-    >
-  </p>
-
+      >0</span>
+    </p>
 {% endblock %}
