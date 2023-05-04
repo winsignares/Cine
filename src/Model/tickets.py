@@ -1,11 +1,11 @@
 from config.db import db, app, ma 
 
 class Tickets(db.Model):
-    __tablename__ = "Tickets"
+    __tablename__ = "tbltickets"
 
-    id_tickets = db.Column(db.Integer, primary_key=True)
-    id_compra = db.Column(db.Integer, primary_key=True)
-    id_funcion = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    id_compra = db.Column(db.Integer, db.ForeignKey('tblcompras.id'))
+    id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     asiento = db.Column(db.String(50))
     fecha_emision = db.Column(db.Integer, primary_key=True)
 
@@ -17,4 +17,4 @@ with app.app_context():
 
 class TicketsSchema(ma.Schema):
     class Meta:
-        fields = ('id_tickets','id_compra','id_funcion','asiento','fecha_emision')
+        fields = ('id','id_compra','id_funcion','asiento','fecha_emision')

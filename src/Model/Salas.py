@@ -1,9 +1,9 @@
 from config.db import db, app, ma 
 
 class Salas(db.Model):
-    __tablename__ = "Salas"
+    __tablename__ = "tblsalas"
 
-    id_salas = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     Nombre_sala = db.Column(db.String(50))
     Capacidad = db.Column(db.String(50))
 
@@ -15,4 +15,4 @@ with app.app_context():
 
 class SalasSchema(ma.Schema):
     class Meta:
-        fields = ('id_salas','Nombre_salas','Capacidad')
+        fields = ('id','Nombre_salas','Capacidad')

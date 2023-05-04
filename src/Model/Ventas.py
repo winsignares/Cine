@@ -1,10 +1,10 @@
 from config.db import db, app, ma 
 
 class Ventas(db.Model):
-    __tablename__ = "Ventas"
+    __tablename__ = "tblventas"
 
-    id_ventas = db.Column(db.Integer, primary_key=True)
-    id_funcion = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     fecha_venta = db.Column(db.String(50))
     cantidad_tikets = db.Column(db.String(50))
     precio_total = db.Column(db.Integer, primary_key=True)
@@ -17,4 +17,4 @@ with app.app_context():
 
 class VentasSchema(ma.Schema):
     class Meta:
-        fields = ('id_venta','fecha_venta','cantidad_tikets','precio_total')
+        fields = ('id','fecha_venta','cantidad_tikets','precio_total')

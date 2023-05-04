@@ -1,10 +1,10 @@
 from config.db import db, app, ma 
 
 class Usuarios(db.Model):
-    __tablename__ = "Usuarios"
+    __tablename__ = "tblusuarios"
 
-    id_usuarios = db.Column(db.Integer, primary_key=True)
-    id_roles_usuarios = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    id_roles_usuarios = db.Column(db.Integer, db.ForeignKey('tblrolesusuarios.id'))
     Nombre = db.Column(db.String(50))
     Correo_electronico = db.Column(db.String(50))
     Contraseña = db.Column(db.String(50))
@@ -17,4 +17,4 @@ with app.app_context():
 
 class UsuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id_usuarios','id_roles_usuarios','Nombre','Correo_electronico','Contraseña')
+        fields = ('id','id_roles_usuarios','Nombre','Correo_electronico','Contraseña')

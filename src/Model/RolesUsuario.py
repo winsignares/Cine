@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
 class RolesUsuarios(db.Model):
-    __tablename__ = "Rolesusuarios"
+    __tablename__ = "tblrolesusuarios"
     
 
     id  = db.Column(db.Integer, primary_key=True)
