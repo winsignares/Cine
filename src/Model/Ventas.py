@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class Ventas(db.Model):
+class ventas(db.Model):
     __tablename__ = "tblventas"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +18,6 @@ class Ventas(db.Model):
 with app.app_context():
     db.create_all()
 
-class VentasSchema(ma.Schema):
+class ventasSchema(ma.Schema):
     class Meta:
         fields = ('id','fecha_venta','cantidad_tikets','precio_total')

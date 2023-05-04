@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class Tickets(db.Model):
+class tickets(db.Model):
     __tablename__ = "tbltickets"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +18,6 @@ class Tickets(db.Model):
 with app.app_context():
     db.create_all()
 
-class TicketsSchema(ma.Schema):
+class ticketsSchema(ma.Schema):
     class Meta:
         fields = ('id','id_compra','id_funcion','asiento','fecha_emision')

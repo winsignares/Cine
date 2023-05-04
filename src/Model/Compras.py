@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class Compras(db.Model):
+class compras(db.Model):
     __tablename__ = "tblcompras"
 
     id  = db.Column(db.Integer, primary_key=True)
@@ -16,6 +16,6 @@ class Compras(db.Model):
 with app.app_context():
     db.create_all()
 
-class CompraSchema(ma.Schema):
+class compraSchema(ma.Schema):
     class Meta:
         fields = ('id','id_usuarios','id_funcion','cantidad_tikets','total_pagado','fecha_compra')

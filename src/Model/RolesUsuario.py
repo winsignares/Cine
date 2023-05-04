@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class RolesUsuarios(db.Model):
+class rolesUsuarios(db.Model):
     __tablename__ = "tblrolesusuarios"
     
 
@@ -14,6 +14,6 @@ class RolesUsuarios(db.Model):
 with app.app_context():
     db.create_all()
 
-class RolesSchema(ma.Schema):
+class rolesSchema(ma.Schema):
     class Meta:
         fields = ('id','roles')

@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class Usuarios(db.Model):
+class usuarios(db.Model):
     __tablename__ = "tblusuarios"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +18,6 @@ class Usuarios(db.Model):
 with app.app_context():
     db.create_all()
 
-class UsuariosSchema(ma.Schema):
+class usuariosSchema(ma.Schema):
     class Meta:
         fields = ('id','id_roles_usuarios','Nombre','Correo_electronico','Contraseña')

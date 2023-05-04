@@ -1,6 +1,6 @@
 from config.db import db, app, ma 
 
-class Funciones(db.Model):
+class funciones(db.Model):
     __tablename__ = "tblfunciones"
 
     id  = db.Column(db.Integer, primary_key=True)
@@ -19,6 +19,6 @@ class Funciones(db.Model):
 with app.app_context():
     db.create_all()
 
-class FuncionesSchema(ma.Schema):
+class funcionesSchema(ma.Schema):
     class Meta:
         fields = ('id','id_peliculas','id_sala','fecha','precio')
