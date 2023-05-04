@@ -1,13 +1,12 @@
-
 from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Ventas import VentasSchema, VentasSchema
+from Model.Ventas import Ventas, VentasSchema
 
-routes_ventas = Blueprint("routes_rol", __name__)
+routes_ventas = Blueprint("routes_ventas", __name__)
 #Roles
-Ventas_Schema = VentasSchema()
+Venta_Schema = VentasSchema()
 Ventas_Schema = VentasSchema(many=True)
 
 @routes_ventas.route('/indexroles', methods=['GET'] )
@@ -23,7 +22,7 @@ def guardar_salas():
     #request.form['title']
     roles = request.json['roles']
     print(roles)
-    new_rol = VentasSchema(roles)
+    new_rol = Ventas(roles)
     db.session.add(new_rol)
     db.session.commit()
     return redirect('/salas')

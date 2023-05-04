@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
 
-from Model.Compras import Compra, CompraSchema
+from Model.Compras import Compras, CompraSchema
 
 routes_compras = Blueprint("routes_compras", __name__)
 #Roles
@@ -21,7 +21,7 @@ def guardar_salas():
     #request.form['title']
     roles = request.json['roles']
     print(roles)
-    new_rol = Compra(roles)
+    new_rol = Compras(roles)
     db.session.add(new_rol)
     db.session.commit()
     return redirect('/salas')
@@ -43,7 +43,7 @@ def actualizar():
     #Precio = request.form['Precio']git 
     id = request.json['id']
     rol = request.json['roles']
-    rusuario = Compra.query.get(id)
+    rusuario = Compras.query.get(id)
     rusuario.roles = rol
     db.session.commit()
     return redirect('/Funciones')
