@@ -9,8 +9,11 @@ class Tickets(db.Model):
     asiento = db.Column(db.String(50))
     fecha_emision = db.Column(db.Integer, primary_key=True)
 
-    def __init__(self, Tickets):
-        self.id_tickets = Tickets
+    def __init__(self, id_compra, id_funcion, asiento, fecha_emision):
+        self.id_compra = id_compra
+        self.id_funcion = id_funcion
+        self.asiento = asiento
+        self.fecha_emision = fecha_emision
         
 with app.app_context():
     db.create_all()

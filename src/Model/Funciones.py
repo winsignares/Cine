@@ -9,8 +9,12 @@ class Funciones(db.Model):
     fecha = db.Column(db.String(50))
     precio = db.Column(db.Integer, primary_key=True)
 
-    def __init__(self, roles):
-        self.roles = roles
+    def __init__(self, id_peliculas, id_sala, fecha, precio):
+        self.id_peliculas = id_peliculas
+        self.id_sala = id_sala
+        self.fecha = fecha
+        self.precio = precio
+        
         
 with app.app_context():
     db.create_all()
