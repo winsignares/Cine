@@ -15,7 +15,7 @@ def indexusuarios():
     return "hello world"
 
 @routes_usuarios.route('/Usuarios', methods=['GET'])
-def usuarios():    
+def Usuari():    
     returnall = usuarios.query.all()
    
     resultado_usuarios = usuariosSchema.dump(returnall)
@@ -33,3 +33,21 @@ def guardar_Users():
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/Usuarios')
+
+
+@routes_usuarios.route('/delete_user/<id>', methods=['GET'] )
+def delete_User(id):
+    print(id)
+    user = usuarios.query.get(id)
+    mesnaje = {}
+    if(user):    
+        db.session.delete(user)
+        db.session.commit()
+        mesnaje = "Dato eliminado"
+    else:
+        mesnaje = "dato no encontrado"
+    response = {
+        'status': 200,
+        'body': mesnaje
+    }
+    return jsonify(response)
