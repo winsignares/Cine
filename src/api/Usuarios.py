@@ -3,14 +3,14 @@ from config.db import db, app, ma
 from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import usuarios,usuariosSchema
 
-routes_roles = Blueprint("routes_usuarios", __name__)
+routes_usuarios = Blueprint("routes_usuarios", __name__)
 
 #Roles
 usuario_schema = usuariosSchema()
 usuarios_schema = usuariosSchema(many=True)
 
 
-@routes_roles.route('/indexusuarios', methods=['GET'] )
+@routes_usuarios.route('/indexusuarios', methods=['GET'] )
 def indexusuarios():
     return "hello world"
 
@@ -23,7 +23,7 @@ def usuarios():
 
 @app.route('/save_Users', methods=['POST'] )
 def guardar_Users():
-    Usuarios = request.json['full_name,Email,password,telefono,especialidad,jornada,direccion,id_roles']
+    Usuarios = request.json['id,id_roles_usuarios,Nombre,Correo_electronico,Contraseña']
     print(Usuarios)
     new_Users = usuarios(Usuarios)
     db.session.add(new_Users)
