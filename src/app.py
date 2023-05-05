@@ -4,6 +4,7 @@ from config.db import db, app, ma
 #importar routes del API
 from api.Roles import routes_roles
 from api.Usuarios import routes_usuarios
+from api.Compra import routes_compra
 
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
@@ -12,6 +13,7 @@ from rutas.Asientos import routes_asientos
 from rutas.Admin import routes_Admin
 
 #ubicacion del api
+app.register_blueprint(routes_compra, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_usuarios, url_prefix="/api")
 
