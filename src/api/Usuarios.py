@@ -39,15 +39,31 @@ def guardar_Users():
 def delete_User(id):
     print(id)
     user = usuarios.query.get(id)
-    mesnaje = {}
+    mensaje = {}
     if(user):    
         db.session.delete(user)
         db.session.commit()
-        mesnaje = "Dato eliminado"
+        mensaje = "Dato eliminado"
     else:
-        mesnaje = "dato no encontrado"
+        mensaje = "dato no encontrado"
     response = {
         'status': 200,
-        'body': mesnaje
+        'body': mensaje
     }
     return jsonify(response)
+
+@routes_usuarios.route('/update_user', methods=['POST'])
+def update_user():
+    id = request.json['id']
+    id_roles_usuarios = request.json['id_roles_usuarios']
+    nombre = request.json['nombre']
+    correo_electronico= request.json['correo_electronico']
+    contraseña= request.json['contraseña']
+    users = usuarios.query.get(id)
+    users.id_roles_usuarios = id_roles_usuarios
+    users.nombre= nombre
+    users.correo_electronico = correo_electronico
+    users.contraseña= contraseña
+    db.session.commit()
+    return redirect('/Usuarios')
+    
