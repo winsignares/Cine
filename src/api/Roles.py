@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
+from common.token import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
-
 from Model.RolesUsuario import rolesUsuarios, rolesSchema
 
 routes_roles = Blueprint("routes_rol", __name__)
@@ -11,10 +11,22 @@ rolesusuarios_schema = rolesSchema(many=True)
 
 @routes_roles.route('/indexroles', methods=['GET'] )
 def indexRoles():
-    
     return "hello world"
 
+#token
 
+@routes_roles.route('/rusuarios', methods=['GET'])
+def Usuari():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = rolesUsuarios.query.all()
+        result_rusuarios = rolesSchema.dump(returnall)
+        return jsonify(result_rusuarios)
+    else:
+        return vf
 #Roles
 #---------SAVE/CREAR------------
 @routes_roles.route('/save_roles', methods=['POST'] )

@@ -16,6 +16,6 @@ class compras(db.Model):
 with app.app_context():
     db.create_all()
 
-class compraSchema(ma.Schema):
+class comprasSchema(ma.Schema):
     class Meta:
         fields = ('id','id_usuarios','id_funcion','cantidad_tikets','total_pagado','fecha_compra')
