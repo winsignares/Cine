@@ -7,7 +7,7 @@ class ventas(db.Model):
     id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     fecha_venta = db.Column(db.String(50))
     cantidad_tikets = db.Column(db.String(50))
-    precio_total = db.Column(db.Integer, primary_key=True)
+    precio_total = db.Column(db.Integer)
     
     def __init__(self, id_funcion, fecha_venta, cantidad_tikets, precio_total):
         self.id_funcion = id_funcion
