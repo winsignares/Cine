@@ -5,7 +5,7 @@ class ventas(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
-    fecha_venta = db.Column(db.String(50))
+    fecha_venta = db.Column(db.Date)
     cantidad_tikets = db.Column(db.String(50))
     precio_total = db.Column(db.Integer)
     
