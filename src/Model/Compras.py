@@ -8,7 +8,7 @@ class compras(db.Model):
     id_funcion  = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     cantidad_tikets  = db.Column(db.Integer)
     total_pagado = db.Column(db.String(50))
-    fecha_compra  = db.Column(db.Integer, primary_key=True)
+    fecha_compra  = db.Column(db.Datetime)
 
     def __init__(self,  id_usuarios, id_funcion, cantidad_tickets, total_pagado, fecha_compra):
         self.id_usuarios = id_usuarios

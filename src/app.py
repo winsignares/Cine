@@ -2,14 +2,14 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from config.db import db, app, ma
 
 #importar routes del API
-from api.Compra import routes_compra
-from api.Funciones import routes_funciones
 from api.Pelicula import routes_peliculas
 from api.Roles import routes_roles
 from api.Salas import routes_salas
-from api.Tickets import routes_tickets
 from api.Usuarios import routes_usuarios
+from api.Funciones import routes_funciones
 from api.Ventas import routes_ventas
+from api.Compra import routes_compra
+from api.Tickets import routes_tickets
 
 
 #Rutas

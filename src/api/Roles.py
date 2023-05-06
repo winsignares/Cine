@@ -15,7 +15,7 @@ def indexRoles():
 
 #token
 
-@routes_roles.route('/rusuarios', methods=['GET'])
+@routes_roles.route('/Trusuarios', methods=['GET'])
 def Usuari():    
     token = request.headers['Authorization']
     token = token.replace("Bearer","")
@@ -37,7 +37,7 @@ def guardar_roles():
     new_rol = rolesUsuarios(roles)
     db.session.add(new_rol)
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')
 
 
 @routes_roles.route('/eliminar_roles/<id>', methods=['GET'] )
@@ -59,4 +59,4 @@ def actualizar_roles():
     rusuario = rolesUsuarios.query.get(id)
     rusuario.roles = rol
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')

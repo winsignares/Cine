@@ -14,7 +14,7 @@ usuarios_schema = usuariosSchema(many=True)
 def indexusuarios():
     return "hello world"
 
-@routes_usuarios.route('/Usuarios', methods=['GET'])
+@routes_usuarios.route('/TUsuarios', methods=['GET'])
 def Usuari():    
     returnall = usuarios.query.all()
    
@@ -32,7 +32,7 @@ def guardar_Users():
     new_Users = usuarios(id_roles_usuarios,nombre,correo_electronico,contraseña)
     db.session.add(new_Users)
     db.session.commit()
-    return redirect('/Usuarios')
+    return redirect('/TUsuarios')
 
 
 @routes_usuarios.route('/delete_user/<id>', methods=['GET'] )
@@ -65,5 +65,5 @@ def update_user():
     users.correo_electronico = correo_electronico
     users.contraseña= contraseña
     db.session.commit()
-    return redirect('/Usuarios')
+    return redirect('/TUsuarios')
     

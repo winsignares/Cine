@@ -9,12 +9,12 @@ routes_compra = Blueprint("routes_compras", __name__)
 compra_schema = comprasSchema 
 compras_schema = comprasSchema (many=True)
 
-routes_compra.routes('/indexcompras', methods=['GET'] )
-def indexcompras():
+@routes_compra.route('/indexcompras', methods=['GET'] )
+def compras():
     return ('hello world')
 
 #token
-@routes_compra.route('/compra', methods=['GET'])
+@routes_compra.route('/Tcompra', methods=['GET'])
 def shop():    
     token = request.headers['Authorization']
     token = token.replace("Bearer","")
@@ -28,7 +28,7 @@ def shop():
         return vf
     
 #---------SAVE/CREAR------------
-@routes_compra.routes('/savecompras', methods=['POST'])
+@routes_compra.route('/savecompras', methods=['POST'])
 def savecompras():
     id_usuarios = request.json['id_usuarios']
     id_funcion = request.json['id_funcion']
@@ -39,4 +39,4 @@ def savecompras():
     new_compra = compras(id_usuarios,id_funcion,cantidad_tickets,total_pagado,fecha_compra)
     db.session.add(new_compra)
     db.session.commit()
-    return('/compra')
+    return('/Tcompra')

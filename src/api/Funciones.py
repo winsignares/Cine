@@ -4,16 +4,16 @@ from common.token import *
 from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
 from Model.Funciones import funciones, funcionesSchema
 
-routes_funciones = Blueprint("routes_funciones", __name__)
+routes_funciones = Blueprint("routes_funcion", __name__)
 
 funcion_schema = funcionesSchema
 funciones_schema = funcionesSchema(many=True)
 
-@routes_funciones.routes('/indexfunciones', methods=['GET'])
+@routes_funciones.route('/indexfuncion', methods=['GET'])
 def funciones():
     return('hello world')
 
-@routes_funciones.route('/funcion', methods=['GET'])
+@routes_funciones.route('/Tfuncion', methods=['GET'])
 def funcion():    
     token = request.headers['Authorization']
     token = token.replace("Bearer","")
@@ -26,7 +26,7 @@ def funcion():
     else:
         return vf
     
-@routes_funciones.routes('/savefuncion', methods=['POST'])
+@routes_funciones.route('/savefuncion', methods=['POST'])
 def savefuncion():
     id_pelicula = request.json['id_pelicula']
     id_sala = request.json['id_sala']
@@ -35,4 +35,4 @@ def savefuncion():
     print(id_pelicula,id_sala,fecha,precio)
     db.session.add(id_pelicula,id_sala,fecha,precio)
     db.session.commit()
-    return('/funcion')
+    return('/Tfuncion')

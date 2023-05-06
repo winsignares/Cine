@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
 class funciones(db.Model):
-    __tablename__ = "tblfunciones"
+    __tablename__ = "tblfunciones" 
 
     id  = db.Column(db.Integer, primary_key=True)
     id_peliculas  = db.Column(db.Integer, db.ForeignKey('tblpeliculas.id'))
