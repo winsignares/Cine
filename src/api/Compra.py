@@ -40,3 +40,38 @@ def savecompras():
     db.session.add(new_compra)
     db.session.commit()
     return('/Tcompra')
+
+#------------DELETE/ELIMINAR------------
+@routes_compra.route('/deletecompra/<id>', methods=['GET'])
+def deletecompra(id):
+    print(id)
+    shop = compras.query.get(id)
+    mensaje = {}
+    if(shop):    
+        db.session.delete(shop)
+        db.session.commit()
+        mensaje = "Dato eliminado"
+    else:
+        mensaje = "dato no encontrado"
+    response = {
+        'status': 200,
+        'body': mensaje
+    }
+    return jsonify(response)
+
+#------------UPDATE/ACTUALIZAR-----------
+@routes_compra.route('/updatecompra', methods=['POST'])
+def updatecompra():
+    id_usuarios = request.json['id_usuarios']
+    id_funcion = request.json['id_funcion']
+    cantidad_tickets = request.json['cantidad_tickets']
+    total_pagado = request.json['total_pagado']
+    fecha_compra = request.json['fecha_compra']
+    Shops = compras.query.get(id)
+    Shops.id_usuarios = id_usuarios
+    Shops.id_funcion = id_funcion
+    Shops.cantidad_tickets = cantidad_tickets
+    Shops.total_pagado = total_pagado
+    Shops.fecha_compra = fecha_compra
+    db.session.commit()
+    return redirect ('/Tcompra') 
