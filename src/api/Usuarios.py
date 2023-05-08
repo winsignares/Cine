@@ -57,13 +57,13 @@ def update_user():
     id = request.json['id']
     id_roles_usuarios = request.json['id_roles_usuarios']
     nombre = request.json['nombre']
-    correo_electronico= request.json['correo_electronico']
-    contraseña= request.json['contraseña']
+    correo_electronico = request.json['correo_electronico']
+    contraseña = request.json['contraseña']
     users = usuarios.query.get(id)
     users.id_roles_usuarios = id_roles_usuarios
-    users.nombre= nombre
+    users.nombre = nombre
     users.correo_electronico = correo_electronico
-    users.contraseña= contraseña
+    users.contraseña = contraseña
     db.session.commit()
     return redirect('/TUsuarios')
     

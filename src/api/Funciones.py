@@ -10,7 +10,7 @@ funcion_schema = funcionesSchema
 funciones_schema = funcionesSchema(many=True)
 
 @routes_funciones.route('/indexfuncion', methods=['GET'])
-def funciones():
+def funcione():
     return('hello world')
 #TOKEN
 @routes_funciones.route('/Tfuncion', methods=['GET'])
@@ -25,14 +25,49 @@ def funcion():
         return jsonify(result_compra)
     else:
         return vf
-    
-@routes_funciones.route('/savefuncion', methods=['POST'])
-def savefuncion():
-    id_pelicula = request.json['id_pelicula']
+#SAVE    
+@routes_funciones.route('/save_funcion', methods=['POST'])
+def save_funcion():
+    id_peliculas = request.json['id_peliculas']
     id_sala = request.json['id_sala']
     fecha = request.json['fecha']
     precio = request.json['precio']
-    print(id_pelicula,id_sala,fecha,precio)
-    db.session.add(id_pelicula,id_sala,fecha,precio)
+    print(id_peliculas,id_sala,fecha,precio)
+    new_funcion = funciones(id_peliculas, id_sala, fecha, precio)
+    db.session.add(new_funcion)
     db.session.commit()
     return('/Tfuncion')
+
+#DELETE 
+@routes_funciones.route('/delete_funcion/<id>', methods=['GET'] )
+def delete_Funcion(id):
+    print(id)
+    Funtion = funciones.query.get(id)
+    mensaje = {}
+    if(Funtion):    
+        db.session.delete(Funtion)
+        db.session.commit()
+        mensaje = "Dato eliminado"
+    else:
+        mensaje = "dato no encontrado"
+    response = {
+        'status': 200,
+        'body': mensaje
+    }
+    return jsonify(response)
+
+#UPDATE
+@routes_funciones.route('/update_funcion', methods=['POST'])
+def update_funcion():
+    id = request.json['id']
+    id_peliculas = request.json['id_peliculas']
+    id_sala = request.json['id_sala']
+    fecha = request.json['fecha']
+    precio = request.json['precio']
+    fun = funciones.query.get(id)
+    fun.id_peliculas = id_peliculas
+    fun.id_sala = id_sala
+    fun.fecha = fecha
+    fun.precio = precio
+    db.session.commit()
+    return redirect('/Tfuncion')
