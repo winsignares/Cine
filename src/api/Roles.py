@@ -22,7 +22,7 @@ def Rol():
     vf = verificar_token(token)
     if vf['error'] == False:
         returnall = rolesUsuarios.query.all()
-        result_rusuarios = rolesSchema.dump(returnall)
+        result_rusuarios = rolesusuarios_schema.dump(returnall)
         return jsonify(result_rusuarios)
     else:
         return vf

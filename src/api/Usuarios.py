@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
+from common.token import *
 from flask import Flask, Blueprint, redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import usuarios,usuariosSchema
 
@@ -16,10 +17,17 @@ def indexusuarios():
 
 @routes_usuarios.route('/TUsuarios', methods=['GET'])
 def Usuari():    
-    returnall = usuarios.query.all()
-   
-    resultado_usuarios = usuariosSchema.dump(returnall)
-    return jsonify(resultado_usuarios)
+    #token = request.headers['Authorization']
+    #token = token.replace("Bearer","")
+    #token = token.replace(" ","")
+    #vf = verificar_token(token)
+    #if vf['error'] == False:
+        returnall = usuarios.query.all()
+        resultado_usuarios = usuarios_schema.dump(returnall)
+        print(resultado_usuarios)
+        return jsonify(resultado_usuarios)
+    #else:
+        #return vf
 
 
 @routes_usuarios.route('/save_user', methods=['POST'] )

@@ -20,4 +20,4 @@ with app.app_context():
 
 class usuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id','id_roles_usuarios','Nombre','Correo_electronico','Contraseña')
+        fields = ('id','id_roles_usuarios','nombre','correo_electronico','contraseña')
