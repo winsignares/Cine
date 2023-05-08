@@ -12,3 +12,17 @@ salas_schema = salasSchema(many=True)
 @routes_salas.route('/indexsalas', methods=['GET'] )
 def indexsalas():
     return "hello world"
+
+#TOKEN
+routes_salas.route('/Tsala', methods=['GET'])
+def Sala():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = salas.query.all()
+        result_sala = salasSchema.dump(returnall)
+        return jsonify(result_sala)
+    else:
+        return vf

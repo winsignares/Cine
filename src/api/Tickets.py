@@ -12,3 +12,17 @@ tickets_schema = ticketsSchema(many=True)
 @routes_tickets.route('/indexticket', methods=['GET'] )
 def indexticket():
     return "hello world"
+
+#TOKEN
+routes_tickets.route('/Tticket', methods=['GET'])
+def Ticket():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = tickets.query.all()
+        result_ticket = ticketsSchema.dump(returnall)
+        return jsonify(result_ticket)
+    else:
+        return vf

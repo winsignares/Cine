@@ -12,3 +12,18 @@ peliculas_schema = peliculasSchema(many=True)
 @routes_peliculas.route('/indexpeliculas', methods=['GET'] )
 def indexRoles():
     return "hello world"
+
+#TOKEN
+@routes_peliculas.route('/Tpelicula', methods=['GET'])
+def Peli():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = peliculas.query.all()
+        result_peli = peliculasSchema.dump(returnall)
+        return jsonify(result_peli)
+    else:
+        return vf
+    

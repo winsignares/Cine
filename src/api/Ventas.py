@@ -12,3 +12,17 @@ ventas_schema = ventasSchema(many=True)
 @routes_ventas.route('/indexventa', methods=['GET'] )
 def indexventa():
     return "hello world"
+
+#TOKEN
+routes_ventas.route('/Tventa', methods=['GET'])
+def Venta():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = ventas.query.all()
+        result_venta = ventasSchema.dump(returnall)
+        return jsonify(result_venta)
+    else:
+        return vf

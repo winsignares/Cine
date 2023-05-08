@@ -12,7 +12,7 @@ funciones_schema = funcionesSchema(many=True)
 @routes_funciones.route('/indexfuncion', methods=['GET'])
 def funciones():
     return('hello world')
-
+#TOKEN
 @routes_funciones.route('/Tfuncion', methods=['GET'])
 def funcion():    
     token = request.headers['Authorization']

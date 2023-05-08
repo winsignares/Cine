@@ -13,10 +13,9 @@ rolesusuarios_schema = rolesSchema(many=True)
 def indexRoles():
     return "hello world"
 
-#token
-
-@routes_roles.route('/Trusuarios', methods=['GET'])
-def Usuari():    
+#TOKEN
+@routes_roles.route('/Troles', methods=['GET'])
+def Rol():    
     token = request.headers['Authorization']
     token = token.replace("Bearer","")
     token = token.replace(" ","")
