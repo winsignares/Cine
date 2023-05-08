@@ -12,7 +12,8 @@ funciones_schema = funcionesSchema(many=True)
 @routes_funciones.route('/indexfuncion', methods=['GET'])
 def funcione():
     return('hello world')
-#TOKEN
+
+#-----------TOKEN-------------
 @routes_funciones.route('/Tfuncion', methods=['GET'])
 def funcion():    
     token = request.headers['Authorization']
@@ -25,7 +26,7 @@ def funcion():
         return jsonify(result_compra)
     else:
         return vf
-#SAVE    
+#---------SAVE/CREAR------------
 @routes_funciones.route('/save_funcion', methods=['POST'])
 def save_funcion():
     id_peliculas = request.json['id_peliculas']
@@ -38,7 +39,7 @@ def save_funcion():
     db.session.commit()
     return('/Tfuncion')
 
-#DELETE 
+#------------DELETE/ELIMINAR------------
 @routes_funciones.route('/delete_funcion/<id>', methods=['GET'] )
 def delete_Funcion(id):
     print(id)
@@ -56,7 +57,7 @@ def delete_Funcion(id):
     }
     return jsonify(response)
 
-#UPDATE
+#------------UPDATE/ACTUALIZAR-----------
 @routes_funciones.route('/update_funcion', methods=['POST'])
 def update_funcion():
     id = request.json['id']
