@@ -13,17 +13,16 @@ rolesusuarios_schema = rolesSchema(many=True)
 def indexRoles():
     return "hello world"
 
-#token
-
-@routes_roles.route('/rusuarios', methods=['GET'])
-def Usuari():    
+#TOKEN
+@routes_roles.route('/Troles', methods=['GET'])
+def Rol():    
     token = request.headers['Authorization']
     token = token.replace("Bearer","")
     token = token.replace(" ","")
     vf = verificar_token(token)
     if vf['error'] == False:
         returnall = rolesUsuarios.query.all()
-        result_rusuarios = rolesSchema.dump(returnall)
+        result_rusuarios = rolesusuarios_schema.dump(returnall)
         return jsonify(result_rusuarios)
     else:
         return vf
@@ -37,7 +36,7 @@ def guardar_roles():
     new_rol = rolesUsuarios(roles)
     db.session.add(new_rol)
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')
 
 
 @routes_roles.route('/eliminar_roles/<id>', methods=['GET'] )
@@ -59,4 +58,4 @@ def actualizar_roles():
     rusuario = rolesUsuarios.query.get(id)
     rusuario.roles = rol
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')

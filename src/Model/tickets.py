@@ -7,7 +7,7 @@ class tickets(db.Model):
     id_compra = db.Column(db.Integer, db.ForeignKey('tblcompras.id'))
     id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     asiento = db.Column(db.String(50))
-    fecha_emision = db.Column(db.Integer, primary_key=True)
+    fecha_emision = db.Column(db.Date)
 
     def __init__(self, id_compra, id_funcion, asiento, fecha_emision):
         self.id_compra = id_compra

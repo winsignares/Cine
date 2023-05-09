@@ -2,9 +2,15 @@ from flask import Flask,  redirect, request, jsonify, json, session, render_temp
 from config.db import db, app, ma
 
 #importar routes del API
+from api.Pelicula import routes_peliculas
 from api.Roles import routes_roles
+from api.Salas import routes_salas
 from api.Usuarios import routes_usuarios
+from api.Funciones import routes_funciones
+from api.Ventas import routes_ventas
 from api.Compra import routes_compra
+from api.Tickets import routes_tickets
+
 
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
@@ -14,9 +20,13 @@ from rutas.Admin import routes_Admin
 
 #ubicacion del api
 app.register_blueprint(routes_compra, url_prefix="/api")
+app.register_blueprint(routes_funciones, url_prefix="/api")
+app.register_blueprint(routes_peliculas, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
+app.register_blueprint(routes_salas, url_prefix="/api")
+app.register_blueprint(routes_tickets, url__prefix="/api")
 app.register_blueprint(routes_usuarios, url_prefix="/api")
-
+app.register_blueprint(routes_ventas, url_prefix="/api")
 
 #Ubicacion rutas
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
