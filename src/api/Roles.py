@@ -13,7 +13,7 @@ rolesusuarios_schema = rolesSchema(many=True)
 def indexRoles():
     return "hello world"
 
-#TOKEN
+#-----------TOKEN-------------
 @routes_roles.route('/Troles', methods=['GET'])
 def Rol():    
     token = request.headers['Authorization']
@@ -38,7 +38,7 @@ def guardar_roles():
     db.session.commit()
     return redirect('/Trusuarios')
 
-
+#------------DELETE/ELIMINAR------------
 @routes_roles.route('/eliminar_roles/<id>', methods=['GET'] )
 def eliminar_roles(id):
     #id = request.args.get('id')
@@ -48,6 +48,7 @@ def eliminar_roles(id):
     db.session.commit()
     return jsonify(rolesusuario_schema.dump(rol)) 
 
+#------------UPDATE/ACTUALIZAR-----------
 @routes_roles.route('/actualizar_roles', methods=['POST'] )
 def actualizar_roles():
     #id = request.form['id']

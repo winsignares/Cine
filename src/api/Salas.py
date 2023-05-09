@@ -13,7 +13,7 @@ salas_schema = salasSchema(many=True)
 def indexsalas():
     return "hello world"
 
-#TOKEN
+#-----------TOKEN-------------
 routes_salas.route('/Tsala', methods=['GET'])
 def Sala():    
     token = request.headers['Authorization']

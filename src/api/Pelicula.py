@@ -13,7 +13,7 @@ peliculas_schema = peliculasSchema(many=True)
 def indexRoles():
     return "hello world"
 
-#TOKEN
+#-----------TOKEN-------------
 @routes_peliculas.route('/Tpelicula', methods=['GET'])
 def Peli():    
     token = request.headers['Authorization']

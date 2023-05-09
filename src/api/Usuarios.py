@@ -15,21 +15,22 @@ usuarios_schema = usuariosSchema(many=True)
 def indexusuarios():
     return "hello world"
 
+#-----------TOKEN-------------
 @routes_usuarios.route('/TUsuarios', methods=['GET'])
 def Usuari():    
-    #token = request.headers['Authorization']
-    #token = token.replace("Bearer","")
-    #token = token.replace(" ","")
-    #vf = verificar_token(token)
-    #if vf['error'] == False:
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
         returnall = usuarios.query.all()
         resultado_usuarios = usuarios_schema.dump(returnall)
         print(resultado_usuarios)
         return jsonify(resultado_usuarios)
-    #else:
-        #return vf
+    else:
+        return vf
 
-
+#---------SAVE/CREAR------------
 @routes_usuarios.route('/save_user', methods=['POST'] )
 def guardar_Users():
     id_roles_usuarios = request.json['id_roles_usuarios']
@@ -42,7 +43,7 @@ def guardar_Users():
     db.session.commit()
     return redirect('/TUsuarios')
 
-
+#------------DELETE/ELIMINAR------------
 @routes_usuarios.route('/delete_user/<id>', methods=['GET'] )
 def delete_User(id):
     print(id)
@@ -60,6 +61,7 @@ def delete_User(id):
     }
     return jsonify(response)
 
+#------------UPDATE/ACTUALIZAR-----------
 @routes_usuarios.route('/update_user', methods=['POST'])
 def update_user():
     id = request.json['id']

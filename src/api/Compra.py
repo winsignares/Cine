@@ -13,7 +13,7 @@ compras_schema = comprasSchema (many=True)
 def compras():
     return ('hello world')
 
-#TOKEN 
+#-----------TOKEN-------------
 @routes_compra.route('/Tcompra', methods=['GET'])
 def shop():    
     token = request.headers['Authorization']
