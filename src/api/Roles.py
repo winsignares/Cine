@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, json
 from config.db import db, app, ma
+from common.token import *
 from flask import Flask,  redirect, request, jsonify, json, session, render_template
-
 from Model.RolesUsuario import rolesUsuarios, rolesSchema
 
 routes_roles = Blueprint("routes_rol", __name__)
@@ -11,10 +11,21 @@ rolesusuarios_schema = rolesSchema(many=True)
 
 @routes_roles.route('/indexroles', methods=['GET'] )
 def indexRoles():
-    
     return "hello world"
 
-
+#-----------TOKEN-------------
+@routes_roles.route('/Troles', methods=['GET'])
+def Rol():    
+    token = request.headers['Authorization']
+    token = token.replace("Bearer","")
+    token = token.replace(" ","")
+    vf = verificar_token(token)
+    if vf['error'] == False:
+        returnall = rolesUsuarios.query.all()
+        result_rusuarios = rolesusuarios_schema.dump(returnall)
+        return jsonify(result_rusuarios)
+    else:
+        return vf
 #Roles
 #---------SAVE/CREAR------------
 @routes_roles.route('/save_roles', methods=['POST'] )
@@ -25,9 +36,9 @@ def guardar_roles():
     new_rol = rolesUsuarios(roles)
     db.session.add(new_rol)
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')
 
-
+#------------DELETE/ELIMINAR------------
 @routes_roles.route('/eliminar_roles/<id>', methods=['GET'] )
 def eliminar_roles(id):
     #id = request.args.get('id')
@@ -37,6 +48,7 @@ def eliminar_roles(id):
     db.session.commit()
     return jsonify(rolesusuario_schema.dump(rol)) 
 
+#------------UPDATE/ACTUALIZAR-----------
 @routes_roles.route('/actualizar_roles', methods=['POST'] )
 def actualizar_roles():
     #id = request.form['id']
@@ -47,4 +59,4 @@ def actualizar_roles():
     rusuario = rolesUsuarios.query.get(id)
     rusuario.roles = rol
     db.session.commit()
-    return redirect('/rusuarios')
+    return redirect('/Trusuarios')
