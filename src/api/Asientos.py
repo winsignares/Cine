@@ -29,19 +29,20 @@ def chair():
 
 #---------SAVE/CREAR------------
 @routes_Iasiento.route('/save_asiento', methods=['POST'] )
-def guardar_roles():
+def save_asientos():
     #request.form['title']
+    id_sala = request.json['id_sala']
     numero = request.json['numero']
     estado = request.json['estado']
     print(numero,estado)
-    new_asiento = asientos(numero, estado)
+    new_asiento = asientos( id_sala.numero, estado)
     db.session.add(new_asiento)
     db.session.commit()
     return redirect('/Tasientos')
 
 #------------DELETE/ELIMINAR------------
 @routes_Iasiento.route('/delete_asientos/<id>', methods=['GET'] )
-def eliminar_asientos(id):
+def delete_asientos(id):
     print(id)
     Asientos = asientos.query.get(id)
     mensaje = {}

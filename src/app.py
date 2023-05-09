@@ -9,8 +9,8 @@ from api.Usuarios import routes_usuarios
 from api.Funciones import routes_funciones
 from api.Ventas import routes_ventas
 from api.Compra import routes_compra
-from api.Tickets import routes_tickets
 from api.Asientos import routes_Iasiento
+from api.Tickets import routes_tickets
 
 
 #Rutas
@@ -25,10 +25,10 @@ app.register_blueprint(routes_funciones, url_prefix="/api")
 app.register_blueprint(routes_peliculas, url_prefix="/api")
 app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_salas, url_prefix="/api")
-app.register_blueprint(routes_tickets, url__prefix="/api")
+app.register_blueprint(routes_Iasiento, url_prefix="/api")
 app.register_blueprint(routes_usuarios, url_prefix="/api")
 app.register_blueprint(routes_ventas, url_prefix="/api")
-app.register_blueprint(routes_Iasiento, url_prefix="/api")
+app.register_blueprint(routes_tickets, url__prefix="/api")
 
 #Ubicacion rutas
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
