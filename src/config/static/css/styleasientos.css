@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #242333;
+  background-color: #17171a;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ body {
 }
 
 .movie-container select {
-  background-color: #fff;
+  background-color: rgba(255, 0, 0, 0.7);
   border: 0;
   border-radius: 5px;
   font-size: 16px;
@@ -52,7 +52,7 @@ body {
 }
 
 .seat.sold {
-  background-color: #fff;
+  background-color: rgba(255, 0, 0, 0.7);
 }
 
 .seat:nth-of-type(2) {
