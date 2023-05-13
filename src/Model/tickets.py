@@ -6,13 +6,13 @@ class tickets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     id_compra = db.Column(db.Integer, db.ForeignKey('tblcompras.id'))
     id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
-    asiento = db.Column(db.String(50))
+    id_asiento = db.Column(db.Integer, db.ForeignKey('tblasientos.id'))
     fecha_emision = db.Column(db.Date)
 
-    def __init__(self, id_compra, id_funcion, asiento, fecha_emision):
+    def __init__(self, id_compra, id_funcion, id_asiento, fecha_emision):
         self.id_compra = id_compra
         self.id_funcion = id_funcion
-        self.asiento = asiento
+        self.id_asiento = id_asiento
         self.fecha_emision = fecha_emision
         
 with app.app_context():
@@ -20,4 +20,4 @@ with app.app_context():
 
 class ticketsSchema(ma.Schema):
     class Meta:
-        fields = ('id','id_compra','id_funcion','asiento','fecha_emision')
+        fields = ('id','id_compra','id_funcion','id_asiento','fecha_emision')
