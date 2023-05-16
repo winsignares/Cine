@@ -4,8 +4,8 @@ class salas(db.Model):
     __tablename__ = "tblsalas"
 
     id = db.Column(db.Integer, primary_key=True)
-    nombre_sala = db.Column(db.String(50))
-    capacidad = db.Column(db.String(50))
+    nombre_sala = db.Column(db.String(3))
+    capacidad = db.Column(db.Integer)
 
     def __init__(self, nombre_sala, capacidad):
         self.nombre_sala = nombre_sala

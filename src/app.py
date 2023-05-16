@@ -3,7 +3,6 @@ from config.db import db, app, ma
 
 #importar routes del API
 from api.Pelicula import routes_peliculas
-from api.Roles import routes_roles
 from api.Salas import routes_salas
 from api.Usuarios import routes_usuarios
 from api.Funciones import routes_funciones
@@ -22,7 +21,6 @@ from rutas.Admin import routes_Admin
 app.register_blueprint(routes_compra, url_prefix="/api")
 app.register_blueprint(routes_funciones, url_prefix="/api")
 app.register_blueprint(routes_peliculas, url_prefix="/api")
-app.register_blueprint(routes_roles, url_prefix="/api")
 app.register_blueprint(routes_salas, url_prefix="/api")
 app.register_blueprint(routes_Iasiento, url_prefix="/api")
 app.register_blueprint(routes_usuarios, url_prefix="/api")
