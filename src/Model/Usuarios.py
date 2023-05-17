@@ -7,17 +7,17 @@ class usuarios(db.Model):
     id_roles_usuarios = db.Column(db.Integer, db.ForeignKey('tblrolesusuarios.id'))
     nombre = db.Column(db.String(50))
     correo_electronico = db.Column(db.String(50))
-    contraseña = db.Column(db.String(50))
+    contrasena = db.Column(db.String(50))
 
-    def __init__(self, id_roles_usuarios, nombre, correo_electronico, contraseña):
+    def __init__(self, id_roles_usuarios, nombre, correo_electronico, contrasena):
         self.id_roles_usuarios = id_roles_usuarios
         self.nombre = nombre
         self.correo_electronico = correo_electronico
-        self.contraseña = contraseña
+        self.contrasena = contrasena
         
 with app.app_context():
     db.create_all()
 
 class usuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id','id_roles_usuarios','nombre','correo_electronico','contraseña')
+        fields = ('id','id_roles_usuarios','nombre','correo_electronico','contrasena')
