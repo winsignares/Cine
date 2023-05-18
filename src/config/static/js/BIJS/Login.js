@@ -13,7 +13,6 @@ function valuesUser() {
     .then(function(res){
         
         console.log(res.data);
-        alert("Funciono !!")
         window.location.href = res.data
 
     })
@@ -23,21 +22,22 @@ function valuesUser() {
     })
 }
 function valuesRegister() {
-    const EmailUsuario = document.getElementById('InputEmail').value;
-    const PassUsuario = document.getElementById('InputPassword').value;
+    const NameUsuario = document.getElementById('NameUser').value;
+    const RolUsuario = document.getElementById('RolUser').value;
+    const EmailUsuario = document.getElementById('EmailUser').value;
+    const PassUsuario = document.getElementById('PassUser').value;
 
     console.log("Validando Usuarios - Registro|...")
     console.log("Email:",EmailUsuario,"Password:",PassUsuario);
 
     axios.post('/fronted/validarUsuariosrg',{
-        email : EmailUsuario,
-        password : PassUsuario
+        nombre: NameUsuario,
+        correo_electronico: EmailUsuario,
+        contrasena : PassUsuario
     })
     
     .then((res) => {
         console.log(res.data)
-        alert("Funciono !!")
-        window.location.href = "/fronted/indexMain"
     })
     .catch((err) => {
         console.log(err);

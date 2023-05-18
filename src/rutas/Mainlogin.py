@@ -26,3 +26,15 @@ def validarUsuarioslg():
         nav = "/fronted/indexmainlogin"
 
     return nav
+
+@routes_mainlogin.route('/validarUsuariosrg', methods=['POST'] )
+def validarUsuariosrg():
+
+    nombre = request.form['nombre']
+    correo_electronico = request.form['correo_electronico']
+    contrasena = request.form['contrasena']
+    print("\n",name,"\n")
+    new_user = usuarios(nombre,correo_electronico,contrasena)
+    db.session.add(new_user)
+    db.session.commit()
+    return "ok"
