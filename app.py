@@ -60,7 +60,7 @@ def index():
 
 @app.route("/funciona?")
 def otr():
-    return "Si xd"
+    return "¡Hola!"
 
 
 # Datos de la tabla de Editoriales
