@@ -1,5 +1,6 @@
 // Capturar el formulario por su ID
 var form = document.getElementById('formulario');
+// 
 
 // Agregar un evento para escuchar el envío del formulario
 form.addEventListener('submit', function(event) {
@@ -30,4 +31,3 @@ form.addEventListener('submit', function(event) {
   // Limpiar los campos del formulario
   form.reset();
 });
-

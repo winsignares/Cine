@@ -31,6 +31,7 @@ from rutas.DescripPenthouses import routes_DescripPenthouses
 from rutas.DescripStarTrek import routes_DescripStarTrek
 from rutas.DescripDragonBallSuper import routes_DescripDragonBallSuper
 from rutas.DescripMandalorian import routes_DescripMandalorian
+from rutas.Admin import routes_Admin
 
 
 #ubicacion del api
@@ -56,6 +57,7 @@ app.register_blueprint(routes_DescripPenthouses,url_prefix="/fronted")
 app.register_blueprint(routes_DescripStarTrek,url_prefix="/fronted")
 app.register_blueprint(routes_DescripDragonBallSuper,url_prefix="/fronted")
 app.register_blueprint(routes_DescripMandalorian,url_prefix="/fronted")
+app.register_blueprint(routes_Admin,url_prefix="/fronted")
 
 from rutas.Asientos import routes_asientos
 from rutas.Admin import routes_Admin
