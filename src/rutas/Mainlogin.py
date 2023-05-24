@@ -8,6 +8,7 @@ routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 def indexmainlogin():
     
     return render_template('/Main/MainLogin.html')
+
 #Loguear
 @routes_mainlogin.route('/validarUsuarioslg', methods=['POST'] )
 def validarUsuarioslg():
