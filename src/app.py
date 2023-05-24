@@ -38,8 +38,7 @@ from rutas.DescripMandalorian import routes_DescripMandalorian
 
 
 #Ubicacion rutas
-app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
-app.register_blueprint(routes_index, url_prefix="/fronted")
+
 app.register_blueprint(routes_Descripcion, url_prefix="/fronted")
 app.register_blueprint(routes_DescripcionStranger, url_prefix="/fronted")
 app.register_blueprint(routes_Descripbloodshot, url_prefix="/fronted")
