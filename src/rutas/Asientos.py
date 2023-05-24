@@ -9,3 +9,5 @@ def indexAsientos():
     
     return render_template('/Main/Asientos.html')
 
+#@routes_asientos.route('/mostrarticket', methods=['GET'])
+#def mostrarticket():
