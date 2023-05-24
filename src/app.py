@@ -57,10 +57,9 @@ app.register_blueprint(routes_DescripPenthouses,url_prefix="/fronted")
 app.register_blueprint(routes_DescripStarTrek,url_prefix="/fronted")
 app.register_blueprint(routes_DescripDragonBallSuper,url_prefix="/fronted")
 app.register_blueprint(routes_DescripMandalorian,url_prefix="/fronted")
-app.register_blueprint(routes_Admin,url_prefix="/fronted")
+
 
 from rutas.Asientos import routes_asientos
-from rutas.Admin import routes_Admin
 from rutas.MainRegistro import routes_registro
 
 #ubicacion del api
