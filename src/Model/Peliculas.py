@@ -7,9 +7,9 @@ class peliculas(db.Model):
     titulo  = db.Column(db.String(50))
     genero  = db.Column(db.String(50))
     duracion = db.Column(db.String(50))
-    sinopsis = db.Column(db.String(500))
+    sinopsis = db.Column(db.Text())
     director = db.Column(db.String(50))
-    imagen = db.Column(db.String(50))
+    imagen = db.Column(db.String(100))
 
     def __init__(self, titulo, genero, duracion, sinopsis, director,imagen):
         self.titulo = titulo

@@ -8,6 +8,7 @@ routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 def indexmainlogin():
     
     return render_template('/Main/MainLogin.html')
+
 #Loguear
 @routes_mainlogin.route('/validarUsuarioslg', methods=['POST'] )
 def validarUsuarioslg():
@@ -30,10 +31,17 @@ def validarUsuarioslg():
 @routes_mainlogin.route('/validarUsuariosrg', methods=['POST'] )
 def validarUsuariosrg():
 
+<<<<<<< HEAD
     nombre = request.json['nombre']
     correo_electronico = request.json['correo_electronico']
     contrasena = request.json['contrasena']
     print("\n",name,"\n")
+=======
+    nombre = request.form['nombre']
+    correo_electronico = request.form['correo_electronico']
+    contrasena = request.form['contrasena']
+    print("\n",nombre,"\n")
+>>>>>>> luisM
     new_user = usuarios(nombre,correo_electronico,contrasena)
     db.session.add(new_user)
     db.session.commit()

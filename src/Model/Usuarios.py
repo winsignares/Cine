@@ -4,13 +4,13 @@ class usuarios(db.Model):
     __tablename__ = "tblusuarios"
 
     id = db.Column(db.Integer, primary_key=True)
-    id_roles_usuarios = db.Column(db.Integer, db.ForeignKey('tblrolesusuarios.id'))
+    Rol = db.Column(db.String(20))
     nombre = db.Column(db.String(50))
     correo_electronico = db.Column(db.String(50))
     contrasena = db.Column(db.String(50))
 
-    def __init__(self, id_roles_usuarios, nombre, correo_electronico, contrasena):
-        self.id_roles_usuarios = id_roles_usuarios
+    def __init__(self, Rol, nombre, correo_electronico, contrasena):
+        self.Rol = Rol
         self.nombre = nombre
         self.correo_electronico = correo_electronico
         self.contrasena = contrasena
@@ -20,4 +20,4 @@ with app.app_context():
 
 class usuariosSchema(ma.Schema):
     class Meta:
-        fields = ('id','id_roles_usuarios','nombre','correo_electronico','contrasena')
+        fields = ('id','Rol','nombre','correo_electronico','contrasena')

@@ -1,67 +1,37 @@
-const container = document.querySelector(".container");
-const seats = document.querySelectorAll(".row .seat:not(.sold)");
-const count = document.getElementById("count");
-const total = document.getElementById("total");
-const movieSelect = document.getElementById("movie");
+// Obtener elementos del DOM
+const container = document.querySelector('#contenedor_asietos');
+const seats = container.querySelectorAll('.seat');
+const movieSelect = container.querySelector('#movie');
 
-populateUI();
+// Variables de seguimiento
+let selectedSeats = [];
 
-let ticketPrice = +movieSelect.value;
-
-// Save selected movie index and price
-function setMovieData(movieIndex, moviePrice) {
-  localStorage.setItem("selectedMovieIndex", movieIndex);
-  localStorage.setItem("selectedMoviePrice", moviePrice);
-}
-
-// Update total and count
+// Función para actualizar el contador de asientos seleccionados
 function updateSelectedCount() {
-  const selectedSeats = document.querySelectorAll(".row .seat.selected");
-
-  const seatsIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
-
-  localStorage.setItem("selectedSeats", JSON.stringify(seatsIndex));
-
-  const selectedSeatsCount = selectedSeats.length;
-
-  count.innerText = selectedSeatsCount;
-  total.innerText = selectedSeatsCount * ticketPrice;
-
-  setMovieData(movieSelect.selectedIndex, movieSelect.value);
+  const selectedCount = selectedSeats.length;
+  console.log(selectedCount);
 }
 
-
-// Get data from localstorage and populate UI
-function populateUI() {
-  const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
-
-  if (selectedSeats !== null && selectedSeats.length > 0) {
-    seats.forEach((seat, index) => {
-      if (selectedSeats.indexOf(index) > -1) {
-        console.log(seat.classList.add("selected"));
-      }
-    });
-  }
-
-  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
-
-  if (selectedMovieIndex !== null) {
-    movieSelect.selectedIndex = selectedMovieIndex;
-    console.log(selectedMovieIndex)
-  }
-}
-
-// Seat click event
-container.addEventListener("click", (e) => {
+// Evento de click en el asiento
+container.addEventListener('click', (e) => {
   if (
-    e.target.classList.contains("seat") &&
-    !e.target.classList.contains("sold")
+    e.target.classList.contains('seat') &&
+    !e.target.classList.contains('sold')
   ) {
-    e.target.classList.toggle("selected");
+    e.target.classList.toggle('selected');
+
+    const seatIndex = [...seats].indexOf(e.target);
+    if (selectedSeats.includes(seatIndex)) {
+      selectedSeats = selectedSeats.filter((seat) => seat !== seatIndex);
+    } else {
+      selectedSeats.push(seatIndex);
+    }
 
     updateSelectedCount();
   }
 });
 
-// Initial count and total set
-updateSelectedCount();
+// Evento de cambio en la selección de película
+movieSelect.addEventListener('change', (e) => {
+  // Aquí puedes realizar cualquier acción cuando cambie la selección de película
+});

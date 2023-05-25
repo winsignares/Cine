@@ -2,30 +2,31 @@
 {% block body %}
 <div class="login-box">
     <!--Titulo del box-->
-    <h2>Login</h2>
+    <h2>Register</h2>
     <!--Formulario de login-->
     <form>
       <!--Nombre de usuario-->
-      <div class="user-box">
-        <input id="EmailUser" type="text" name="" required="">
-        <label>Nombre de usuario</label>
+      <div id="Nombre_user" class="user-box">
+        <input type="text" name="" required>
+        <label>Nombre Completo</label>
+      </div>
+      <div id="Rol_user" class="user-box">
+        <input type="text" name="" required>
+        <label>Rol</label>
+      </div>
+      <div id="Correo_user" class="user-box">
+        <input type="text" name="" required="">
+        <label>Correo electronico</label>
       </div>
       <!--Fin Nombre de usuario-->
       <!--Contraseña-->
-      <div class="user-box">
-        <input id="PassUser" type="password" name="" required="">
+      <div id="Contrasena_user" class="user-box">
+        <input type="password" name="" required="">
         <label>Contraseña</label>
       </div>
       <!--Contraseña-->
       <!--Boton para login-->
-      <a onclick="valuesUser()" href="#"><!--href="/fronted/indexMain"-->
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Ingresar
-      </a>
-      <a href="/fronted/indexmainregistro">
+      <a href="/fronted/indexmainlogin">
         <span></span>
         <span></span>
         <span></span>
