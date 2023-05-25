@@ -1,0 +1,132 @@
+{% extends "Main/LayoutDescripcion.html" %}
+{% block body %}
+<head>
+    <title>
+        Peliculas - descripcion
+    </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
+</head>
+<body>
+<div class="nav-wrapper1">
+    <div class="container1">
+        <div class="nav">
+            <a href="indexMain" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="indexMain">Inicio</a></li>
+                <li><a href="./Peliculas.html">Peliculas</a></li>
+                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li>
+                    <a href="./main.html" class="btn btn-hover">
+                        <span>Iniciar sesion</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+            <!-- fin MENU PARA CELULAR -->
+        </div>
+    </div>
+</div>
+<!-- FIN NAV -->
+<div class='container movie__overview'>
+    <div class='container movie__overview-wrapper'>
+    <div class='backdrop__container'>
+    <img alt='' class='backdrop__image' src='https://sidisney.com/wp-content/uploads/2021/03/wandavision.jpg'/>
+    </div>
+    <div class='view'>
+    <div class='view__wrapper'>
+    <div class='view__poster'>
+    <img src='https://www.techgames.com.mx/wp-content/uploads/2021/02/WandaVision-logo.jpg'/>
+    </div>
+    <div class='view__details'>
+    <h1 class='view__title'>Manda vision
+    <span>(2021)</span></h1>
+    <p class='view__info mb-0'>
+    <i class='fa fa-star'></i>&nbsp;8.1   &nbsp;&nbsp;
+    <i class='fa fa-clock'></i>&nbsp; 50m
+    </p>
+    <p class='mt-0 text-subtle'>
+    <span>Serie</span> /
+    <span>Acción</span> /
+    <span>Aventura</span> /
+    <span>Misterio</span>
+    </p>
+    <p class='view__overview'>WandaVision (conocida como Bruja Escarlata y Visión en España)1​ es una miniserie de televisión estadounidense creada por Jac Schaeffer para el servicio
+         de streaming Disney+, basada en los personajes de Marvel Comics, Wanda Maximoff / Bruja Escarlata y Visión. La serie es producida por Marvel Studios y está ambientada en el Universo
+          cinematográfico de Marvel (UCM), compartiendo continuidad con las películas de la franquicia, y tiene lugar después de los eventos de la película Avengers: Endgame (2019). Sigue a Wanda 
+          Maximoff y Visión están viviendo una vida de ensueño en la pequeña ciudad de Westview, Nueva Jersey, hasta que su realidad comienza a moverse a través de diferentes décadas de homenajes de 
+          comedias y tropos televisivos. Schaeffer se desempeñó como escritora principal de la serie, que fue dirigida por Matt Shakman.</p>
+    <div class='view__actions'> 
+    <button id="Trailer" class="button--primary"><a href="#TrailerShow" >Ver Trailer &nbsp;&nbsp;<i class='fa fa-play'></i></a></button>&nbsp;
+    <button class='button--download'>
+    <a href='https://ouo.io/V0Akdu' target='_blank'>Optener Ticket&nbsp;&nbsp;<i class='fa fa-download'></i></a>
+    </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="TrailerShow" class='container__wrapper'>
+    <div id='main__player'>
+    <div class='flex__center watch__title'>
+    <h1 class='flex__center'>Manda vision</h1>
+    <div  class="text-center"> 
+        <option value='https://www.youtube.com/embed/hIpEbtm3PuY' class="rounded"></option>
+    </div>
+    </select>
+    </div>
+    <iframe allowfullscreen='' frameborder='0' height='600' id='main__iframe' name='main__iframe' playsinline='' scrolling='no' src='https://www.youtube.com/embed/hIpEbtm3PuY' width='100%'></iframe>
+    </div>
+    </div>
+<!-- FOOTER SECTION -->
+<footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-6 col-sm-12">
+                <div class="content">
+                    <a href="#" class="logo">
+                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                    </a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis
+                        beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et.
+                        Dolores, quibusdam?
+                    </p>
+                </div>
+            </div>
+            <div class="col-8 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            <p><b>Help</b></p>
+                            <ul class="footer-menu">
+                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-list">
+                        <a href="#" onclick="prueba('facebook')" class="social-item">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION -->
+{% endblock %}
