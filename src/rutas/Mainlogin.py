@@ -30,9 +30,9 @@ def validarUsuarioslg():
 @routes_mainlogin.route('/validarUsuariosrg', methods=['POST'] )
 def validarUsuariosrg():
 
-    nombre = request.form['nombre']
-    correo_electronico = request.form['correo_electronico']
-    contrasena = request.form['contrasena']
+    nombre = request.json['nombre']
+    correo_electronico = request.json['correo_electronico']
+    contrasena = request.json['contrasena']
     print("\n",name,"\n")
     new_user = usuarios(nombre,correo_electronico,contrasena)
     db.session.add(new_user)
