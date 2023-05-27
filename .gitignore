@@ -1,5 +1,8 @@
 # Byte-compiled / optimized / DLL files
 src/Model/__pycache__/
+modified:   src/Model/__pycache__/Asientos.cpython-311.pyc
+modified:   src/rutas/__pycache__/Asientos.cpython-311.pyc
+modified:   src/rutas/__pycache__/descripcion.cpython-311.pyc
 __pycache__/
 *.py[cod]
 *$py.class
