@@ -9,5 +9,19 @@ def indexAsientos():
     
     return render_template('/Main/Asientos.html')
 
-#@routes_asientos.route('/mostrarticket', methods=['GET'])
-#def mostrarticket():
+@routes_asientos.route('/mostrarticket', methods=['GET'])
+def mostar():
+    datos= {}
+    resultado = db.session.query( tblfunciones ,tblpeliculas, tblsalas).select_from(tblfunciones).join(tblpeliculas).join(tblsalas).all()
+    i=0
+    users = []
+    for tblfunciones, tblpeliculas, tblsalas  in resultado:
+        i+=1	       
+        datos[i] = {
+            'nombre': tblpeliculas.nombre,
+            'sala': tblsalas.nombre_sala,
+            'funcion': tblfunciones.id,
+    
+        }  
+        users.append(datos)
+    return jsonify(datos)  
