@@ -13,7 +13,6 @@ from api.Tickets import routes_tickets
 
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
-from rutas.index import routes_index
 from rutas.descripcion import routes_Descripcion
 from rutas.DescripStranger import routes_DescripcionStranger
 from rutas.Descripbloodshot import routes_Descripbloodshot
@@ -64,7 +63,6 @@ app.register_blueprint(routes_tickets, url__prefix="/api")
 
 #Ubicacion rutas
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
-app.register_blueprint(routes_index, url_prefix="/fronted")
 app.register_blueprint(routes_asientos,url_prefix="/fronted")
 app.register_blueprint(routes_Admin, url_prefix="/fronted")
 

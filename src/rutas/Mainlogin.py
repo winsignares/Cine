@@ -4,6 +4,10 @@ from Model.Usuarios import usuarios
 #Blueprint
 routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 #Home
+@routes_mainlogin.route('/indexMain', methods=['GET'] )
+def indexMain():    
+    return render_template('/Main/Main.html')
+#Login
 @routes_mainlogin.route('/indexmainlogin', methods=['GET'] )
 def indexmainlogin():
     return render_template('/Main/MainLogin.html')
@@ -13,11 +17,11 @@ def indexmainregistro():
     return render_template('/Main/MainRegistro.html')
 #Loguear
 @routes_mainlogin.route('/validarUsuarioslg', methods=['POST'] )
-def validarUsuarioslg():    
+def validarUsuarioslg():
     email = request.json['correo_electronico']
     password = request.json['contrasena']
     user = usuarios.query.filter_by(correo_electronico=email,contrasena=password).first()
-    print("\nEmail:",email,"Password:",password,"\n")    
+    print("\nEmail:",email,"Password:",password,"\n")
     if user:
         nav = "/fronted/indexMain"
     else:
