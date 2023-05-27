@@ -1,10 +1,13 @@
 # Byte-compiled / optimized / DLL files
-modified:   src/Model/__pycache__/Asientos.cpython-311.pyc
-modified:   src/Model/__pycache__/Peliculas.cpython-311.pyc
-modified:   src/Model/__pycache__/peliculas.cpython-311.pyc
-modified:   src/rutas/__pycache__/Asientos.cpython-311.pyc
-modified:   src/rutas/__pycache__/descripcion.cpython-311.pyc
+src/Model/__pycache__/Asientos.cpython-311.pyc
+src/Model/__pycache__/Peliculas.cpython-311.pyc
+src/Model/__pycache__/peliculas.cpython-311.pyc
+src/rutas/__pycache__/Asientos.cpython-311.pyc
+src/rutas/__pycache__/descripcion.cpython-311.pyc
 src/Model/__pycache__/
+src/Model/__pycache__/Asientos.cpython-311.pyc
+src/rutas/__pycache__/Asientos.cpython-311.pyc
+src/rutas/__pycache__/descripcion.cpython-311.pyc
 __pycache__/
 *.py[cod]
 *$py.class
