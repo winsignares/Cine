@@ -1,13 +1,13 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.peliculas import peliculas, peliculasSchema
+from Model.Peliculas import peliculas, peliculasSchema
 routes_Descripcion = Blueprint("routes_Descripcion", __name__)
 
 
 @routes_Descripcion.route('/indexDescripcion', methods=['GET'] )
 def indexDescripcion():
     
-    return render_template('/Main/DESCRIPCIONES/Descripcion.html')
+    return render_template('/Main/Descripcion.html')
 
 @app.route('/mostrar', methods=['GET'])
 def mostar():
@@ -15,15 +15,17 @@ def mostar():
     resultado = db.session.query(peliculas).select_from(peliculas).all()
     i=0
     users = []
-    for peliculas in resultado:
+    for pelis in resultado:
         i+=1	       
         datos[i] = {
-            'titulo':peliculas.titulo,
-            'genero':peliculas.genero,
-            'duracion':peliculas.duracion,
-            'sinopsis':peliculas.sinopsis,
-            'director':peliculas.director,
-            'imagen':peliculas.imagen
+            'titulo':pelis.titulo,
+            'genero':pelis.genero,
+            'duracion':pelis.duracion,
+            'sinopsis':pelis.sinopsis,
+            'director':pelis.director,
+            'imagen':pelis.imagen,
+            'video':pelis.video,
+
         }  
         users.append(datos)
         print("\n",users,"\n")
