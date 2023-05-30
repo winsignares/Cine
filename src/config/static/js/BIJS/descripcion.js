@@ -1,3 +1,4 @@
+//PRUEBA: Esto es un metodo para cargar el contenido del archivo HTML del servidor.
 window.addEventListener('DOMContentLoaded', function() {
     var contenidoExterno = document.getElementById('contenidoExterno');
     fetch('ruta/del/archivo.html') // Reemplaza 'ruta/del/archivo.html' con la ruta correcta del archivo HTML externo
