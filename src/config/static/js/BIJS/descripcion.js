@@ -1,3 +1,14 @@
+window.addEventListener('DOMContentLoaded', function() {
+    var contenidoExterno = document.getElementById('contenidoExterno');
+    fetch('ruta/del/archivo.html') // Reemplaza 'ruta/del/archivo.html' con la ruta correcta del archivo HTML externo
+    .then(response => response.text())
+    .then(data => {
+        contenidoExterno.innerHTML = data;
+    })
+    .catch(error => {
+        console.log('Error:', error);
+    });
+});
 function addPelis() {
     alert("OK")
     const titleHTML = document.getElementById('titlePelis')
@@ -15,8 +26,9 @@ function addPelis() {
                 <span>(2021)</span></h1>
             `
         }*/
-        remplazoHTML.innerHTML = titleHTML.innerHTML;
+        //remplazoHTML.innerHTML = titleHTML.innerHTML;
         window.location.href = 'indexDescripcion'
+        alert("Here?")
     })
     .catch(function(error) {
         console.log(error);
