@@ -11,6 +11,7 @@ def indexDescripcion():
 
 @app.route('/mostrar', methods=['GET'])
 def mostar():
+    print("get data...\n")
     datos= {}
     resultado = db.session.query(peliculas).select_from(peliculas).all()
     i=0
@@ -27,6 +28,6 @@ def mostar():
             'video':pelis.video,
 
         }  
-        users.append(datos)
-        print("\n",users,"\n")
+    users.append(datos)
+    print("\n",users,"\n")
     return jsonify(datos)
