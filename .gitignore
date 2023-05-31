@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 src/Model/__pycache__/
+src/Model/__pycache__/Peliculas.cpython-311.pyc
 src/Model/__pycache__/Peliculas.cpython-310.pyc
 src/api/__pycache__/Pelicula.cpython-310.pyc
 src/rutas/__pycache__/Admin.cpython-310.pyc
