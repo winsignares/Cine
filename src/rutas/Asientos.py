@@ -7,7 +7,7 @@ from Model.Funciones import funciones
 @routes_asientos.route('/indexAsientos', methods=['GET'] )
 def indexAsientos():
     
-    return render_template('/Main/Asientos.html')
+    return render_template('/Main/IndexAsientos.html')
 
 @routes_asientos.route('/mostrarticket', methods=['GET'])
 def mostar():

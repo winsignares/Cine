@@ -6,15 +6,15 @@ routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 #Home
 @routes_mainlogin.route('/indexMain', methods=['GET'] )
 def indexMain():    
-    return render_template('/Main/Main.html')
+    return render_template('/Main/IndexMain.html')
 #Login
 @routes_mainlogin.route('/indexmainlogin', methods=['GET'] )
 def indexmainlogin():
-    return render_template('/Main/MainLogin.html')
+    return render_template('/Main/IndexMainLogin.html')
 #Registro - html
 @routes_mainlogin.route('/indexmainregistro', methods=['GET'] )
 def indexmainregistro():    
-    return render_template('/Main/MainRegistro.html')
+    return render_template('/Main/IndexMainRegistro.html')
 #Loguear
 @routes_mainlogin.route('/validarUsuarioslg', methods=['POST'] )
 def validarUsuarioslg():
