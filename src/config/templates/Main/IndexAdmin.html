@@ -21,6 +21,7 @@
     <!-- APP CSS -->
     <link rel="stylesheet" href="{{url_for('static', filename='/css/grid.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
 </head>
 <body>
 <div class="nav-wrapper">
@@ -30,7 +31,7 @@
                 <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="indexAdmin">Inicio</a></li>
+                <li><a href="#">Inicio</a></li>
                 <li><a href="./Peliculas.html">Peliculas</a></li>
                 <li><a href="./acercaDe.html">Acerca de</a></li>
                 <li><a href="indexAsientos">Asientos</a></li>
@@ -86,7 +87,7 @@
                             ratione mollitia accusantium, facere ab suscipit.
                         </div>
                         <div class="item-action top-down delay-6">
-                            <a href="./verVideo.html" class="btn btn-hover">
+                            <a onclick="addPelis()" class="btn btn-hover">
                                 <i class="bx bxs-right-arrow"></i>
                                 <span>Ver ahora</span>
                             </a>
@@ -126,7 +127,7 @@
                             ratione mollitia accusantium, facere ab suscipit.
                         </div>
                         <div class="item-action top-down delay-6">
-                            <a href="./verVideo.html" class="btn btn-hover">
+                            <a onclick="addPelis()" class="btn btn-hover">
                                 <i class="bx bxs-right-arrow"></i>
                                 <span>Ver ahora</span>
                             </a>
@@ -166,7 +167,7 @@
                             ratione mollitia accusantium, facere ab suscipit.
                         </div>
                         <div class="item-action top-down delay-6">
-                            <a href="./verVideo.html" class="btn btn-hover">
+                            <a onclick="addPelis()" class="btn btn-hover">
                                 <i class="bx bxs-right-arrow"></i>
                                 <span>Ver ahora</span>
                             </a>
@@ -183,7 +184,7 @@
         <div class="owl-carousel" id="top-movies-slide">
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/series/supergirl.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -211,7 +212,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/movies/captain-marvel.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -239,7 +240,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/cartoons/demon-slayer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -267,7 +268,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/movies/blood-shot.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -295,7 +296,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/series/wanda.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -323,7 +324,7 @@
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
             <div class="movie-item">
-                <a href="./verVideo.html">
+                <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/movies/bat-man.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -363,7 +364,7 @@
         </div>
         <div class="movies-slide carousel-nav-center owl-carousel">
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/theatre-dead.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -389,7 +390,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/transformer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -415,7 +416,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/resident-evil.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -441,7 +442,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/captain-marvel.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -467,7 +468,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/hunter-killer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -493,7 +494,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/cartoons/demon-slayer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -519,7 +520,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/movies/call.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -557,7 +558,7 @@
         </div>
         <div class="movies-slide carousel-nav-center owl-carousel">
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/series/mandalorian.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -583,7 +584,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/series/stranger-thing.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -609,7 +610,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/series/wanda.png')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -635,7 +636,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a href="/fronted/IndexDescripcion.html" onclick="LoadMovieDescripcion()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/series/penthouses.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -661,7 +662,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/series/star-trek.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -687,7 +688,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/cartoons/demon-slayer.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -713,7 +714,7 @@
             </a>
             <!-- FIN PELICULA -->
             <!-- PELICULA -->
-            <a href="./verVideo.html" class="movie-item">
+            <a onclick="addPelis()" class="movie-item">
                 <img src="{{url_for('static',filename='/assets/cartoons/dragon.jpg')}}"alt="">
                 <div class="movie-item-content">
                     <div class="movie-item-title">
@@ -781,9 +782,8 @@
             </div>
         </div>
     </div>
-</footer>
 </body>
-
+</footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- OWL CAROUSEL -->

@@ -7,7 +7,7 @@ routes_Descripcion = Blueprint("routes_Descripcion", __name__)
 @routes_Descripcion.route('/indexDescripcion', methods=['GET'] )
 def indexDescripcion():
     
-    return render_template('/Main/Descripcion.html')
+    return render_template('/Main/IndexDescripcion.html')
 
 @app.route('/mostrar', methods=['GET'])
 def mostar():

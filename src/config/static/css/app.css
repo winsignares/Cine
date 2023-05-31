@@ -396,7 +396,9 @@ a.movie-item:hover {
 }
 
 .section {
-    padding-top: 80px;
+    padding-top: 40px;
+    color: var(--text-color);
+    background-color: var(--box-bg);
 }
 
 .section-header {
@@ -461,9 +463,10 @@ a.movie-item:hover {
 }
 
 footer.section {
-    margin-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
     position: relative;
+    background-color: var(--box-bg);
+    color: var(--text-color);
     background-color: var(--box-bg);
 }
 
