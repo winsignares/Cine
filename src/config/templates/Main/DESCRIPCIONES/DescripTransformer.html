@@ -1,0 +1,135 @@
+{% extends "Main/LayoutDescripcion.html" %}
+{% block body %}
+<head>
+    <title>
+        Peliculas - descripcion
+    </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
+</head>
+<body>
+<div class="nav-wrapper1">
+    <div class="container1">
+        <div class="nav">
+            <a href="indexMain" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="indexMain">Inicio</a></li>
+                <li><a href="./Peliculas.html">Peliculas</a></li>
+                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li>
+                    <a href="./main.html" class="btn btn-hover">
+                        <span>Iniciar sesion</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+            <!-- fin MENU PARA CELULAR -->
+        </div>
+    </div>
+</div>
+<!-- FIN NAV -->
+<div class='container movie__overview'>
+    <div class='container movie__overview-wrapper'>
+    <div class='backdrop__container'>
+    <img alt='' class='backdrop__image' src='https://e.rpp-noticias.io/xlarge/2023/05/02/253225_1422248.jpg'/>
+    </div>
+    <div class='view'>
+    <div class='view__wrapper'>
+    <div class='view__poster'>
+    <img src='https://img.asmedia.epimg.net/resizer/oxW9IHUu4fZno0aXKNpE0SP2XaU=/1472x828/cloudfront-eu-central-1.images.arcpublishing.com/diarioas/2PZ2FJXU75KIFGZPKV7YAMN45Q.jpg'/>
+    </div>
+    <div class='view__details'>
+    <h1 class='view__title'>Transformer
+    <span>(2021)</span></h1>
+    <p class='view__info mb-0'>
+    <i class='fa fa-star'></i>&nbsp;8.1   &nbsp;&nbsp;
+    <i class='fa fa-clock'></i>&nbsp; 50m
+    </p>
+    <p class='mt-0 text-subtle'>
+    <span>Serie</span> /
+    <span>Acción</span> /
+    <span>Aventura</span> /
+    <span>Misterio</span>
+    </p>
+    <p class='view__overview'> Los Decepticons son de una raza llamada Transformers - robots que pueden cambiar a vehículos,
+         dispositivos mecánicos e incluso las formas animales. Ellos hicieron la guerra por eones en su planeta Cybertron contra
+          los Autobots. Ambas facciones necesitan suministros. Los Autobots no buscando una pelea con los Decepticons, consiguen 
+          salir al espacio de todos modos. Cuando la nave Decepticon ataca a los Autobots y se estrellan contra la Tierra primitiva
+           y golpea a todos dejándolos inconscientes. Millones de años más tarde, en 1984, una erupción volcánica se reactiva la 
+           computadora principal de la nave para darles todas las nuevas formas alternas que provienen de vehículos en la zona circundante. 
+           Después de la película The Transformers: The Movie, Megatron se reformó como Galvatron, y Optimus Prime fue reemplazado por un tiempo 
+           por Rodimus Prime, sólo para regresar más tarde..</p>
+    <div class='view__actions'> 
+    <button id="Trailer" class="button--primary"><a href="#TrailerShow" >Ver Trailer &nbsp;&nbsp;<i class='fa fa-play'></i></a></button>&nbsp;
+    <button class='button--download'>
+    <a href='https://ouo.io/V0Akdu' target='_blank'>Optener Ticket&nbsp;&nbsp;<i class='fa fa-download'></i></a>
+    </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="TrailerShow" class='container__wrapper'>
+    <div id='main__player'>
+    <div class='flex__center watch__title'>
+    <h1 class='flex__center'>Trailer</h1>
+    <div  class="text-center"> 
+        <option value='https://www.youtube.com/embed/itnqEauWQZM' class="rounded"></option>
+    </div>
+    </select>
+    </div>
+    <iframe allowfullscreen='' frameborder='0' height='600' id='main__iframe' name='main__iframe' playsinline='' scrolling='no' src='https://www.youtube.com/embed/itnqEauWQZM' width='100%'></iframe>
+    </div>
+    </div>
+<!-- FOOTER SECTION -->
+<footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-6 col-sm-12">
+                <div class="content">
+                    <a href="#" class="logo">
+                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                    </a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis
+                        beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et.
+                        Dolores, quibusdam?
+                    </p>
+                </div>
+            </div>
+            <div class="col-8 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            <p><b>Help</b></p>
+                            <ul class="footer-menu">
+                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-list">
+                        <a href="#" onclick="prueba('facebook')" class="social-item">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION -->
+{% endblock %}

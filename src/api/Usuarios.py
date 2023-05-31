@@ -33,12 +33,12 @@ def Usuari():
 #---------SAVE/CREAR------------
 @routes_usuarios.route('/save_user', methods=['POST'] )
 def guardar_Users():
-    id_roles_usuarios = request.json['id_roles_usuarios']
+    Rol = request.json['Rol']
     nombre = request.json['nombre']
     correo_electronico = request.json['correo_electronico']
-    contraseña = request.json['contraseña']
-    print(id_roles_usuarios,nombre,correo_electronico,contraseña)
-    new_Users = usuarios(id_roles_usuarios,nombre,correo_electronico,contraseña)
+    contrasena = request.json['contrasena']
+    print(Rol,nombre,correo_electronico,contrasena)
+    new_Users = usuarios(Rol,nombre,correo_electronico,contrasena)
     db.session.add(new_Users)
     db.session.commit()
     return redirect('/TUsuarios')
@@ -65,15 +65,15 @@ def delete_User(id):
 @routes_usuarios.route('/update_user', methods=['POST'])
 def update_user():
     id = request.json['id']
-    id_roles_usuarios = request.json['id_roles_usuarios']
+    Rol = request.json['Rol']
     nombre = request.json['nombre']
     correo_electronico = request.json['correo_electronico']
-    contraseña = request.json['contraseña']
+    contrasena = request.json['contrasena']
     users = usuarios.query.get(id)
-    users.id_roles_usuarios = id_roles_usuarios
+    users.Rol = Rol
     users.nombre = nombre
     users.correo_electronico = correo_electronico
-    users.contraseña = contraseña
+    users.contrasena = contrasena
     db.session.commit()
     return redirect('/TUsuarios')
     

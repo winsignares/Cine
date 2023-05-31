@@ -1,0 +1,130 @@
+{% extends "Main/LayoutDescripcion.html" %}
+{% block body %}
+<head>
+    <title>
+        Peliculas - descripcion
+    </title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
+</head>
+<body>
+<div class="nav-wrapper1">
+    <div class="container1">
+        <div class="nav">
+            <a href="indexMain" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="indexMain">Inicio</a></li>
+                <li><a href="./Peliculas.html">Peliculas</a></li>
+                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li>
+                    <a href="./main.html" class="btn btn-hover">
+                        <span>Iniciar sesion</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+            <!-- fin MENU PARA CELULAR -->
+        </div>
+    </div>
+</div>
+<!-- FIN NAV -->
+<div class='container movie__overview'>
+    <div class='container movie__overview-wrapper'>
+    <div class='backdrop__container'>
+    <img alt='' class='backdrop__image' src='https://i.ytimg.com/vi/UWhXvaX3Q8c/maxresdefault.jpg'/>
+    </div>
+    <div class='view'>
+    <div class='view__wrapper'>
+    <div class='view__poster'>
+    <img src='data:image/jpeg;base64,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'/>
+    </div>
+    <div class='view__details'>
+    <h1 class='view__title'>Theatre of the dead
+    <span>(2021)</span></h1>
+    <p class='view__info mb-0'>
+    <i class='fa fa-star'></i>&nbsp;8.1   &nbsp;&nbsp;
+    <i class='fa fa-clock'></i>&nbsp; 50m
+    </p>
+    <p class='mt-0 text-subtle'>
+    <span>Serie</span> /
+    <span>Acción</span> /
+    <span>Aventura</span> /
+    <span>Misterio</span>
+    </p>
+    <p class='view__overview'> In eleventh-century China, both the living and the dead were treated to theatrical spectacles.
+         Chambers designed for the deceased were ornamented with actors and theaters sculpted in stone, molded in clay, rendered
+          in paint..</p>
+    <div class='view__actions'> 
+    <button id="Trailer" class="button--primary"><a href="#TrailerShow" >Ver Trailer &nbsp;&nbsp;<i class='fa fa-play'></i></a></button>&nbsp;
+    <button class='button--download'>
+    <a href='https://ouo.io/V0Akdu' target='_blank'>Optener Ticket&nbsp;&nbsp;<i class='fa fa-download'></i></a>
+    </button>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div id="TrailerShow" class='container__wrapper'>
+    <div id='main__player'>
+    <div class='flex__center watch__title'>
+    <h1 class='flex__center'>Trailer</h1>
+    <div  class="text-center"> 
+        <option value='https://www.youtube.com/embed/l7rUbFnEwd8' class="rounded"></option>
+    </div>
+    </select>
+    </div>
+    <iframe allowfullscreen='' frameborder='0' height='600' id='main__iframe' name='main__iframe' playsinline='' scrolling='no' src='https://www.youtube.com/embed/l7rUbFnEwd8' width='100%'></iframe>
+    </div>
+    </div>
+<!-- FOOTER SECTION -->
+<footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-6 col-sm-12">
+                <div class="content">
+                    <a href="#" class="logo">
+                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                    </a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis
+                        beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et.
+                        Dolores, quibusdam?
+                    </p>
+                </div>
+            </div>
+            <div class="col-8 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            <p><b>Help</b></p>
+                            <ul class="footer-menu">
+                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-list">
+                        <a href="#" onclick="prueba('facebook')" class="social-item">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- END FOOTER SECTION -->
+{% endblock %}
