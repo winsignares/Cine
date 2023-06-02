@@ -22,6 +22,8 @@ def validarUsuarioslg():
     password = request.json['contrasena']
     user = usuarios.query.filter_by(correo_electronico=email,contrasena=password).first()
     print("\nEmail:",email,"Password:",password,"\n")
+    # Consulta SQL para verificar si el cliente tiene acceso
+    query = "SELECT COUNT(*) FROM clientes WHERE cliente = %s"
     if user:
         nav = "/fronted/indexMain"
     else:

@@ -5,5 +5,4 @@ routes_Admin = Blueprint("routes_Admin", __name__)
 
 @routes_Admin.route('/indexAdmin', methods=['GET'] )
 def indexAdmin():
-    
-    return render_template('/PeliculasWeb-main/IndexAdmin.html')
+    return render_template('/Main/IndexAdmin.html')
