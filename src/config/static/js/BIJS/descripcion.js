@@ -40,3 +40,18 @@ function addPelis() {
  * Categoria - las carpetas tendran nombres de la categoria de las peliculas
  * <script src="{{url_for('static', filename='/asets/${nameCarp}/${nameImg}.png')}}"></script>
  */
+
+
+  // Obtener el título de la película del elemento HTML
+  var movieTitle = document.getElementById('titlePelis').textContent.trim();
+
+  // Función para redirigir a indexAsientos con el nombre de la película en la URL
+  function redirectToIndexAsientos() {
+    var url = 'indexAsientos?movie=' + encodeURIComponent(movieTitle);
+    window.location.href = url;
+  }
+
+  // Asignar la función al botón "Obtener Tickets"
+  var obtenerTicketsButton = document.querySelector('.button--download');
+  obtenerTicketsButton.addEventListener('click', redirectToIndexAsientos);
+

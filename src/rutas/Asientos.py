@@ -11,6 +11,7 @@ def indexAsientos():
 
 @routes_asientos.route('/mostrarticket', methods=['GET'])
 def mostrar_ticket():
+    titulo_pelicula = request.args.get('movie')
     datos = {}
     resultado = db.session.query(tblfunciones, tblpeliculas, tblsalas).select_from(tblpeliculas).join(tblfunciones).join(tblsalas).all()
     i = 0
@@ -29,6 +30,8 @@ def mostrar_ticket():
             'fecha': tblfunciones.fecha,
             'precio': tblfunciones.precio
         }
-        tickets.append(ticket)
+        
+        if tblpeliculas.titulo.lower() == titulo_pelicula.lower():
+            tickets.append(ticket)
 
     return jsonify(tickets)
