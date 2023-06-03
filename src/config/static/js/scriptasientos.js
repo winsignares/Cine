@@ -36,58 +36,58 @@ movieSelect.addEventListener('change', (e) => {
   // Aquí puedes realizar cualquier acción cuando cambie la selección de película
 });
 
-// Variables globales
-var botonesAsientos = document.querySelectorAll('.asiento');
-var botonComprar = document.querySelector('.comprar');
-
-// Agregar un evento de clic al botón de "Comprar"
-botonComprar.addEventListener('click', function() {
-  var botonesSeleccionados = document.querySelectorAll('.asiento-seleccionado');
-
-  // Verificar si se han seleccionado asientos
-  if (botonesSeleccionados.length > 0) {
-    // Obtener información de los asientos seleccionados
-    var asientosSeleccionados = [];
-    botonesSeleccionados.forEach(function(botonSeleccionado) {
-      var fila = botonSeleccionado.dataset.fila;
-      var asiento = botonSeleccionado.dataset.asiento;
-      asientosSeleccionados.push({fila: fila, asiento: asiento});
-    });
-
-    // Enviar información a un servidor utilizando Axios
-    axios.post('/guardar-asientos', {
-      asientos: asientosSeleccionados
-    })
-    .then(function(response) {
-      console.log(response);
-    })
-    .catch(function(error) {
-      console.log(error);
-    });
-  }
-});
-
-// Agregar un evento de clic a cada botón de asiento
-botonesAsientos.forEach(function(botonAsiento) {
-  botonAsiento.addEventListener('click', function() {
-    // Cambiar la clase del botón para reflejar el estado de selección
-    if (botonAsiento.classList.contains('asiento-seleccionado')) {
-      botonAsiento.classList.remove('asiento-seleccionado');
-      botonAsiento.textContent = botonAsiento.dataset.asiento;
-    } else if (botonAsiento.classList.contains('asiento-ocupado')) {
-      // El asiento ya está ocupado, no se puede seleccionar
-      return;
-    } else {
-      botonAsiento.classList.add('asiento-seleccionado');
-      botonAsiento.textContent = 'X';
-    }
-    
-    // Verificar si se han seleccionado asientos para habilitar/deshabilitar el botón de "Comprar"
-    var botonesSeleccionados = document.querySelectorAll('.asiento-seleccionado');
-    if (botonesSeleccionados.length > 0) {
-      botonComprar.disabled = false;
-    } else {
-      botonComprar.disabled = true;
+// Función para obtener información de los asientos seleccionados
+function getSelectedSeats() {
+  const selectedSeatsInfo = [];
+  seats.forEach((seat, indexAsiento) => {
+    if (seat.classList.contains('selected')) {
+      const seatInfo = {
+        id_sala: movieSelect.value,
+        numero: seat.dataset.seatNumber,
+        estado: 'seleccionado'
+      };
+      selectedSeatsInfo.push(seatInfo);
     }
   });
+  return selectedSeatsInfo;
+}
+
+// Función para guardar la información de los asientos en la base de datos
+function guardarAsientos() {
+  const asientosSeleccionados = getSelectedSeats();
+  if (asientosSeleccionados.length > 0) {
+    axios.post('/save_asientos', asientosSeleccionados)
+      .then(function (response) {
+        console.log(response.data.message);
+        // Actualizar el HTML para reflejar el estado de los asientos en la base de datos
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+}
+
+// Evento de click en el botón "Generar Ticket"
+const generarTicketButton = document.querySelector('#generarTicket');
+generarTicketButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  guardarAsientos();
 });
+
+// Función para obtener los asientos de la base de datos y actualizar el HTML
+function obtenerAsientosDeBD() {
+  axios.get('/asientos/' + movieSelect.value)
+    .then(function (response) {
+      const asientos = response.data;
+      asientos.forEach((asiento) => {
+        const seatIndex = parseInt(asiento.numero) - 1;
+        seats[seatIndex].classList.add('sold');
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
+// Obtener los asientos de la base de datos al cargar la página
+obtenerAsientosDeBD();

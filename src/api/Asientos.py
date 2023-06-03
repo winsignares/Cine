@@ -57,3 +57,16 @@ def delete_asientos(id):
         'body': mensaje
     }
     return jsonify(response)
+#Obtener asiento
+@routes_Iasiento.route('/asientos/<id_sala>', methods=['GET'])
+def obtener_asientos(id_sala):
+    asientos = asientos.query.filter_by(id_sala=id_sala).all()
+    resultado = []
+    for asiento in asientos:
+        resultado.append({
+            'id': asiento.id,
+            'numero': asiento.numero,
+            'estado': asiento.estado
+        })
+
+    return jsonify(resultado)
