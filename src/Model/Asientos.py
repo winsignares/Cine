@@ -5,7 +5,7 @@ class asientos(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     id_sala = db.Column(db.Integer, db.ForeignKey('tblsalas.id'))
-    numero = db.Column(db.Integer)
+    numero = db.Column(db.String(3))
     estado = db.Column(db.String(50))
   
 
