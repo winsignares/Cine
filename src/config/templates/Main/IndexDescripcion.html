@@ -42,22 +42,22 @@
     <div class='view'>
     <div class='view__wrapper'>
     <div class='view__poster'>
-    <img src='https://1.bp.blogspot.com/-czSrv2lPcLI/YVhdk6KbBII/AAAAAAAACa8/uVpivcpztHAuTMQBVSQiDz31P2MU8QntQCLcBGAsYHQ/s889/yvW9VuHiwfAaTNYjALROI8evNIT.jpg'/>
+    <img id="imagen" src=''/>
     </div>
     <div class='view__details'>
-    <h1 id="titlePelis" class='view__title'>El juego del calamar
-    <span>(2021)</span></h1>
+    <h1 id="titlePelis" class='view__title'>
+    <span></span></h1>
     <p class='view__info mb-0'>
     <i class='fa fa-star'></i>&nbsp;8.1   &nbsp;&nbsp;
-    <i class='fa fa-clock'></i>&nbsp; 50m
+    <i id="duracion" class='fa fa-clock'></i>&nbsp; 
     </p>
-    <p class='mt-0 text-subtle'>
-    <span>Serie</span> /
-    <span>Acción</span> /
-    <span>Aventura</span> /
-    <span>Misterio</span>
+    <p id="genero" class='mt-0 text-subtle'>
+    <span>.</span> /
+    <span>.</span> /
+    <span>.</span> /
+    <span>.</span>
     </p>
-    <p class='view__overview'>Cientos de jugadores con problemas de dinero aceptan una invitación rarísima para competir en juegos infantiles. Dentro les esperan un tentador premio y desafíos letales.</p>
+    <p id="sinopsis" class='view__overview'>.</p>
     <div class='view__actions'> 
     <button id="Trailer" class="button--primary"><a href="#TrailerShow" >Ver Trailer &nbsp;&nbsp;<i class='fa fa-play'></i></a></button>&nbsp;
     <button class='button--download' >
@@ -74,11 +74,11 @@
     <div class='flex__center watch__title'>
     <h1 class='flex__center'>Trailer</h1>
     <div  class="text-center">
-        <option value='https://www.youtube.com/embed/Mj4_xG5NXeo' class="rounded"></option>
+        <option id="video" value='' class="rounded"></option>
     </div>
     </select>
     </div>
-    <iframe allowfullscreen='' frameborder='0' height='600' id='main__iframe' name='main__iframe' playsinline='' scrolling='no' src='https://www.youtube.com/embed/Mj4_xG5NXeo' width='100%'></iframe>
+    <iframe id="video" allowfullscreen='' frameborder='0' height='600' id='main__iframe' name='main__iframe' playsinline='' scrolling='no' src='' width='100%'></iframe>
     </div>
     </div>
 <!-- FOOTER SECTION -->

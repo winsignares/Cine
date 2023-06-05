@@ -9,25 +9,25 @@ def indexDescripcion():
     
     return render_template('/Main/IndexDescripcion.html')
 
-@app.route('/mostrar', methods=['GET'])
-def mostar():
-    print("get data...\n")
-    datos= {}
-    resultado = db.session.query(peliculas).select_from(peliculas).all()
-    i=0
-    users = []
-    for pelis in resultado:
-        i+=1	       
+@routes_Descripcion.route('/mostrarpelidesc', methods=['GET'])
+def mostrar_pelicula():
+    titulo = request.args.get('titulo')
+    datos = {}
+    descpeli = db.Model.metadata.tables['tblpeliculas'] 
+    peliculas = db.session.query(descpeli).filter_by(titulo=titulo).first()
+    i = 0
+    for descpeli in peliculas:
+        i += 1
         datos[i] = {
-            'titulo':pelis.titulo,
-            'genero':pelis.genero,
-            'duracion':pelis.duracion,
-            'sinopsis':pelis.sinopsis,
-            'director':pelis.director,
-            'imagen':pelis.imagen,
-            'video':pelis.video,
+            'titulo': peliculas.titulo,
+            'genero': peliculas.genero,
+            'duracion': peliculas.duracion,
+            'sinopsis': peliculas.sinopsis,
+            'director': peliculas.director,
+            'imagen': peliculas.imagen,
+            'video': peliculas.video
+        }
+        return jsonify(datos)
+    else:
+        return jsonify({'error': 'Película no encontrada'})
 
-        }  
-    users.append(datos)
-    print("\n",users,"\n")
-    return jsonify(datos)

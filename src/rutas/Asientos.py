@@ -12,7 +12,6 @@ def indexAsientos():
 @routes_asientos.route('/mostrarticket', methods=['GET'])
 def mostrar_ticket():
     titulo_pelicula = request.args.get('movie')
-    datos = {}
     resultado = db.session.query(tblfunciones, tblpeliculas, tblsalas).select_from(tblpeliculas).join(tblfunciones).join(tblsalas).all()
     i = 0
     tickets = []
