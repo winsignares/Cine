@@ -7,4 +7,4 @@ function addPelis() {
     // Redirigir a la página indexAsientos con el título de la película en la URL
     window.location.href = url
   }
-  
+  onload.window = console.log ('hola mundo')

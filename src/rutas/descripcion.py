@@ -18,7 +18,7 @@ def mostrar_pelicula():
     i = 0
     for descpeli in peliculas:
         i += 1
-        datos[i] = {
+        datos = {
             'titulo': peliculas.titulo,
             'genero': peliculas.genero,
             'duracion': peliculas.duracion,

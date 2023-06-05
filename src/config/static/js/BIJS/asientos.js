@@ -56,7 +56,7 @@ function getSelectedSeats() {
 function guardarAsientos() {
   const asientosSeleccionados = getSelectedSeats();
   if (asientosSeleccionados.length > 0) {
-    axios.post('/save_asientos', asientosSeleccionados)
+    axios.post('/fronted/save_asientos', asientosSeleccionados)
       .then(function (response) {
         console.log(response.data.message);
         // Actualizar el HTML para reflejar el estado de los asientos en la base de datos
@@ -76,7 +76,7 @@ generarTicketButton.addEventListener('click', function (e) {
 
 // Función para obtener los asientos de la base de datos y actualizar el HTML
 function obtenerAsientosDeBD() {
-  axios.get('/asientos/' + movieSelect.value)
+  axios.get('/fronted/asientos/' + movieSelect.value)
     .then(function (response) {
       const asientos = response.data;
       asientos.forEach((asiento) => {
@@ -90,7 +90,7 @@ function obtenerAsientosDeBD() {
 }
 
 // Obtener los asientos de la base de datos al cargar la página
-obtenerAsientosDeBD();
+window.onload = obtenerAsientosDeBD();
 
 
 
