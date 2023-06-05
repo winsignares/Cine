@@ -31,3 +31,20 @@ def mostrar_pelicula():
     else:
         return jsonify({'error': 'Película no encontrada'})
 
+@routes_Descripcion.route('/mostrartrailer', methods=['GET'])
+def mostrar_triler():
+    titulo = request.args.get('titulo')
+    datos = {}
+    descpeli = db.Model.metadata.tables['tblpeliculas'] 
+    peliculas = db.session.query(descpeli).filter_by(titulo=titulo).first()
+    i = 0
+    for descpeli in peliculas:
+        i += 1
+        datos = {
+            'titulo': peliculas.titulo,
+            'video': peliculas.video
+        }
+        return jsonify(datos)
+    else:
+        return jsonify({'error': 'Película no encontrada'})
+
