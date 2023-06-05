@@ -35,11 +35,20 @@
                 <li><a href="./Peliculas.html">Peliculas</a></li>
                 <li><a href="./acercaDe.html">Acerca de</a></li>
                 <li><a href="indexAsientos">Asientos</a></li>
-                <li>
+                <li><a href="#" class="user-menu">
+                    
+                      <img src="{{url_for('static', filename='/assets/pfpUser.jpg')}}" alt="User Image" class="user-image">
+                      <span class="user-name" onclick="toggleDropdown()">Nombre del Usuario</span>
+                    
+                    <div id="dropdown-menu" class="dropdown-content">
+                      <a href="./other.html">Salir Sesión</a>
+                    </div>
+                </a></li><!--Insert InnerHTML-->
+                <!--li>
                     <a href="./main.html" class="btn btn-hover">
                         <span>Iniciar sesion</span>
                     </a>
-                </li>
+                </li-->
             </ul>
             <!-- MENU PARA CELULAR -->
             <div class="hamburger-menu" id="hamburger-menu">

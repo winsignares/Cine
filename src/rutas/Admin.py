@@ -1,6 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.peliculas import Peliculas
+from Model.Peliculas import peliculas
 routes_Admin = Blueprint("routes_Admin", __name__)
 
 
@@ -16,7 +16,7 @@ def addPelis():
     director = request.json['director']
     imagen = request.json['imagen']
     video = request.json['video']
-    new_pelis = Peliculas(titulo,genero,duracion,sinopsis,director,imagen,video)
+    new_pelis = peliculas(titulo,genero,duracion,sinopsis,director,imagen,video)
     db.session.add(new_pelis)
     db.session.commit()
     print("ok")

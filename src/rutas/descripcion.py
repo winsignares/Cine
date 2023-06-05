@@ -1,6 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.peliculas import peliculas, peliculasSchema
+from Model.Peliculas import peliculas, peliculasSchema
 routes_Descripcion = Blueprint("routes_Descripcion", __name__)
 
 
