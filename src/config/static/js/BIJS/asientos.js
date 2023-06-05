@@ -12,7 +12,7 @@ function autoRellenarFormulario() {
       // Buscar el ticket correspondiente al nombre de la película
       const ticket = tickets.find((t) => t.titulo.toLowerCase() === movieName.toLowerCase());
 
-      if (ticket) {
+      if (ticket) {k
         // Rellenar los campos del formulario con los datos del ticket
         document.getElementById('pelicula').value = ticket.titulo;
         document.getElementById('sala').value = ticket.sala;
