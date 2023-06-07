@@ -80,7 +80,7 @@ obtenerTicketsButton.addEventListener('click', redirectToIndexAsientos);
     const urlParams = new URL(url);
     const movie = urlParams.searchParams.get('movie');
     
-    axios.get(`/fronted/mostrartrailer?titulo=${movie}`)
+    axios.get(`/fronted/mostrarpelidesc?titulo=${movie}`)
       .then(function (response) {
         var datos = response.data;
         autoRellenarHTML(datos);
@@ -89,8 +89,8 @@ obtenerTicketsButton.addEventListener('click', redirectToIndexAsientos);
           var div = document.getElementById('video'); // Reemplaza 'video' por el ID del div donde deseas mostrar el video
           var iframe = document.createElement('iframe');
           iframe.src = datos.video;
-          iframe.width = '920';
-          iframe.height = '480';
+          iframe.width = '1280';
+          iframe.height = '720';
           iframe.title = datos.titulo;
           iframe.frameBorder = '0';
           iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
