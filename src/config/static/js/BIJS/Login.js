@@ -10,9 +10,11 @@ function valuesUser() {
         contrasena : Password
     })
     
-    .then(function(res){        
+    .then(function(res){    
+        console.log("Res: ", res)
+        localStorage.setItem("userId", res.data)
         console.log(res.data);
-        window.location.href = res.data
+        //window.location.href = res.data
     })
     .catch((err) => {
         console.log(err);

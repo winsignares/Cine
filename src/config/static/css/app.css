@@ -612,7 +612,6 @@ footer .content {
     }
 }
 .user-menu {
-    position: fixed;
     top: 10px;
     right: 10px;
     display: flex;

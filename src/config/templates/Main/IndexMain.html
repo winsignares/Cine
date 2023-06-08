@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/grid.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
+
+    <script src="{{url_for('static', filename='/js/BIJS/userDetail.js')}}"></script>
 </head>
 <body>
 <div class="nav-wrapper">
@@ -36,10 +38,8 @@
                 <li><a href="./acercaDe.html">Acerca de</a></li>
                 <li><a href="indexAsientos">Asientos</a></li>
                 <li><a href="#" class="user-menu">
-                    
                       <img src="{{url_for('static', filename='/assets/pfpUser.jpg')}}" alt="User Image" class="user-image">
                       <span class="user-name" onclick="toggleDropdown()">Nombre del Usuario</span>
-                    
                     <div id="dropdown-menu" class="dropdown-content">
                       <a href="./other.html">Salir Sesión</a>
                     </div>
