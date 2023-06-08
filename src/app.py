@@ -31,10 +31,7 @@ from rutas.DescripDragonBallSuper import routes_DescripDragonBallSuper
 from rutas.DescripMandalorian import routes_DescripMandalorian
 from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
-<<<<<<< HEAD
 from rutas.Acerca import routes_Acerca
-=======
->>>>>>> 38e7075c6d86bb88b1ed6716bc9e6d5ca1975f39
 
 #Ubicacion rutas
 

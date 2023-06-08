@@ -48,8 +48,6 @@ def mostrar_triler():
     else:
         return jsonify({'error': 'Película no encontrada'})
 
-<<<<<<< HEAD
-=======
 @app.route('/mostrar', methods=['GET'])
 def mostar():
     datos= {}
@@ -70,4 +68,3 @@ def mostar():
         print("\n",users,"\n")
     return jsonify(datos)
 
->>>>>>> 38e7075c6d86bb88b1ed6716bc9e6d5ca1975f39
