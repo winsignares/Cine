@@ -24,11 +24,20 @@ def validarUsuarioslg():
     print("\nEmail:",email,"Password:",password,"\n")
     # Consulta SQL para verificar si el cliente tiene acceso
     query = "SELECT COUNT(*) FROM clientes WHERE cliente = %s"
+    print("\nuser response:", type(user))
+    userid = user.id
     if user:
         nav = "/fronted/indexMain"
     else:
         nav = "/fronted/indexmainlogin"
-    return nav
+    
+    data = {
+        'userid': userid,
+        'nav': nav
+    }
+    
+    response = jsonify(data)
+    return response
 #Registrar
 @routes_mainlogin.route('/validarUsuariosrg', methods=['POST'] )
 def validarUsuariosrg():
