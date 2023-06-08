@@ -48,3 +48,26 @@ def mostrar_triler():
     else:
         return jsonify({'error': 'Película no encontrada'})
 
+<<<<<<< HEAD
+=======
+@app.route('/mostrar', methods=['GET'])
+def mostar():
+    datos= {}
+    resultado = db.session.query(peliculas).select_from(peliculas).all()
+    i=0
+    users = []
+    for peliculas in resultado:
+        i+=1	       
+        datos[i] = {
+            'titulo':peliculas.titulo,
+            'genero':peliculas.genero,
+            'duracion':peliculas.duracion,
+            'sinopsis':peliculas.sinopsis,
+            'director':peliculas.director,
+            'imagen':peliculas.imagen
+        }  
+        users.append(datos)
+        print("\n",users,"\n")
+    return jsonify(datos)
+
+>>>>>>> 38e7075c6d86bb88b1ed6716bc9e6d5ca1975f39
