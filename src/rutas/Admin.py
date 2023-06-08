@@ -1,6 +1,6 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
-from Model.Peliculas import peliculas
+from Model.peliculas import peliculas
 routes_Admin = Blueprint("routes_Admin", __name__)
 
 
