@@ -55,8 +55,7 @@
   
   window.onload = autoRellenarFormulario;
 
-
-
+  
   function obtenerParametroDeURL(movie) {
     var urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(movie);
@@ -67,4 +66,3 @@
     var url = 'indexAsientos?movie=' + encodeURIComponent(movie);
     window.location.href = url;
   }
-  
