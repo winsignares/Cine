@@ -102,3 +102,19 @@ function saveTicket() {
     });
 }
 
+// asientos 
+
+
+function guardarAsiento(idAsiento) {
+  axios.post(`/fronted/guardar_asiento/${idAsiento}`)
+    .then(function (response) {
+      // El asiento se guardó exitosamente
+      console.log(response.data.message);
+      // Realizar acciones adicionales si es necesario
+    })
+    .catch(function (error) {
+      // Ocurrió un error al guardar el asiento
+      console.error('Error al guardar el asiento:', error.response.data.error);
+      // Realizar acciones adicionales si es necesario
+    });
+}
