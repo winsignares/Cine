@@ -1,0 +1,117 @@
+{% extends "Main/LayoutMainLogin.html" %}
+{% block body %}
+  <title>Administrador de Cine</title>
+ <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
+  <h1>Administrador de Cine</h1>
+
+  
+  <div class="form-container">
+    <h2>Agregar Película</h2>
+    <form id="formulario">
+        <!--EMPIEZO DESDE AQUI-->
+        <div class="ID">
+      <div class="form-group">
+        <div class="ID_text">
+        <labe>ID:</label>
+        </div>
+        <input id='inputId' type="text"  placeholder="Escribe..." id="id">
+      </div>
+    </div>
+    <!------>
+    <div class="Titulo">
+      <div class="form-group">
+        <label>Título:</label>
+        <input id='inputTitle' type="text" placeholder="Escribe..." id="titulo">
+      </div>
+       <!------>
+      <div class="form-group">
+        <label>Género:</label>
+        <input id='inputGenero' type="text" placeholder="Escribe..."  id="genero">
+      </div>
+       <!------>
+      <div class="form-group">
+        <label>Duración:</label>
+        <input id='inputDuracion' type="text"class="Duracion" placeholder="Escribe..."  id="duracion">
+      </div>
+       <!------>
+      <div class="form-group">
+        <label>Sinopsis:</label>
+        <input id='inputSinopsys' type="text"class="Sinopsis"  placeholder="Escribe..." id="sinopsis"></input id='inputID'>
+      </div>
+       <!------>
+      <div class="form-group">
+        <label>Director:</label>
+        <input id='inputDirector' type="text" class="Director" placeholder="Escribe..."  id="director">
+      </div>
+       <!------>
+      <div class="form-group">
+        <label>Imagen:</label>
+        <input id='inputImg' type="text" class="Imagen" placeholder="Escribe..." id="imagen">
+      </div>
+       <!------>
+      <button onclick='addPelis()' type="submit">Agregar</button>
+    </form>
+  </div>
+
+  <div class="table-container">
+    <h2>Películas</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Género</th>
+          <th>Duración</th>
+          <th>Sinopsis</th>
+          <th>Director</th>
+          <th>Imagen</th>
+        </tr>
+      </thead>
+      <tbody id="peliculas-lista">
+        <!-- Aquí se agregarán las filas dinámicamente -->
+      </tbody>
+    </table>
+  </div>
+  <!-- FOOTER SECTION -->
+<footer class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-4 col-md-6 col-sm-12">
+                <div class="content">
+                    <a href="#" class="logo">
+                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                    </a>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+                    </p>
+                </div>
+            </div>
+            <div class="col-8 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-3 col-md-6 col-sm-6">
+                        <div class="content">
+                            <p><b>Help</b></p>
+                            <ul class="footer-menu">
+                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="social-list">
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-facebook"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-twitter"></i>
+                        </a>
+                        <a href="#" class="social-item">
+                            <i class="bx bxl-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</footer>
+
+  {% endblock %}

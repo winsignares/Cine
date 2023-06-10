@@ -10,9 +10,11 @@ function valuesUser() {
         contrasena : Password
     })
     
-    .then(function(res){        
-        console.log(res.data);
-        window.location.href = res.data
+    .then(function(res){ 
+        const route = res.data.nav
+        const userid = res.data.userid
+        localStorage.setItem("userId", userid)
+        window.location.href = route
     })
     .catch((err) => {
         console.log(err);
@@ -42,3 +44,18 @@ function valuesRegister() {
         console.log(err);
     })
 }
+function toggleDropdown() {
+    var dropdown = document.getElementById("dropdown-menu");
+    dropdown.classList.toggle("show");
+}
+window.onclick = function(event) {
+    if (!event.target.matches(".user-name")) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains("show")) {
+                openDropdown.classList.remove("show");
+        }
+      }
+    }
+};

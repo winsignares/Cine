@@ -1,0 +1,40 @@
+{% extends "Main/LayoutMainLogin.html" %}
+{% block body %}
+<div class="login-box">
+    <!--Titulo del box-->
+    <h2>Login</h2>
+    <!--Formulario de login-->
+    <form>
+      <!--Nombre de usuario-->
+      <div class="user-box">
+        <input id="EmailUser" type="text" name="" required="">
+        <label>Nombre de usuario</label>
+      </div>
+      <!--Fin Nombre de usuario-->
+      <!--Contraseña-->
+      <div class="user-box">
+        <input id="PassUser" type="password" name="" required="">
+        <label>Contraseña</label>
+      </div>
+      <!--Contraseña-->
+      <!--Boton para login-->
+      <a onclick="valuesUser()" href="#"><!--href="/fronted/indexMain"-->
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Ingresar
+      </a>
+      <a href="/fronted/indexmainregistro">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Registrar
+      </a>
+      <!--Fin boton-->
+    </form>
+    <!--fin Formulario de login-->
+  </div>
+  <!--Fin Box para el login-->
+  {% endblock %}

@@ -69,7 +69,7 @@ app.register_blueprint(routes_Admin, url_prefix="/fronted")
 @app.route("/")
 def index():
     titulo= "Pagina Princiapl"
-    return render_template('/Main/MainLogin.html', titles=titulo)
+    return render_template('/Main/IndexMainLogin.html', titles=titulo)
 
 @app.route("/Dainer")
 def otr():

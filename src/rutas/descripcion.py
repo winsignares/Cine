@@ -7,10 +7,11 @@ routes_Descripcion = Blueprint("routes_Descripcion", __name__)
 @routes_Descripcion.route('/indexDescripcion', methods=['GET'] )
 def indexDescripcion():
     
-    return render_template('/Main/Descripcion.html')
+    return render_template('/Main/IndexDescripcion.html')
 
 @app.route('/mostrar', methods=['GET'])
 def mostar():
+    print("get data...\n")
     datos= {}
     resultado = db.session.query(peliculas).select_from(peliculas).all()
     i=0
@@ -27,6 +28,6 @@ def mostar():
             'video':pelis.video,
 
         }  
-        users.append(datos)
-        print("\n",users,"\n")
+    users.append(datos)
+    print("\n",users,"\n")
     return jsonify(datos)
