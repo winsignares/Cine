@@ -31,14 +31,14 @@ def validarUsuarioslg():
     user = usuarios.query.filter_by(
         correo_electronico=email, contrasena=password).first()
     print("\nEmail:", email, "Password:", password, "\n")
-    # Consulta SQL para verificar si el cliente tiene acceso
-    query = "SELECT COUNT(*) FROM clientes WHERE cliente = %s"
     print("\nuser response:", type(user))
     userid = user.id
-    if user:
-        nav = "/fronted/indexMain"
-    else:
+    if not user:
         nav = "/fronted/indexmainlogin"
+    elif user.Rol == "cliente":
+        nav = "/fronted/indexMain"
+    elif user.Rol == "admin":
+        nav = "/fronted/indexAdmin"
 
     data = {
         'userid': userid,
@@ -63,7 +63,7 @@ def validarUsuariosrg():
     print("ok")
     return "/fronted/indexmainlogin"
     
-@routes_mainlogin.route('/getuser', methods=['POST'])
+@routes_mainlogin.route('/getuser', methods=['GET'])
 def getUserById():
     userId = request.json['userid']
     user = usuarios.query.filter_by(id=userId).first()
