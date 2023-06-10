@@ -4,6 +4,9 @@ routes_asientos = Blueprint("routes_asientos", __name__)
 from Model.Funciones import funciones
 from Model.Asientos import asientos
 from Model.Compras import compras
+from Model.peliculas import peliculas
+from Model.Salas import salas
+
 
 
 @routes_asientos.route('/indexAsientos', methods=['GET'] )
@@ -46,19 +49,7 @@ def savecompras():
     db.session.add(new_compra)
     db.session.commit()
     return '/Tcompra'
-#mostrar asientos
-@routes_asientos.route('/mostrar_asientos/<id_sala>', methods=['GET'])
-def obtener_asientos(id_sala):
-    asientos = asientos.query.filter_by(id_sala=id_sala).all()
-    resultado = []
-    for asiento in asientos:
-        resultado.append({
-            'id': asiento.id,
-            'numero': asiento.numero,
-            'estado': asiento.estado
-        })
 
-    return jsonify(resultado)
 #guardar asiento 
 @routes_asientos.route('/save_asiento', methods=['POST'] )
 def save_asientos():
@@ -73,6 +64,21 @@ def save_asientos():
     return redirect('/Tasientos')
     
     
+#mostrar asientos
+@routes_asientos.route('/mostrar_asientos', methods=['GET'])
+def obtener_asientos():
+    id_sala = request.args.get('id_sala')
+    id_funcion = request.args.get('id_funcion')
 
+    asientos_query = asientos.query.select_from(asientos).join(funciones, asientos.id_sala == funciones.id_sala).filter(funciones.id == id_funcion).all()
+    resultado = []
+    for asiento in asientos_query:
+        resultado.append({
+            'id': asiento.id,
+            'numero': asiento.numero,
+            'estado': asiento.estado
+        })
+
+    return jsonify(resultado)
 
 
