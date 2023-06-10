@@ -32,7 +32,7 @@ def validarUsuarioslg():
         correo_electronico=email, contrasena=password).first()
     print("\nEmail:", email, "Password:", password, "\n")
     print("\nuser response:", type(user))
-    userid = user.id
+    userid = usuarios.Rol
     if not user:
         nav = "/fronted/indexmainlogin"
     elif user.Rol == "cliente":

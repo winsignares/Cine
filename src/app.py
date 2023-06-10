@@ -10,7 +10,6 @@ from api.Compra import routes_compra
 from api.Asientos import routes_Iasiento
 from api.Tickets import routes_tickets
 
-
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
 from rutas.descripcion import routes_Descripcion
@@ -32,6 +31,7 @@ from rutas.DescripDragonBallSuper import routes_DescripDragonBallSuper
 from rutas.DescripMandalorian import routes_DescripMandalorian
 from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
+
 #Ubicacion rutas
 
 app.register_blueprint(routes_Descripcion, url_prefix="/fronted")
@@ -52,6 +52,7 @@ app.register_blueprint(routes_DescripStarTrek,url_prefix="/fronted")
 app.register_blueprint(routes_DescripDragonBallSuper,url_prefix="/fronted")
 app.register_blueprint(routes_DescripMandalorian,url_prefix="/fronted")
 
+
 #ubicacion del api
 app.register_blueprint(routes_compra, url_prefix="/api")
 app.register_blueprint(routes_funciones, url_prefix="/api")
@@ -65,6 +66,7 @@ app.register_blueprint(routes_tickets, url__prefix="/api")
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
 app.register_blueprint(routes_asientos,url_prefix="/fronted")
 app.register_blueprint(routes_Admin, url_prefix="/fronted")
+
 
 @app.route("/")
 def index():

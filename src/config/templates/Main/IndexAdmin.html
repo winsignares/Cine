@@ -1,8 +1,55 @@
 {% extends "Main/LayoutMainLogin.html" %}
 {% block body %}
-  <title>Administrador de Cine</title>
- <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
-  <h1>Administrador de Cine</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <!--Peliculas-->
+    
+    </title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;700;900&display=swap"
+        rel="stylesheet">
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- APP CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/grid.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
+</head>
+<body>
+<div class="nav-wrapper">
+    <div class="container">
+        <div class="nav">
+            <a href="#" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="indexMain">Inicio</a></li>
+                <li><a href="indexMain">Peliculas</a></li>
+                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li><a href="indexAsientos">Asientos</a></li>
+                <li>
+                    <a href="./main.html" class="btn btn-hover">
+                        <span>Iniciar sesion</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+            <!-- fin MENU PARA CELULAR -->
+        </div>
+    </div>
+</div>
+<!-- FIN NAV -->
 
   
   <div class="form-container">
