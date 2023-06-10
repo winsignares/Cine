@@ -63,7 +63,7 @@ def validarUsuariosrg():
     print("ok")
     return "/fronted/indexmainlogin"
     
-@routes_mainlogin.route('/getuser', methods=['POST'])
+@routes_mainlogin.route('/getuser', methods=['GET'])
 def getUserById():
     userId = request.json['userid']
     user = usuarios.query.filter_by(id=userId).first()

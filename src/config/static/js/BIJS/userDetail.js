@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',  function () {
 function getUserLogged() {
   const userId = localStorage.getItem("userId")
   console.log("user logged: ", userId)
-  axios.post('/fronted/getuser', {
+  axios.get('/fronted/getuser', {
     userid: userId
   })
 
