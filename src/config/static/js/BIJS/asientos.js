@@ -93,28 +93,78 @@ function saveTicket() {
   };
 
   axios.post('/fronted/save_compras', ticketData)
-    .then(function (response) {
-      console.log('Ticket guardado:', response.data);
-      // Realizar acciones adicionales después de guardar el ticket, si es necesario
-    })
-    .catch(function (error) {
-      console.error('Error al guardar el ticket:', error);
-    });
+  .then(function (response) {
+    console.log('Ticket guardado:', response.data);
+    alert('El ticket se ha guardado correctamente.'); // Mostrar mensaje de éxito al usuario
+    window.location.href = 'indexMain'; // Redirigir al archivo "indexMain.html"
+  })
+  .catch(function (error) {
+    console.error('Error al guardar el ticket:', error);
+    alert('Hubo un error al guardar el ticket. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
+  });
+
+  
 }
 
 // asientos 
+function obtenerAsientosSeleccionados() {
+  var asientosSeleccionados = [];
+  var asientos = document.getElementsByClassName('seat');
+
+  for (var i = 0; i < asientos.length; i++) {
+    var asiento = asientos[i];
+    if (asiento.classList.contains('selected')) {
+      var asientoSeleccionado = {
+        id: asiento.getAttribute('data-id'),
+        numero: asiento.id
+      };
+      asientosSeleccionados.push(asientoSeleccionado);
+    }
+  }
+
+  return asientosSeleccionados;
+}
 
 
-function guardarAsiento(idAsiento) {
-  axios.post(`/fronted/guardar_asiento/${idAsiento}`)
-    .then(function (response) {
-      // El asiento se guardó exitosamente
-      console.log(response.data.message);
-      // Realizar acciones adicionales si es necesario
-    })
-    .catch(function (error) {
-      // Ocurrió un error al guardar el asiento
-      console.error('Error al guardar el asiento:', error.response.data.error);
-      // Realizar acciones adicionales si es necesario
-    });
+function saveAsientos() {
+  const asientosSeleccionados = obtenerAsientosSeleccionados(); // Obtén los asientos seleccionados
+  const idSala = document.getElementById('id_sala').value; // Obtén el ID de la sala
+
+  if (asientosSeleccionados.length === 0) {
+    alert('Debes seleccionar al menos un asiento.');
+    return;
+  }
+
+  // Realizar una solicitud POST para cada asiento seleccionado
+  asientosSeleccionados.forEach(function(asiento) {
+    const url = '/fronted/save_asiento';
+
+    const data = {
+      id_sala: idSala,
+      numero: asiento.numero,
+      estado: 'seat sold'
+    };
+
+    axios.post(url, data)
+      .then(function(response) {
+        console.log('Asiento guardado:', response.data);
+        const asientoGuardado = response.data.asiento;
+
+        // Realizar acciones adicionales con el asiento guardado
+        // Por ejemplo, actualizar la interfaz de usuario para reflejar el estado del asiento
+
+        // Actualizar el estado del asiento en la interfaz de usuario
+        const asientoElement = document.getElementById(asientoGuardado.id);
+        asientoElement.classList.remove('seat');
+        asientoElement.classList.add('seat-sold');
+
+        // Realizar otras acciones necesarias
+      })
+      .catch(function(error) {
+        console.error('Error al guardar el asiento:', error);
+      });
+  });
+
+  // Resto de la lógica para guardar el ticket y redireccionar al usuario
+  // ...
 }

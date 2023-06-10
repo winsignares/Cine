@@ -7,7 +7,7 @@
               <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
           </a>
           <ul class="nav-menu" id="nav-menu">
-              <li><a href="indexAdmin">Inicio</a></li>
+              <li><a href="indexMain">Inicio</a></li>
               <li><a href="./Peliculas.html">Peliculas</a></li>
               <li><a href="./acercaDe.html">Acerca de</a></li>
               <li><a href="indexAsientos">Asientos</a></li>
@@ -148,7 +148,7 @@
               <label for="total">Total por Asiento:</label>
               <input type="number" class="form-control" id="total" required>
             </div>
-            <button type="submit" class="btn btn-primary" >Comprar Ticket</button>
+            <button onclick="saveAsientos()" type="submit" class="btn btn-primary" >Comprar Ticket</button>
           </form>
           <div value="'" id="ticketResult" style="display: none;">
             <h5>Ticket Generado:</h5>
@@ -156,5 +156,6 @@
           </div>
         </div>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </div>
 {% endblock %}

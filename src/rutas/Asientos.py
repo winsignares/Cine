@@ -60,20 +60,19 @@ def obtener_asientos(id_sala):
 
     return jsonify(resultado)
 #guardar asiento 
-@routes_asientos.route('/guardar_asiento/<id_asiento>', methods=['POST'])
-def guardar_asiento(id_asiento):
-    try:
-        asiento = asientos.query.get(id_asiento)
-        
-        if asiento.estado == 'seat':
-            asiento.estado = 'sold'
-            db.session.commit()
-            return jsonify({'message': 'Asiento guardado exitosamente.'}), 200
-        else:
-            return jsonify({'error': 'El asiento no está disponible.'}), 400
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
- 
+@routes_asientos.route('/save_asiento', methods=['POST'] )
+def save_asientos():
+    #request.form['title']
+    id_sala = request.json['id_sala']
+    numero = request.json['numero']
+    estado = request.json['estado']
+    print(numero,estado)
+    new_asiento = asientos( id_sala, numero, estado)
+    db.session.add(new_asiento)
+    db.session.commit()
+    return redirect('/Tasientos')
+    
+    
 
 
 
