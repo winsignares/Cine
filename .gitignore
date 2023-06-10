@@ -1,11 +1,18 @@
 # Byte-compiled / optimized / DLL files
-src/Model/__pycache__/
+src/Model/__pycache__/Asientos.cpython-311.pyc
 src/Model/__pycache__/Peliculas.cpython-311.pyc
+src/Model/__pycache__/peliculas.cpython-311.pyc
+src/rutas/__pycache__/Asientos.cpython-311.pyc
+src/rutas/__pycache__/descripcion.cpython-311.pyc
+src/Model/__pycache__/
+<<<<<<< HEAD
 src/Model/__pycache__/Peliculas.cpython-310.pyc
 src/api/__pycache__/Pelicula.cpython-310.pyc
 src/rutas/__pycache__/Admin.cpython-310.pyc
 src/rutas/__pycache__/Asientos.cpython-310.pyc
 src/rutas/__pycache__/Mainlogin.cpython-310.pyc
+=======
+>>>>>>> 38e7075c6d86bb88b1ed6716bc9e6d5ca1975f39
 src/Model/__pycache__/Asientos.cpython-311.pyc
 src/rutas/__pycache__/Asientos.cpython-311.pyc
 src/rutas/__pycache__/descripcion.cpython-311.pyc

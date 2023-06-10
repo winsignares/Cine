@@ -36,7 +36,7 @@ def savecompras():
     total_pagado = request.json['total_pagado']
     fecha_compra = request.json['fecha_compra']
     print(id_usuarios,id_funcion,cantidad_tickets,total_pagado,fecha_compra)
-    new_compra = compras(id_usuarios,id_funcion,cantidad_tickets,total_pagado,fecha_compra)
+    new_compra = compras(compras.id_usuarios, compras.id_funcion,compras.cantidad_tickets,compras.total_pagado,compras.fecha_compra)
     db.session.add(new_compra)
     db.session.commit()
     return('/Tcompra')
