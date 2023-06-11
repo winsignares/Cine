@@ -32,10 +32,11 @@ def chair():
 def save_asientos():
     #request.form['title']
     id_sala = request.json['id_sala']
+    id_funcion = request.json['id_funcion']
     numero = request.json['numero']
     estado = request.json['estado']
     print(numero,estado)
-    new_asiento = asientos( id_sala.numero, estado)
+    new_asiento = asientos( id_sala, id_funcion ,numero, estado)
     db.session.add(new_asiento)
     db.session.commit()
     return redirect('/Tasientos')

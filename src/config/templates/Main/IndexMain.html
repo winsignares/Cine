@@ -33,7 +33,7 @@
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#">Inicio</a></li>
                 <li><a href="./Peliculas.html">Peliculas</a></li>
-                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li><a href="indexAcerda">Acerca de</a></li>
                 <li><a href="indexAsientos">Asientos</a></li>
                 <li>
                     <a href="./main.html" class="btn btn-hover">
@@ -183,7 +183,7 @@
     <div class="top-movies-slide">
         <div class="owl-carousel" id="top-movies-slide">
             <!-- PELICULA -->
-            <div class="movie-item">
+            <div class="movie-item" >
                 <a onclick="addPelis()">
                     <img src="{{url_for('static',filename='/assets/series/supergirl.jpg')}}"alt="">
                 <div class="movie-item-content">
@@ -763,7 +763,7 @@
                         <div class="content">
                             <p><b>Help</b></p>
                             <ul class="footer-menu">
-                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                                <li><a href="indexAcerda">ACERCA DE NOSOTROS</a></li>
                             </ul>
                         </div>
                     </div>
@@ -784,8 +784,8 @@
     </div>
 </body>
 </footer>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- OWL CAROUSEL -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
