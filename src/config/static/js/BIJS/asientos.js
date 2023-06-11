@@ -22,7 +22,7 @@
   window.onload = autoRellenarInputsNoEditables;
 
   // Asientos
-  const container = document.querySelector('#contenedor_asietos');
+  const container = document.querySelector('#contenedor_asientos');
   const seats = container.querySelectorAll('.seat');
   const movieSelect = container.querySelector('#movie');
   const asientosElement = document.getElementById('asientos');
@@ -129,6 +129,8 @@ function obtenerAsientosSeleccionados() {
 function saveAsientos() {
   const asientosSeleccionados = obtenerAsientosSeleccionados(); // Obtén los asientos seleccionados
   const idSala = document.getElementById('id_sala').value; // Obtén el ID de la sala
+  const idFuncion = document.getElementById('id_funcion').value;
+
 
   if (asientosSeleccionados.length === 0) {
     alert('Debes seleccionar al menos un asiento.');
@@ -141,6 +143,7 @@ function saveAsientos() {
 
     const data = {
       id_sala: idSala,
+      id_funcion: idFuncion,
       numero: asiento.numero,
       estado: 'seat sold'
     };
@@ -164,33 +167,4 @@ function saveAsientos() {
         console.error('Error al guardar el asiento:', error);
       });
   });
-
-  // Resto de la lógica para guardar el ticket y redireccionar al usuario
-  // ...
 }
-function mostrarAsientosSeleccionados() {
-  const idSala = document.getElementById('id_sala').value; // Reemplaza con el ID de la sala deseada
-  const idFuncion = document.getElementById('id_funcion').value; // Reemplaza con el ID de la función deseada
-  
-
-  axios.get(`/fronted/mostrar_asientos?id_sala=${idSala}&id_funcion=${idFuncion}`)
-    .then(function(response) {
-      const asientos = response.data;
-      asientos.forEach(function(asiento) {
-        const asientoElement = document.getElementById(asiento.id);
-        if (asiento.estado === 'seat-sold') {
-          asientoElement.classList.remove('seat');
-          asientoElement.classList.add('seat sold');
-        } else {
-          asientoElement.classList.remove('seat sold');
-          asientoElement.classList.add('seat');
-        }
-      });
-    })
-    .catch(function(error) {
-      console.error('Error al obtener los asientos:', error);
-    });
-}
-
-// Llamar a la función para mostrar los asientos seleccionados al cargar la página
-mostrarAsientosSeleccionados();
