@@ -1,26 +1,27 @@
-{% extends "Main/DESCRIPCIONES/LayoutAdmin.html" %}
+{% extends "Main/LayoutAdmin.html" %}
 {% block body %}
-  <title>Administrador de Cine</title>
+  <title>PELICULAS - ADMIN</title>
  <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
-  <h1>Administrador de Cine</h1>
+  <h1>PELICULAS - ADMIN</h1>
 
   
   <div class="form-container">
-    <h2>Agregar Película</h2>
+    <h2>PELICULAS</h2>
     <form id="formulario">
         <!--EMPIEZO DESDE AQUI-->
         <div class="ID">
       <div class="form-group">
         <div class="ID_text">
-        <labe>ID:</label>
+        <labe>Busqueda por ID:</label>
         </div>
         <input type="text"  placeholder="Escribe..." id="id">
       </div>
     </div>
+    <h3>GUARDAR NUEVAS PELICULAS</h3>
     <!------>
     <div class="Titulo">
       <div class="form-group">
-        <label>Título:</label>
+        <label>Título pelicula:</label>
         <input type="text" placeholder="Escribe..." id="titulo">
       </div>
        <!------>
@@ -45,11 +46,11 @@
       </div>
        <!------>
       <div class="form-group">
-        <label>Imagen:</label>
+        <label>Img - link :</label>
         <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
       </div>
        <!------>
-      <button type="submit">Agregar</button>
+      <button type="submit">AGREGAR</button>
     </form>
   </div>
 
@@ -64,7 +65,7 @@
           <th>Duración</th>
           <th>Sinopsis</th>
           <th>Director</th>
-          <th>Imagen</th>
+          <th>Img - link</th>
         </tr>
       </thead>
       <tbody id="peliculas-lista">
