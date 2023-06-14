@@ -15,7 +15,6 @@ from rutas.Mainlogin import routes_mainlogin
 from rutas.descripcion import routes_Descripcion
 from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
-from rutas.Acerca import routes_Acerca
 
 #Ubicacion rutas
 
@@ -31,13 +30,11 @@ app.register_blueprint(routes_salas, url_prefix="/api")
 app.register_blueprint(routes_Iasiento, url_prefix="/api")
 app.register_blueprint(routes_usuarios, url_prefix="/api")
 app.register_blueprint(routes_tickets, url__prefix="/api")
-app.register_blueprint(routes_Acerca, url_prefix="/api")
 
 #Ubicacion rutas
 app.register_blueprint(routes_mainlogin, url_prefix="/fronted")
 app.register_blueprint(routes_asientos,url_prefix="/fronted")
 app.register_blueprint(routes_Admin, url_prefix="/fronted")
-app.register_blueprint(routes_Acerca, url_prefix="/fronted")
 
 
 @app.route("/")
