@@ -168,3 +168,5 @@ function saveAsientos() {
       });
   });
 }
+
+const token = localStorage.getItem('token');

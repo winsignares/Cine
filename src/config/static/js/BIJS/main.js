@@ -7,3 +7,5 @@ function addPelis() {
     // Redirigir a la página indexAsientos con el título de la película en la URL
     window.location.href = url
   }
+  
+  sessionStorage.setItem('token', token);
