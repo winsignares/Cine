@@ -11,7 +11,9 @@ body {
 h1, h2 {
   text-align: center;
   margin: 20px 0;
-  color: #dd0000;
+  color: #be0000;
+  margin-left: 10px;
+  margin-top: 30px;
   text-shadow: 2px 2px 4px rgba(42, 0, 0, 0.2);
 }
 
@@ -113,6 +115,7 @@ table th {
 #peliculas-lista td {
   text-align: left;
   color: #fff;
+  
 }
 
 #peliculas-lista tr:nth-child(even) {
@@ -134,5 +137,37 @@ table th {
 
 .fade-in {
   animation: fadeIn 0.5s ease;
+  margin-left: 510px;
 }
+.Mondongo{
+  margin-left: -121px;
+  margin-top: 80px;
+}
+.Busqueda{
+  margin-left: 185px;
+}
+.Sopa{
+  margin-left: -90px;
+  margin-top: 80px;
+}
+.ddd{
+    margin-left: -45px;
+    margin-top: 70px;
+}
+.genero {
+  margin-left: 630px;
+  margin-top: 1000;
+}
+.Duracion{
+    margin-left: -36px;
+    margin-top: 70px;
+}
+.Duración {
+  margin-left: 2000;
+}
+.titulo{
+  margin-left: 230px;
+}
+
+
 /*ff*/
