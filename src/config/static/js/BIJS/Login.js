@@ -3,8 +3,8 @@ function valuesUser() {
     const Password = document.getElementById('PassUser').value
 
     console.log("getData.Email:'",Email,"'.and.Password:'",Password,"'")
-
     console.log("Validando User|...")
+
     axios.post('/fronted/validarUsuarioslg',{
         correo_electronico : Email,
         contrasena : Password
@@ -13,7 +13,9 @@ function valuesUser() {
     .then(function(res){ 
         const route = res.data.nav
         const userid = res.data.userid
+        const rol = res.data.rol
         localStorage.setItem("userId", userid)
+        alert("User id:",userid,"rol:",rol)
         window.location.href = route
     })
     .catch((err) => {
@@ -29,7 +31,7 @@ function valuesRegister() {
     console.log("Validando Usuarios - Registro|...")
     console.log("Email:",EmailUsuario,"Password:",PassUsuario);
 
-    axios.post('/fronted/validarUsuariosrg',{
+    axios.post('/fronted/savexUsuariosrg',{
         nombre: NameUsuario,
         Rol: RolUsuario,
         correo_electronico: EmailUsuario,
@@ -44,18 +46,3 @@ function valuesRegister() {
         console.log(err);
     })
 }
-function toggleDropdown() {
-    var dropdown = document.getElementById("dropdown-menu");
-    dropdown.classList.toggle("show");
-}
-window.onclick = function(event) {
-    if (!event.target.matches(".user-name")) {
-        var dropdowns = document.getElementsByClassName("dropdown-content");
-        for (var i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains("show")) {
-                openDropdown.classList.remove("show");
-        }
-      }
-    }
-};

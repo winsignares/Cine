@@ -24,31 +24,32 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
 </head>
 <body>
-<div class="nav-wrapper">
-    <div class="container">
-        <div class="nav">
-            <a href="#" class="logo">
-                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
-            </a>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="./Peliculas.html">Peliculas</a></li>
-                <li><a href="indexAcerda">Acerca de</a></li>
-                <li><a href="indexAsientos">Asientos</a></li>
-                <li>
-                    <a href="./main.html" class="btn btn-hover">
-                        <span>Iniciar sesion</span>
-                    </a>
-                </li>
-            </ul>
-            <!-- MENU PARA CELULAR -->
-            <div class="hamburger-menu" id="hamburger-menu">
-                <div class="hamburger"></div>
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li id="usuario"><a href="#">Inicio</a></li>
+                    <li><a href="./Peliculas.html">Peliculas</a></li>
+                    <li><a href="IndexAcercaDe.html">Acerca de</a></li>
+                    <li><a href="indexAsientos">Asientos</a></li>
+                    <li><a href="indexAdmin">Administrador</a></li>
+                    <li>
+                        <a href="./main.html" class="btn btn-hover">
+                            <span>Iniciar sesion</span>
+                        </a>
+                    </li>
+                </ul>
+                <!-- MENU PARA CELULAR -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+                <!-- fin MENU PARA CELULAR -->
             </div>
-            <!-- fin MENU PARA CELULAR -->
         </div>
     </div>
-</div>
 <!-- FIN NAV -->
 
 <!-- INICIAR SESION -->
@@ -791,4 +792,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous"></script>
-{% endblock %}
+    {% endblock %}
