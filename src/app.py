@@ -15,10 +15,12 @@ from rutas.Mainlogin import routes_mainlogin
 from rutas.descripcion import routes_Descripcion
 from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
+from rutas.Ticket import routes_CTicket
 
 #Ubicacion rutas
 
 app.register_blueprint(routes_Descripcion, url_prefix="/fronted")
+app.register_blueprint(routes_CTicket, url_prefix="/fronted")
 
 
 
