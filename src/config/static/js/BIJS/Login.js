@@ -31,7 +31,7 @@ function valuesRegister() {
     console.log("Validando Usuarios - Registro|...")
     console.log("Email:",EmailUsuario,"Password:",PassUsuario);
 
-    axios.post('/fronted/savexUsuariosrg',{
+    axios.post('/fronted/saveUsuariosrg',{
         nombre: NameUsuario,
         Rol: RolUsuario,
         correo_electronico: EmailUsuario,
