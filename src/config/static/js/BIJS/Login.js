@@ -12,10 +12,10 @@ function valuesUser() {
     
     .then(function(res){ 
         const route = res.data.nav
-        const userid = res.data.userid
-        const rol = res.data.rol
-        localStorage.setItem("userId", userid)
-        alert("User id:",userid,"rol:",rol)
+        const token = res.data.token
+        sessionStorage.setItem("token", token)
+        alert("OK")
+        console.log(token)
         window.location.href = route
     })
     .catch((err) => {

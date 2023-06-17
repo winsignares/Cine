@@ -48,3 +48,21 @@ def mostrar_triler():
     else:
         return jsonify({'error': 'Película no encontrada'})
 
+@routes_Descripcion.route('/nameUser', methods=['GET'])
+def nameUser():
+    item = request.json['item']
+    tblUser = db.Model.metadata.tables['tblusuarios'] 
+    User = db.session.query(tblUser).filter_by(token=item).first()
+    datos = {}
+    for _ in User:
+        datos = {
+            'nameUser': User.nombre
+        }
+    if User:
+        boolean = True
+        print("\n",boolean,"\n")
+    else:
+        boolean = False
+        print("\n",boolean,"\n")
+    datos.update({'bool':boolean})
+    return jsonify(datos)

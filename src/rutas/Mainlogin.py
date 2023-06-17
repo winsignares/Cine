@@ -42,18 +42,18 @@ def validarUsuarioslg():
     else:
         nav = "/fronted/indexmainlogin"
 
-    datos = {}
+    datos = {'nav':nav, 'token':token}
         #descpeli = db.Model.metadata.tables['tblpeliculas'] 
-    User = db.session.query(usuarios).filter_by(email=email).first()
-    i = 0
-    for infoUser in User:
-        i += 1
-        datos = {
-            'userid': infoUser.id,
-            'rol': infoUser.Rol
-        }
+    # User = db.session.query(usuarios).filter_by(correo_electronico=email).first()
+    
+    # for infoUser in range(User):
+        
+    #     datos = {
+    #         'userid': infoUser.id,
+    #         'rol': infoUser.Rol
+    #     }
 
-    datos.update({'nav':nav})
+    # datos.update({})
 
     return jsonify(datos)
 
@@ -94,7 +94,7 @@ def saveUsuariosrg():
     db.session.commit()
     
     # Redirigir al usuario a la ubicación indicada
-    return redirect("/fronted/indexmainlogin")
+    return "/fronted/indexmainlogin"
 
 def generar_token(correo_electronico):
     now = datetime.utcnow()
