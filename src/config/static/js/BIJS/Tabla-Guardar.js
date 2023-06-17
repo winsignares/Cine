@@ -42,3 +42,56 @@ function sendNewPeliculas() {
     console.error('Error:', error);
   });
 }
+
+
+function cargarDatosTabla() {
+  axios.get('/fronted/mostrar_pelicula')
+    .then(function(response) {
+      var peliculas = response.data;
+      var tableBody = document.getElementById('peliculas-lista');
+
+      peliculas.forEach(function(pelicula) {
+        var row = document.createElement('tr');
+
+        var idCell = document.createElement('td');
+        idCell.textContent = pelicula.ID;
+        row.appendChild(idCell);
+
+        var tituloCell = document.createElement('td');
+        tituloCell.textContent = pelicula.Título;
+        row.appendChild(tituloCell);
+
+        var generoCell = document.createElement('td');
+        generoCell.textContent = pelicula.Género;
+        row.appendChild(generoCell);
+
+        var duracionCell = document.createElement('td');
+        duracionCell.textContent = pelicula.Duración;
+        row.appendChild(duracionCell);
+
+        var sinopsisCell = document.createElement('td');
+        sinopsisCell.textContent = pelicula.Sinopsis;
+        row.appendChild(sinopsisCell);
+
+        var directorCell = document.createElement('td');
+        directorCell.textContent = pelicula.Director;
+        row.appendChild(directorCell);
+
+        var imagenCell = document.createElement('td');
+        imagenCell.textContent = pelicula['Img - link'];
+        row.appendChild(imagenCell);
+
+        var trailerCell = document.createElement('td');
+        trailerCell.textContent = pelicula.trailer;
+        row.appendChild(trailerCell);
+
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(function(error) {
+      console.log('Error al obtener los datos:', error);
+    });
+}
+window.onload = function() {
+  cargarDatosTabla();
+};

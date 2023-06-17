@@ -81,7 +81,7 @@ def saveUsuariosrg():
     db.session.commit()
     
     # Redirigir al usuario a la ubicación indicada
-    return redirect("/fronted/indexmainlogin")
+    return "/fronted/indexmainlogin"
 
 def generar_token(correo_electronico):
     now = datetime.utcnow()
