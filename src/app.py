@@ -17,12 +17,16 @@ from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
 from rutas.Ticket import routes_CTicket
 from rutas.Acerca import routes_Acerca
+from rutas.AdminCompras import routes_AdminC
+from rutas.Adminfunciones import routes_AdminF
 
 #Ubicacion rutas
 
 app.register_blueprint(routes_Descripcion, url_prefix="/fronted")
 app.register_blueprint(routes_CTicket, url_prefix="/fronted")
 app.register_blueprint(routes_Acerca, url_prefix="/fronted")
+app.register_blueprint(routes_AdminC, url_prefix="/fronted")
+app.register_blueprint(routes_AdminF,url_prefix="/fronted")
 
 
 #ubicacion del api

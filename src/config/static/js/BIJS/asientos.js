@@ -96,7 +96,7 @@ function saveTicket() {
   .then(function (response) {
     console.log('Ticket guardado:', response.data);
     alert('El ticket se ha guardado correctamente.'); // Mostrar mensaje de éxito al usuario
-    window.location.href = 'indexMain'; // Redirigir al archivo "indexMain.html"
+    window.location.href = 'CTicket'; // Redirigir al archivo "indexMain.html"
   })
   .catch(function (error) {
     console.error('Error al guardar el ticket:', error);
