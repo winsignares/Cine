@@ -27,3 +27,10 @@ def saveAdmin():
     db.session.add(new_pelis)
     db.session.commit()
     # return '/showAdmin'
+
+@routes_Admin.route('/mostrar_pelicula', methods=['GET'])
+def Peli():    
+        returnall = peliculas.query.all()
+        result_peli = peliculasSchema.dump(returnall)
+        return jsonify(result_peli)
+    

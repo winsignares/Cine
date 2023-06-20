@@ -1,56 +1,58 @@
 {% extends "Main/LayoutAdmin.html" %}
 {% block body %}
   <title>PELICULAS - ADMIN</title>
- <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
   <h1>PELICULAS - ADMIN</h1>
 
-  
   <div class="form-container">
-    <h2>PELICULAS </h2>
+    <h2>PELICULAS</h2>
     
-    <form id="formulario">
-        <!--EMPIEZO DESDE AQUI-->
-        <div class="ID">
-      <div class="form-group">
-        <div class="ID_text">
-        <labe class="Busqueda">Busqueda por ID:</label>
+    <form class="formulario" id="formulario">
+      <div class="ID">
+        <div class="form-group">
+          <div class="ID_text">
+            <label class="Busqueda">Busqueda por ID:</label>
+          </div>
+          <input type="text" class="Mondongo" placeholder="Escribe..." id="id">
         </div>
-        <input type="text" class="Mondongo"  placeholder="Escribe..." id="id">
       </div>
-    </div>
-    <h3>GUARDAR NUEVAS PELICULAS</h3>
-    <!------>
-      <div class="form-group">
-        <label class="titulo">Título pelicula:  </label>
-        <input type="text" class="Sopa" placeholder="Escribe..." id="titulo">
+      
+      <h3>GUARDAR NUEVAS PELICULAS</h3>
+      
+      <div class="form-group-horizontal">
+        <div class="form-group">
+          <label class="Titulo">Titulo:</label>
+          <input type="text" class="Titulo" placeholder="Escribe..." id="duracion">
+        </div>
+
+        <div class="form-group">
+          <label class="Genero" >Genero</label>
+          <input type="text" class="Genero" placeholder="Escribe..." id="sinopsis">
+        </div>
+        <div class="form-group">
+          <label class="Duración">Duración:</label>
+          <input type="text" class="Duracion" placeholder="Escribe..." id="duracion">
+        </div>
       </div>
-       <!------>
-      <div class="form-group">
-        <label class="genero">Género:</label>
-        <input type="text" class="ddd" placeholder="Escribe..."  id="genero">
+      
+      <div class="form-group-horizontal">
+
+        <div class="form-group">
+          <label>Sinopsis:</label>
+          <input type="text" class="Sinopsis" placeholder="Escribe..." id="sinopsis">
+        </div>
+        <div class="form-group">
+          <label>Director:</label>
+          <input type="text" class="Director" placeholder="Escribe..." id="director">
+        </div>
+        <div class="form-group">
+          <label>Img - link:</label>
+          <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
+        </div>
       </div>
-       <!------>
-      <div class="form-group">
-        <label class="Duración">Duración:</label>
-        <input type="text" class="Duracion" placeholder="Escribe..."  id="duracion">
       </div>
-       <!------>
-      <div class="form-group">
-        <label>Sinopsis:</label>
-        <input type="text"class="Sinopsis" placeholder="Escribe..." id="sinopsis"></input>
-      </div>
-       <!------>
-      <div class="form-group">
-        <label>Director:</label>
-        <input type="text" class="Director" placeholder="Escribe..."  id="director">
-      </div>
-       <!------>
-      <div class="form-group">
-        <label>Img - link :</label>
-        <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
-      </div>
-       <!------>
-      <button onclick="sendNewPeliculas()" type="submit">AGREGAR</button>
+      <div class="form-group-horizontal">
+      <button class="button-agregar"  onclick="sendNewPeliculas()" type="submit">AGREGAR</button>
     </form>
   </div>
 
@@ -74,46 +76,46 @@
       </tbody>
     </table>
   </div>
-  <!-- FOOTER SECTION -->
-<footer class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-4 col-md-6 col-sm-12">
-                <div class="content">
-                    <a href="#" class="logo">
-                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
-                    </p>
-                </div>
-            </div>
-            <div class="col-8 col-md-6 col-sm-12">
-                <div class="row">
-                    <div class="col-3 col-md-6 col-sm-6">
-                        <div class="content">
-                            <p><b>Help</b></p>
-                            <ul class="footer-menu">
-                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="social-list">
-                        <a href="#" class="social-item">
-                            <i class="bx bxl-facebook"></i>
-                        </a>
-                        <a href="#" class="social-item">
-                            <i class="bx bxl-twitter"></i>
-                        </a>
-                        <a href="#" class="social-item">
-                            <i class="bx bxl-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</footer>
 
-  {% endblock %}
+  <!-- FOOTER SECTION -->
+  <footer class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-4 col-md-6 col-sm-12">
+          <div class="content">
+            <a href="#" class="logo">
+              <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et. Dolores, quibusdam?
+            </p>
+          </div>
+        </div>
+        <div class="col-8 col-md-6 col-sm-12">
+          <div class="row">
+            <div class="col-3 col-md-6 col-sm-6">
+              <div class="content">
+                <p><b>Help</b></p>
+                <ul class="footer-menu">
+                  <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="social-list">
+              <a href="#" class="social-item">
+                <i class="bx bxl-facebook"></i>
+              </a>
+              <a href="#" class="social-item">
+                <i class="bx bxl-twitter"></i>
+              </a>
+              <a href="#" class="social-item">
+                <i class="bx bxl-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+{% endblock %}
