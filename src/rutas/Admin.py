@@ -29,8 +29,8 @@ def saveAdmin():
     # return '/showAdmin'
 
 @routes_Admin.route('/mostrar_pelicula', methods=['GET'])
-def Peli():    
-        returnall = peliculas.query.all()
-        result_peli = peliculasSchema.dump(returnall)
-        return jsonify(result_peli)
-    
+def Peli():
+    returnall = peliculas.query.all()
+    peliculas_schema = peliculasSchema(many=True)
+    result_peli = peliculas_schema.dump(returnall)
+    return jsonify(result_peli)

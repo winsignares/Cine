@@ -44,6 +44,10 @@ function sendNewPeliculas() {
 }
 
 
+window.onload = function() {
+  cargarDatosTabla();
+};
+
 function cargarDatosTabla() {
   axios.get('/fronted/mostrar_pelicula')
     .then(function(response) {
@@ -54,35 +58,35 @@ function cargarDatosTabla() {
         var row = document.createElement('tr');
 
         var idCell = document.createElement('td');
-        idCell.textContent = pelicula.ID;
+        idCell.innerText = pelicula.id; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(idCell);
 
         var tituloCell = document.createElement('td');
-        tituloCell.textContent = pelicula.Título;
+        tituloCell.innerText = pelicula.titulo; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(tituloCell);
 
         var generoCell = document.createElement('td');
-        generoCell.textContent = pelicula.Género;
+        generoCell.innerText = pelicula.genero; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(generoCell);
 
         var duracionCell = document.createElement('td');
-        duracionCell.textContent = pelicula.Duración;
+        duracionCell.innerText = pelicula.duracion; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(duracionCell);
 
         var sinopsisCell = document.createElement('td');
-        sinopsisCell.textContent = pelicula.Sinopsis;
+        sinopsisCell.innerText = pelicula.sinopsis; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(sinopsisCell);
 
         var directorCell = document.createElement('td');
-        directorCell.textContent = pelicula.Director;
+        directorCell.innerText = pelicula.director; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(directorCell);
 
         var imagenCell = document.createElement('td');
-        imagenCell.textContent = pelicula['Img - link'];
+        imagenCell.innerText = pelicula.imagen; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(imagenCell);
 
         var trailerCell = document.createElement('td');
-        trailerCell.textContent = pelicula.trailer;
+        trailerCell.innerText = pelicula.video; // Asegúrate de utilizar el nombre de la propiedad correcto
         row.appendChild(trailerCell);
 
         tableBody.appendChild(row);
@@ -92,6 +96,3 @@ function cargarDatosTabla() {
       console.log('Error al obtener los datos:', error);
     });
 }
-window.onload = function() {
-  cargarDatosTabla();
-};
