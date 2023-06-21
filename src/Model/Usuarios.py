@@ -22,3 +22,4 @@ with app.app_context():
 class usuariosSchema(ma.Schema):
     class Meta:
         fields = ('id','Rol','nombre','correo_electronico','contrasena')
+#ESTE ES UN CAMPO VACIO
