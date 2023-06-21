@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         <!--Peliculas-->
-    
+    <li>
+        <a href="./main.html" class="btn btn-hover">
+            <span>PP</span>
+        </a>
+    </li>
+    </ul>
     </title>
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,6 +28,9 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='/css/main.css')}}">
 </head>
+<P>
+    ¡¡¡¡¡¡BIENVENIDOS!!!!!!!
+</P>
 <body>
     <div class="nav-wrapper">
         <div class="container">
@@ -32,10 +40,9 @@
                 </a>
                 <ul class="nav-menu" id="nav-menu">
                     <li id="usuario"><a href="#">Inicio</a></li>
-                    <li><a href="./Peliculas.html">Peliculas</a></li>
                     <li><a href="IndexAcercaDe">Acerca de</a></li>
                     <li><a href="indexAdmin">Administrador</a></li>
-                </ul>
+                    
                 <!-- MENU PARA CELULAR -->
                 <div class="hamburger-menu" id="hamburger-menu">
                     <div class="hamburger"></div>
@@ -777,6 +784,12 @@
             </div>
         </div>
     </div>
+    <li>
+        <a href="./main.html" class="btn btn-hover">
+            <span>Salir</span>
+        </a>
+    </li>
+    </ul>
 </body>
 </footer>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -785,4 +798,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous"></script>
+
+
     {% endblock %}
