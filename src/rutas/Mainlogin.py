@@ -63,35 +63,34 @@ def generar_token(email):
     return token
 
 #Registrar
-@routes_mainlogin.route('/saveUsuariosrg', methods=['POST'])
-def saveUsuariosrg():
-    nombre = request.json['nombre']
-    Rol = request.json['Rol']
-    correo_electronico = request.json['correo_electronico']
-    contrasena = request.json['contrasena']
-    
-    # Generar el token con el correo electrónico como información adicional
-    token = generar_token(correo_electronico)
-    
-    # Crear una nueva instancia de usuarios con los datos proporcionados y el token generado
-    new_user = usuarios(Rol, nombre, correo_electronico, contrasena, token)
-    
-    # Agregar el nuevo usuario a la sesión y guardar los cambios en la base de datos
+@routes_mainlogin.route('/guardaruser', methods=['POST'])
+def save_user():
+    fullname = request.form['fullname']
+    fullrol = request.form['fullrol']
+    fullcorreo = request.form['fullcorreo']
+    fullpassword = request.form['fullpassword']
+
+    # Verificar si el ID ya existe en la base de datos
+    existing_user = usuarios.query.filter_by(correo_electronico=fullcorreo).first()
+    if existing_user:
+        #aqui hago el validar, es decir si ya hay un dato, automaticamente no lo guardar y me muestra un mensaje
+        response_body = {
+            'message': 'El Correo ya está registrado'
+        }
+        
+        status = 400
+        headers = {'Content-Type': 'application/json'}
+        return jsonify(response_body), status, headers
+
+
+    new_user = usuarios(nombre=fullname, Rol=fullrol, correo_electronico=fullcorreo,contrasena=fullpassword)
     db.session.add(new_user)
     db.session.commit()
-    
-    # Redirigir al usuario a la ubicación indicada
-    return "/fronted/indexmainlogin"
 
-def generar_token(correo_electronico):
-    now = datetime.utcnow()
-    expiration = now + timedelta(hours=1)
-    
-    payload = {
-        "email": correo_electronico,
-        "exp": expiration
+    response_body = {
+        'message': 'Registro guardado exitosamente'
     }
-    
-    token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
-    
-    return token
+    status = 200
+    headers = {'Content-Type': 'application/json'}
+
+    return jsonify(response_body), status, headers

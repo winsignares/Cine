@@ -10,12 +10,11 @@ class usuarios(db.Model):
     contrasena = db.Column(db.String(100))
     token = db.Column(db.String(500))
 
-    def __init__(self, Rol, nombre, correo_electronico, contrasena, token):
+    def __init__(self, Rol, nombre, correo_electronico, contrasena):
         self.Rol = Rol
         self.nombre = nombre
         self.correo_electronico = correo_electronico
         self.contrasena = contrasena
-        self.token = token
         
 with app.app_context():
     db.create_all()
