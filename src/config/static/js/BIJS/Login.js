@@ -10,9 +10,9 @@ function valuesUser() {
         contrasena : Password
     })
     
-    .then(function(res){        
-        console.log(res.data);
-        window.location.href = res.data
+    .then(function(res){      
+        data = res.data  
+        window.location.href = res.data.nav
     })
     .catch((err) => {
         console.log(err);
@@ -27,7 +27,7 @@ function valuesRegister() {
     console.log("Validando Usuarios - Registro|...")
     console.log("Email:",EmailUsuario,"Password:",PassUsuario);
 
-    axios.post('/fronted/validarUsuariosrg',{
+    axios.post('/fronted/saveUsuariosrg',{
         nombre: NameUsuario,
         Rol: RolUsuario,
         correo_electronico: EmailUsuario,

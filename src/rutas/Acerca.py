@@ -3,7 +3,7 @@ from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, 
 routes_Acerca = Blueprint("routes_Acerca", __name__)
 
 
-@routes_Acerca.route('/indexAcerda', methods=['GET'] )
-def indexAcerca():
+@routes_Acerca.route('/IndexAcercaDe', methods=['GET'] )
+def IndexAcercaDe():
     
     return render_template('/Main/IndexAcercaDe.html')

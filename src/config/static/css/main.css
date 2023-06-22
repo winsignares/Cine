@@ -8,7 +8,6 @@
     --space-top: 30px;
 }
 
-
 html {
     height: 100%;
 }
@@ -88,7 +87,7 @@ body {
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 4px
+    letter-spacing: 4px;
 }
 
 .login-box a:hover {
@@ -133,7 +132,7 @@ body {
     height: 100%;
     background: linear-gradient(180deg, transparent, var(--main-color));
     animation: btn-anim2 1s linear infinite;
-    animation-delay: .25s
+    animation-delay: .25s;
 }
 
 @keyframes btn-anim2 {
@@ -154,7 +153,7 @@ body {
     height: 2px;
     background: linear-gradient(270deg, transparent, var(--main-color));
     animation: btn-anim3 1s linear infinite;
-    animation-delay: .5s
+    animation-delay: .5s;
 }
 
 @keyframes btn-anim3 {
@@ -175,7 +174,7 @@ body {
     height: 100%;
     background: linear-gradient(360deg, transparent, var(--main-color));
     animation: btn-anim4 1s linear infinite;
-    animation-delay: .75s
+    animation-delay: .75s;
 }
 
 @keyframes btn-anim4 {
@@ -188,3 +187,89 @@ body {
         bottom: 100%;
     }
 }
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: blur(5px);
+}
+
+#Login {
+    color: #c0392b;
+    font-family: fantasy;
+    border-style: initial;
+    border-radius: 100%;
+    border: #fff;
+
+
+}
+
+#pie {
+    filter: blur(1px);
+    filter: contrast(100px);
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--main-color),
+        0 0 25px var(--main-color),
+        0 0 50px var(--main-color),
+        0 0 100px var(--main-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+
+
+}
+
+/* Estilo para la barra de desplazamiento en navegadores webkit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+    /* ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #220d0d;
+    /* color de fondo de la pista */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #640f0f;
+    /* color del pulgar */
+    border-radius: 5px;
+    /* radio de borde del pulgar */
+}
+
+/* Estilo para la barra de desplazamiento en navegadores de Microsoft (Internet Explorer, Edge) */
+body {
+    scrollbar-base-color: #ccc;
+    /* color de fondo de la barra */
+    scrollbar-3dlight-color: #aaa;
+    /* color de luz 3D */
+    scrollbar-highlight-color: #fff;
+    /* color de resaltado */
+    scrollbar-track-color: #f1f1f1;
+    /* color de la pista */
+    scrollbar-arrow-color: #333;
+    /* color de la flecha */
+    scrollbar-shadow-color: #aaa;
+    /* color de sombra */
+    scrollbar-darkshadow-color: #666;
+    /* color de sombra oscura */
+    scrollbar-face-color: #888;
+    /* color de la cara */
+}
+
+#trailer {
+    background-color: rgb(181, 37, 37);
+}
+
+#Trailer:hover {
+    background-color: rgb(87, 12, 12);
+}
+
+/*Container*/
+
