@@ -43,17 +43,6 @@ def validarUsuarioslg():
         nav = "/fronted/indexmainlogin"
 
     datos = {'nav':nav, 'token':token}
-        #descpeli = db.Model.metadata.tables['tblpeliculas'] 
-    # User = db.session.query(usuarios).filter_by(correo_electronico=email).first()
-    
-    # for infoUser in range(User):
-        
-    #     datos = {
-    #         'userid': infoUser.id,
-    #         'rol': infoUser.Rol
-    #     }
-
-    # datos.update({})
 
     return jsonify(datos)
 
@@ -108,3 +97,20 @@ def generar_token(correo_electronico):
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
     
     return token
+
+@routes_mainlogin.route('/verifyLoginUser', methods=['POST'])
+def verifyLoginUser():
+    emailToken = request.json['emailToken']
+    #user = usuarios.query.filter_by(token=emailToken).first()
+    dato = db.session.query(usuarios.nombre).filter_by(token=emailToken).scalar()
+    print("\nUsuario:",dato," \nuser-Token:",emailToken,"\n")
+    datos = {}
+    if dato is not None:
+        datos.append({'cliente':dato})
+        booleans = True
+    else:
+        booleans = False
+
+    datos.append({'booleans':booleans})
+
+    return jsonify(datos)
