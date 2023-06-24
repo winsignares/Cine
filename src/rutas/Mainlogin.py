@@ -50,7 +50,7 @@ def validarUsuarioslg():
         user.token = token
         db.session.commit()
         # Redirigir al usuario a la ubicación indicada con el token como parámetro
-        nav = "/fronted/IndexMain"
+        nav = "/fronted/indexMain?token=" + token
     else:
         nav = "/fronted/indexmainlogin"
 
@@ -99,7 +99,7 @@ def save_user():
         return jsonify(response_body), status, headers
 
 
-    new_user = usuarios(nombre=fullname, Rol=fullrol, correo_electronico=fullcorreo,contrasena=fullpassword)
+    new_user = usuarios(nombre= fullname, Rol=fullrol, correo_electronico=fullcorreo, contrasena=fullpassword)
     db.session.add(new_user)
     db.session.commit()
 

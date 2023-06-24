@@ -45,7 +45,7 @@ function valuesRegister() {
     )
 
     .then((res) => {
-      alert("OK");
+      alert("¡REGISTRADO!");
       console.log(res.data);
       window.location.href = "/fronted/indexmainlogin";
     })
