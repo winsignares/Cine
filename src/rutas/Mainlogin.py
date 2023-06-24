@@ -1,7 +1,8 @@
 from config.db import db, app, ma
 from flask import Blueprint, Flask,  redirect, request, jsonify, json, session, render_template
 from Model.Usuarios import usuarios
-# Blueprint
+from common.token import *
+#Blueprint
 routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 # Home
 
@@ -9,71 +10,107 @@ routes_mainlogin = Blueprint("routes_mainlogin", __name__)
 @routes_mainlogin.route('/indexMain', methods=['GET'])
 def indexMain():
     return render_template('/Main/IndexMain.html')
-# Login
 
-
-@routes_mainlogin.route('/indexmainlogin', methods=['GET'])
+#Login
+@routes_mainlogin.route('/indexmainlogin', methods=['GET'] )
 def indexmainlogin():
     return render_template('/Main/IndexMainLogin.html')
-# Registro - html
 
-
-@routes_mainlogin.route('/indexmainregistro', methods=['GET'])
-def indexmainregistro():
+#Registro - html
+@routes_mainlogin.route('/indexmainregistro', methods=['GET'] )
+def indexmainregistro():    
     return render_template('/Main/IndexMainRegistro.html')
-# Loguear
+#Loguear
 
+SECRET_KEY = "200207"
 
 @routes_mainlogin.route('/validarUsuarioslg', methods=['POST'])
 def validarUsuarioslg():
     email = request.json['correo_electronico']
     password = request.json['contrasena']
-    user = usuarios.query.filter_by(
-        correo_electronico=email, contrasena=password).first()
+    user = usuarios.query.filter_by(correo_electronico=email, contrasena=password).first()
     print("\nEmail:", email, "Password:", password, "\n")
-    print("\nuser response:", type(user))
-    userid = usuarios.Rol
-    if not user:
+    
+    if user:
+        # Generar el token con datos del usuario
+        token = generar_token(email)
+        # Guardar el token en la base de datos
+        user.token = token
+        db.session.commit()
+        # Redirigir al usuario a la ubicación indicada con el token como parámetro
+        nav = "/fronted/indexMain?token=" + token
+    else:
         nav = "/fronted/indexmainlogin"
-    elif user.Rol == "cliente":
-        nav = "/fronted/indexMain"
-    elif user.Rol == "admin":
-        nav = "/fronted/indexAdmin"
 
-    data = {
-        'userid': userid,
-        'nav': nav
+    datos = {'nav':nav, 'token':token}
+
+    return jsonify(datos)
+
+def generar_token(email):
+    # Obtener la fecha y hora actual
+    now = datetime.utcnow()
+    
+    # Establecer la fecha de expiración del token (por ejemplo, 1 hora desde ahora)
+    expiration = now + timedelta(hours=1)
+    
+    # Crear el payload del token con el correo electrónico y la fecha de expiración
+    payload = {
+        "email": email,
+        "exp": expiration
     }
+    
+    # Generar el token utilizando la clave secreta y el algoritmo HS256
+    token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+    
+    return token
 
-    response = jsonify(data)
-    return response
-# Registrar
-
-
-@routes_mainlogin.route('/validarUsuariosrg', methods=['POST'])
-def validarUsuariosrg():
-    print("ok\n")
+#Registrar
+@routes_mainlogin.route('/saveUsuariosrg', methods=['POST'])
+def saveUsuariosrg():
     nombre = request.json['nombre']
     Rol = request.json['Rol']
     correo_electronico = request.json['correo_electronico']
     contrasena = request.json['contrasena']
-    new_user = usuarios(Rol, nombre, correo_electronico, contrasena)
+    
+    # Generar el token con el correo electrónico como información adicional
+    token = generar_token(correo_electronico)
+    
+    # Crear una nueva instancia de usuarios con los datos proporcionados y el token generado
+    new_user = usuarios(Rol, nombre, correo_electronico, contrasena, token)
+    
+    # Agregar el nuevo usuario a la sesión y guardar los cambios en la base de datos
     db.session.add(new_user)
     db.session.commit()
-    print("ok")
-    return "/fronted/indexmainlogin"
     
-@routes_mainlogin.route('/getuser', methods=['GET'])
-def getUserById():
-    userId = request.json['userid']
-    user = usuarios.query.filter_by(id=userId).first()
-    print("Data", user.Rol)
-    userFound = {
-        'userid': user.id,
-        'rol': user.Rol,
-        'name': user.nombre,
-        'email': user.correo_electronico
+    # Redirigir al usuario a la ubicación indicada
+    return "/fronted/indexmainlogin"
+
+def generar_token(correo_electronico):
+    now = datetime.utcnow()
+    expiration = now + timedelta(hours=1)
+    
+    payload = {
+        "email": correo_electronico,
+        "exp": expiration
     }
     
-    response = jsonify(userFound)
-    return response
+    token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+    
+    return token
+
+@routes_mainlogin.route('/verifyLoginUser', methods=['POST'])
+def verifyLoginUser():
+    emailToken = request.json['emailToken']
+    #user = usuarios.query.filter_by(token=emailToken).first()
+    dato = db.session.query(usuarios.nombre).filter_by(token=emailToken).scalar()
+    print("\nUsuario:",dato," \nuser-Token:",emailToken,"\n")
+    datos = {}
+    if dato is not None:
+        datos.append({'cliente':dato})
+        booleans = True
+    else:
+        booleans = False
+
+    datos.append({'booleans':booleans})
+
+    return jsonify(datos)

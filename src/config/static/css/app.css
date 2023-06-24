@@ -662,3 +662,11 @@ footer .content {
     display: block;
   }
   
+  .login-form {
+    margin-top: 30px;
+    /* Estilos adicionales para el formulario de inicio de sesión */
+  }
+  
+  .hidden {
+    display: none;
+  }

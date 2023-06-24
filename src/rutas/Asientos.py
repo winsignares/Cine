@@ -55,22 +55,24 @@ def savecompras():
 def save_asientos():
     #request.form['title']
     id_sala = request.json['id_sala']
+    id_funcion = request.json['id_funcion']
     numero = request.json['numero']
     estado = request.json['estado']
     print(numero,estado)
-    new_asiento = asientos( id_sala, numero, estado)
+    new_asiento = asientos( id_sala, id_funcion, numero, estado)
     db.session.add(new_asiento)
     db.session.commit()
     return redirect('/Tasientos')
     
     
 #mostrar asientos
-@routes_asientos.route('/mostrar_asientos', methods=['GET'])
+@routes_asientos.route('/mostrar_asientos/', methods=['GET'])
 def obtener_asientos():
     id_sala = request.args.get('id_sala')
     id_funcion = request.args.get('id_funcion')
 
-    asientos_query = asientos.query.select_from(asientos).join(funciones, asientos.id_sala == funciones.id_sala).filter(funciones.id == id_funcion).all()
+    asientos_query = asientos.query.join(funciones, asientos.id_sala == funciones.id_sala).filter(funciones.id == id_funcion, asientos.id_sala == id_sala, asientos.id_funcion == id_funcion).all()
+
     resultado = []
     for asiento in asientos_query:
         resultado.append({
@@ -80,5 +82,4 @@ def obtener_asientos():
         })
 
     return jsonify(resultado)
-
 

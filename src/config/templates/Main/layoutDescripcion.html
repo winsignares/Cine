@@ -41,8 +41,17 @@
                         <li><a href="./acercaDe.html">Acerca de</a></li>
                         <li><a href="indexAsientos">Asientos</a></li>
                         <li><a href="#" class="user-menu">
-                              <img src="{{url_for('static', filename='/assets/pfpUser.jpg')}}" alt="User Image" class="user-image">
-                              <span id="Update-nameUser" class="user-name" onclick="toggleDropdown()">Nombre del Usuario</span>
+
+                            <div id="user-info" class="user-info hidden">
+                                <img src="{{url_for('static', filename='/assets/pfpUser.jpg')}}" alt="User Image" class="user-image">
+                                <span id="user-name" class="user-name"></span>
+                              </div>
+                              <div id="login-button" class="login-button" class="btn btn-hover">
+                                <button onclick="showLoginForm()">Iniciar Sesión</button>
+                              </div>
+                              <div id="dropdown-menu" class="dropdown-content hidden">
+                                <a href="#">Salir Sesión</a>
+                              </div>
                             <div id="dropdown-menu" class="dropdown-content">
                               <a href="indexmainlogin">Salir Sesión</a>
                             </div>

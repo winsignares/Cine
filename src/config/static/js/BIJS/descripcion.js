@@ -66,3 +66,52 @@
     var url = 'indexAsientos?movie=' + encodeURIComponent(movie);
     window.location.href = url;
   }
+
+  function verifyLogin(token) {
+    axios.get('/fronted/verifyLoginUser',{ 'emailToken' : token})
+    .then(function (res) {
+        const bools = res.data.booleans;
+        const username = res.data.cliente;
+        if (bools == true){
+          login(username)
+        }
+      })
+      .catch(function (error) {
+        console.error('Error al obtener los datos de la película:', error);
+      });
+  }
+
+  function showLoginForm() {
+    var loginForm = document.getElementById("login-form");
+    loginForm.classList.remove("hidden");
+    window.location.href = '/fronted/indexmainlogin'
+  }
+  
+  function login(username) {
+    var loginForm = document.getElementById("login-form");
+    loginForm.classList.add("hidden");
+  
+    var loginButton = document.getElementById("login-button");
+    loginButton.classList.add("hidden");
+  
+    var userInfo = document.getElementById("user-info");
+    userInfo.classList.remove("hidden");
+    document.getElementById("user-name").textContent = username;
+  
+    var dropdownMenu = document.getElementById("dropdown-menu");
+    dropdownMenu.classList.remove("hidden");
+  }
+  
+  window.onclick = function(event) {
+    if (!event.target.matches(".user-name")) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains("show")) {
+          openDropdown.classList.remove("show");
+        }
+      }
+    }
+  };
+  const token = localStorage.getItem('token');
+  window.onload = verifyLogin(token);
