@@ -28,6 +28,20 @@ def validarUsuarioslg():
     password = request.json['contrasena']
     user = usuarios.query.filter_by(correo_electronico=email, contrasena=password).first()
     print("\nEmail:", email, "Password:", password, "\n")
+
+    if user:
+            # Obtener el rol del usuario desde la tabla tblusuarios
+        rol_usuario = user.id_roles
+
+        if rol_usuario == 1:
+            # Establecer la variable de sesión para ocultar la parte del menú correspondiente
+            session['hide_dashboard'] = True
+        else:
+            session['hide_dashboard'] = False
+    else:
+        # Si el usuario no es válido, establecer la variable de sesión para mostrar el menú completo
+        session['hide_dashboard'] = False
+
     
     if user:
         # Generar el token con datos del usuario
@@ -61,6 +75,8 @@ def generar_token(email):
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
     
     return token
+
+  
 
 #Registrar
 @routes_mainlogin.route('/guardaruser', methods=['POST'])
