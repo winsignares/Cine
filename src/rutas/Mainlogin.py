@@ -50,7 +50,7 @@ def validarUsuarioslg():
         user.token = token
         db.session.commit()
         # Redirigir al usuario a la ubicación indicada con el token como parámetro
-        nav = "/fronted/indexMain?token=" + token
+        nav = "/fronted/IndexMain"
     else:
         nav = "/fronted/indexmainlogin"
 
