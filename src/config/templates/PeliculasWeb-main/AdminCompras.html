@@ -2,8 +2,28 @@
 {% block body %}
   <title>PELICULAS - ADMIN</title>
   <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
+  <div>
   <h1>PELICULAS - ADMIN</h1>
-
+  <div class="nav">
+    <a href="#" class="logo">
+        
+    </a>
+    <ul class="nav-menu" id="nav-menu">
+        <li id="usuario"><a href="#">Inicio</a></li>
+        <li><a href="indexAdmin">Peliculas</a></li>
+        <li><a href="indexAdminF">Funciones</a></li>
+        <li><a href="indexAdminC">Compras</a></li>
+        <li>
+          
+        </li>
+    </ul>
+    <!-- MENU PARA CELULAR -->
+    <div class="hamburger-menu" id="hamburger-menu">
+        <div class="hamburger"></div>
+    </div>
+    <!-- fin MENU PARA CELULAR -->
+</div>
+  </div>
   <div class="form-container">
     <h2>PELICULAS</h2>
     

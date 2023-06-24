@@ -9,6 +9,9 @@ class funciones(db.Model):
     fecha = db.Column(db.Date)
     precio = db.Column(db.Integer)
 
+    pelicula = db.relationship('peliculas', backref='funciones')
+    sala = db.relationship('salas', backref='funciones')
+
     def __init__(self, id_peliculas, id_sala, fecha, precio):
         self.id_peliculas = id_peliculas
         self.id_sala = id_sala
