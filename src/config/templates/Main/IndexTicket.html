@@ -27,39 +27,33 @@
 <div class="card" id="contenedor_ticket">
     <title>Generador de Ticket de Cine</title>
     <div class="container" id="formulario">
-        <div class="card" id="contenedor_ticket">
-            <title>Generador de Ticket de Cine</title>
-            <div class="container" id="formulario">
-                <div class="card" id="formulario">
-                    <h3 class="card-title">Generador de Ticket de Cine</h3>
-                    <form id="ticketForm">
-                        <div class="form-group">
-                            <label for="pelicula">Usuario</label>
-                            <input type="text" class="form-control" id="pelicula" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="sala">Compra:</label>
-                            <input type="text" class="form-control" id="id_sala" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="funcion">Funcion:</label>
-                            <input type="text" class="form-control" id="id_funcion" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label for="metodoPago">Método de Pago:</label>
-                            <select class="form-control" id="metodoPago" required>
-                              <option value="efectivo">Efectivo</option>
-                              <option value="tarjeta">Tarjeta de Crédito</option>
-                            </select>
-                          </div>
-                        <button onclick="" type="submit" class="btn btn-primary">Generar Ticket</button>
-                    </form>
-                    <div value="'" id="ticketResult" style="display: none;">
-                        <h5>Ticket Generado:</h5>
-                        <div value="'" id="ticketDetails"></div>
-                    </div>
+        <div class="card" id="formulario">
+            <h3 class="card-title">Generador de Ticket de Cine</h3>
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="Usuario">Usuario</label>
+                    <input type="text" class="form-control" id="Usuario" required readonly>
                 </div>
+                <div class="form-group">
+                    <label for="funcion">Funcion:</label>
+                    <input type="text" class="form-control" id="id_funcion" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="funcion">Sala:</label>
+                    <input type="text" class="form-control" id="id_sala" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="Cticket">Cantidad de tickets:</label>
+                    <input type="text" class="form-control" id="ticket" required readonly>
+                </div>
+                <button type="submit" class="btn btn-primary">Generar Ticket</button>
+            </form>
+            <div id="ticketResult" style="display: none;">
+                <h5>Ticket Generado:</h5>
+                <div id="ticketDetails"></div>
             </div>
-            <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         </div>
-        {% endblock %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</div>
+{% endblock %}

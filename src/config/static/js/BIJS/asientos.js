@@ -146,44 +146,50 @@ return asientosSeleccionados;
 
 
 function saveAsientos() {
-const asientosSeleccionados = obtenerAsientosSeleccionados(); // Obtén los asientos seleccionados
-const idSala = document.getElementById('id_sala').value; // Obtén el ID de la sala
-const idFuncion = document.getElementById('id_funcion').value;
+  const asientosSeleccionados = obtenerAsientosSeleccionados(); // Obtén los asientos seleccionados
+  const idSala = document.getElementById('id_sala').value; // Obtén el ID de la sala
+  const idFuncion = document.getElementById('id_funcion').value;
 
+  if (asientosSeleccionados.length === 0) {
+    alert('Debes seleccionar al menos un asiento.');
+    return;
+  }
 
-if (asientosSeleccionados.length === 0) {
-  alert('Debes seleccionar al menos un asiento.');
-  return;
-}
+  // Realizar una solicitud POST para cada asiento seleccionado
+  asientosSeleccionados.forEach(function(asiento) {
+    const url = '/fronted/save_asiento';
 
-// Realizar una solicitud POST para cada asiento seleccionado
-asientosSeleccionados.forEach(function(asiento) {
-  const url = '/fronted/save_asiento';
+    const data = {
+      id_sala: idSala,
+      id_funcion: idFuncion,
+      numero: asiento.numero,
+      estado: 'seat sold'
+    };
 
-  const data = {
-    id_sala: idSala,
-    id_funcion: idFuncion,
-    numero: asiento.numero,
-    estado: 'seat sold'
-  };
+    axios.post(url, data)
+      .then(function(response) {
+        console.log('Asiento guardado:', response.data);
+        const asientoGuardado = response.data.asiento;
 
-  axios.post(url, data)
-    .then(function(response) {
-      console.log('Asiento guardado:', response.data);
-      const asientoGuardado = response.data.asiento;
+        // Realizar acciones adicionales con el asiento guardado
+        // Por ejemplo, actualizar la interfaz de usuario para reflejar el estado del asiento
 
-      // Realizar acciones adicionales con el asiento guardado
-      // Por ejemplo, actualizar la interfaz de usuario para reflejar el estado del asiento
+        // Actualizar el estado del asiento en la interfaz de usuario
+        const asientoElement = document.getElementById(asientoGuardado.id);
+        asientoElement.classList.remove('seat');
+        asientoElement.classList.add('seat-sold');
 
-      // Actualizar el estado del asiento en la interfaz de usuario
-      const asientoElement = document.getElementById(asientoGuardado.id);
-      asientoElement.classList.remove('seat');
-      asientoElement.classList.add('seat-sold');
+        // Realizar otras acciones necesarias
+      })
+      .catch(function(error) {
+        console.error('Error al guardar el asiento:', error);
+      });
+  });
 
-      // Realizar otras acciones necesarias
-    })
-    .catch(function(error) {
-      console.error('Error al guardar el asiento:', error);
-    });
-});
+  // Agregar los parámetros de la URL al redireccionar
+  const urlParams = new URLSearchParams();
+  urlParams.set('movie', encodeURIComponent(document.getElementById('pelicula').value));
+
+  // Redirigir al siguiente HTML con los parámetros de la URL
+  window.location.href = 'CTicket?' + urlParams.toString();
 }
