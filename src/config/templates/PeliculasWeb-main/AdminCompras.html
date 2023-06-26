@@ -42,12 +42,12 @@
       <div class="form-group-horizontal">
         <div class="form-group">
           <label class="Titulo">Titulo:</label>
-          <input type="text" class="Titulo" placeholder="Escribe..." id="titulo">
+          <input type="text" class="Titulo" placeholder="Escribe..." id="duracion">
         </div>
 
         <div class="form-group">
           <label class="Genero" >Genero</label>
-          <input type="text" class="Genero" placeholder="Escribe..." id="genero">
+          <input type="text" class="Genero" placeholder="Escribe..." id="sinopsis">
         </div>
         <div class="form-group">
           <label class="Duración">Duración:</label>
@@ -69,14 +69,10 @@
           <label>Img - link:</label>
           <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
         </div>
-        <div class="form-group">
-          <label>Trailer - link:</label>
-          <input type="text" class="Video" placeholder="Escribe..." id="video">
-        </div>
       </div>
       </div>
       <div class="form-group-horizontal">
-      <button class="button-agregar"  onclick="sendNewPeliculas()" type="submit">AGREGAR</button>
+      <button class="button-agregar"  onclick="" type="submit">AGREGAR</button>
     </form>
   </div>
 
@@ -139,7 +135,6 @@
           </div>
         </div>
       </div>
-      <script src="{{url_for('static', filename='/js/BIJS/Tabla-Guardar.js')}}"></script> 
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </div>
   </footer>

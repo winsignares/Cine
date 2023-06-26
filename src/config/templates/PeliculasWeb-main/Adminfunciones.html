@@ -3,7 +3,7 @@
   <title>PELICULAS - ADMIN</title>
   <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
   <div>
-  <h1>PELICULAS - ADMIN</h1>
+  <h1>FUNCIONES - ADMIN</h1>
   <div class="nav">
     <a href="#" class="logo">
         
@@ -25,7 +25,7 @@
 </div>
   </div>
   <div class="form-container">
-    <h2>PELICULAS</h2>
+    <h2>FUNCIONES</h2>
     
     <form class="formulario" id="formulario">
       <div class="ID">
@@ -36,66 +36,45 @@
           <input type="text" class="Mondongo" placeholder="Escribe..." id="id">
         </div>
       </div>
-      
-      <h3>GUARDAR NUEVAS PELICULAS</h3>
-      
       <div class="form-group-horizontal">
         <div class="form-group">
-          <label class="Titulo">Titulo:</label>
-          <input type="text" class="Titulo" placeholder="Escribe..." id="titulo">
-        </div>
-
-        <div class="form-group">
-          <label class="Genero" >Genero</label>
-          <input type="text" class="Genero" placeholder="Escribe..." id="genero">
+          <label>ID Pelicula:</label>
+          <input type="text" class="IDPelicula" placeholder="Escribe..." id="id_pelicula">
         </div>
         <div class="form-group">
-          <label class="Duración">Duración:</label>
-          <input type="text" class="Duracion" placeholder="Escribe..." id="duracion">
+          <label>ID Sala:</label>
+          <input type="text" class="IDSala" placeholder="Escribe..." id="id_sala">
+        </div>
+      </div>  
+      <div class="form-group-horizontal">
+        <div class="form-group">
+          <label>Fecha:</label>
+          <input type="text" class="Fecha" placeholder="Escribe..." id="fecha">
+        </div>
+        <div class="form-group">
+          <label>Precio:</label>
+          <input type="text" class="Precio" placeholder="Escribe..." id="precio">
         </div>
       </div>
       
       <div class="form-group-horizontal">
-
-        <div class="form-group">
-          <label>Sinopsis:</label>
-          <input type="text" class="Sinopsis" placeholder="Escribe..." id="sinopsis">
-        </div>
-        <div class="form-group">
-          <label>Director:</label>
-          <input type="text" class="Director" placeholder="Escribe..." id="director">
-        </div>
-        <div class="form-group">
-          <label>Img - link:</label>
-          <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
-        </div>
-        <div class="form-group">
-          <label>Trailer - link:</label>
-          <input type="text" class="Video" placeholder="Escribe..." id="video">
-        </div>
-      </div>
-      </div>
-      <div class="form-group-horizontal">
-      <button class="button-agregar"  onclick="sendNewPeliculas()" type="submit">AGREGAR</button>
+      <button class="button-agregar"  onclick="sendNewFunciones()" type="submit">AGREGAR</button>
     </form>
   </div>
 
   <div class="table-container">
-    <h2>Películas</h2>
+    <h2>Funciones</h2>
     <table>
       <thead>
         <tr>
           <th>ID</th>
-          <th>Título</th>
-          <th>Género</th>
-          <th>Duración</th>
-          <th>Sinopsis</th>
-          <th>Director</th>
-          <th>Img - link</th>
-          <th>Trailer</th>
+          <th>ID Pelicula</th>
+          <th>ID Sala</th>
+          <th>Fecha</th>
+          <th>Precio</th>
         </tr>
       </thead>
-      <tbody id="peliculas-lista">
+      <tbody id="funciones-lista">
         <!-- Aquí se agregarán las filas dinámicamente -->
       </tbody>
     </table>
@@ -139,8 +118,8 @@
           </div>
         </div>
       </div>
-      <script src="{{url_for('static', filename='/js/BIJS/Tabla-Guardar.js')}}"></script> 
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="{{url_for('static', filename='/js/BIJS/AdminFunciones.js')}}"></script> 
     </div>
   </footer>
 

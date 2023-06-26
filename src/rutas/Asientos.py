@@ -4,6 +4,10 @@ routes_asientos = Blueprint("routes_asientos", __name__)
 from Model.Funciones import funciones
 from Model.Asientos import asientos
 from Model.Compras import compras
+from Model.peliculas import peliculas
+from Model.Salas import salas
+from Model.Usuarios import usuarios
+
 
 
 @routes_asientos.route('/indexAsientos', methods=['GET'] )
@@ -46,12 +50,32 @@ def savecompras():
     db.session.add(new_compra)
     db.session.commit()
     return '/Tcompra'
+
+#guardar asiento 
+@routes_asientos.route('/save_asiento', methods=['POST'] )
+def save_asientos():
+    #request.form['title']
+    id_sala = request.json['id_sala']
+    id_funcion = request.json['id_funcion']
+    numero = request.json['numero']
+    estado = request.json['estado']
+    print(numero,estado)
+    new_asiento = asientos( id_sala, id_funcion, numero, estado)
+    db.session.add(new_asiento)
+    db.session.commit()
+    return redirect('/Tasientos')
+    
+    
 #mostrar asientos
-@routes_asientos.route('/mostrar_asientos/<id_sala>', methods=['GET'])
-def obtener_asientos(id_sala):
-    asientos = asientos.query.filter_by(id_sala=id_sala).all()
+@routes_asientos.route('/mostrar_asientos/', methods=['GET'])
+def obtener_asientos():
+    id_sala = request.args.get('id_sala')
+    id_funcion = request.args.get('id_funcion')
+
+    asientos_query = asientos.query.join(funciones, asientos.id_sala == funciones.id_sala).filter(funciones.id == id_funcion, asientos.id_sala == id_sala, asientos.id_funcion == id_funcion).all()
+
     resultado = []
-    for asiento in asientos:
+    for asiento in asientos_query:
         resultado.append({
             'id': asiento.id,
             'numero': asiento.numero,
@@ -59,21 +83,17 @@ def obtener_asientos(id_sala):
         })
 
     return jsonify(resultado)
-#guardar asiento 
-@routes_asientos.route('/guardar_asiento/<id_asiento>', methods=['POST'])
-def guardar_asiento(id_asiento):
-    try:
-        asiento = asientos.query.get(id_asiento)
-        
-        if asiento.estado == 'seat':
-            asiento.estado = 'sold'
-            db.session.commit()
-            return jsonify({'message': 'Asiento guardado exitosamente.'}), 200
-        else:
-            return jsonify({'error': 'El asiento no está disponible.'}), 400
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500
- 
+    
+@routes_asientos.route('/obtener_id_usuario', methods=['GET'])
+def obtener_id_usuario():
+    token = request.args.get('token')  # Obtener el token de la solicitud GET
 
+    # Realizar una consulta a la base de datos para encontrar el registro con el token proporcionado
+    usuario = usuarios.query.filter_by(token=token).first()
 
+    if usuario:
+        id_usuario = usuario.id  # Obtener el nombre del usuario
 
+        return jsonify({'id_usuario': id_usuario})
+    else:
+        return jsonify({'error': 'Token de usuario inválido'})

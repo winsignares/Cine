@@ -66,3 +66,4 @@
     var url = 'indexAsientos?movie=' + encodeURIComponent(movie);
     window.location.href = url;
   }
+  const token = localStorage.getItem('token');

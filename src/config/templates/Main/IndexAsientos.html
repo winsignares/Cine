@@ -4,8 +4,7 @@
   <div value="'" id="contenedor_asietos">
   <div class="movie-container">
       <label>Asientos vendidos</label>
-      <select id="movie">
-      </select>
+      <select id="movie"></select>
     </div>
     <ul class="showcase">
       <li>
@@ -13,8 +12,8 @@
         <small>Disponible</small>
       </li>
       <li>
-        <div class="seat selected"></div>
-        <small>seleccionado</small>
+        <div class="seat"></div>
+        <small>Seleccionado</small>
       </li>
       <li>
         <div class="seat sold"></div>
@@ -85,6 +84,7 @@
       </div>
     </div>
   </div>
+  <button onclick="" type="submit" class="btn " id="mostrar_asientos_button"></button>
 </div>
   <div class="card" id="contenedor_ticket">
       <title>Generador de Ticket de Cine</title>
@@ -122,7 +122,7 @@
               <label for="total">Total por Asiento:</label>
               <input type="number" class="form-control" id="total" required>
             </div>
-            <button type="submit" class="btn btn-primary" >Comprar Ticket</button>
+            <button onclick="saveAsientos()" type="submit" class="btn btn-primary" >Comprar Ticket</button>
           </form>
           <div value="'" id="ticketResult" style="display: none;">
             <h5>Ticket Generado:</h5>
@@ -130,5 +130,6 @@
           </div>
         </div>
       </div>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </div>
 {% endblock %}

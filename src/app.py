@@ -13,44 +13,20 @@ from api.Tickets import routes_tickets
 #Rutas
 from rutas.Mainlogin import routes_mainlogin
 from rutas.descripcion import routes_Descripcion
-from rutas.DescripStranger import routes_DescripcionStranger
-from rutas.Descripbloodshot import routes_Descripbloodshot
-from rutas.DescripMandavision import routes_DescripMandavision
-from rutas.DescripInifinitytrain import routes_DescripInifinitytrain
-from rutas.DescripSupergil import routes_DescripSupergil
-from rutas.DescripCapitanmarvel import routes_DescripCapitanmarvel
-from rutas.DescripTheDarkKnight import routes_DescripTheDarkKnight
-from rutas.DescripTheatreofthedead import routes_DescripTheatreofthedead
-from rutas.DescripTransformer import routes_DescripTransformer
-from rutas.DescripResidentEvil import routes_DescripResidentEvil
-from rutas.DescripHunterKiller import routes_DescripHunterKiller
-from rutas.DescripCall import routes_DescripCall
-from rutas.DescripPenthouses import routes_DescripPenthouses
-from rutas.DescripStarTrek import routes_DescripStarTrek
-from rutas.DescripDragonBallSuper import routes_DescripDragonBallSuper
-from rutas.DescripMandalorian import routes_DescripMandalorian
 from rutas.Admin import routes_Admin
 from rutas.Asientos import routes_asientos
+from rutas.Ticket import routes_CTicket
+from rutas.Acerca import routes_Acerca
+from rutas.AdminCompras import routes_AdminC
+from rutas.Adminfunciones import routes_AdminF
 
 #Ubicacion rutas
 
 app.register_blueprint(routes_Descripcion, url_prefix="/fronted")
-app.register_blueprint(routes_DescripcionStranger, url_prefix="/fronted")
-app.register_blueprint(routes_Descripbloodshot, url_prefix="/fronted")
-app.register_blueprint(routes_DescripMandavision, url_prefix="/fronted")
-app.register_blueprint(routes_DescripInifinitytrain, url_prefix="/fronted")
-app.register_blueprint(routes_DescripSupergil, url_prefix="/fronted")
-app.register_blueprint(routes_DescripCapitanmarvel, url_prefix="/fronted")
-app.register_blueprint(routes_DescripTheDarkKnight, url_prefix="/fronted")
-app.register_blueprint(routes_DescripTheatreofthedead, url_prefix="/fronted")
-app.register_blueprint(routes_DescripTransformer, url_prefix="/fronted")
-app.register_blueprint(routes_DescripResidentEvil, url_prefix="/fronted")
-app.register_blueprint(routes_DescripHunterKiller, url_prefix="/fronted")
-app.register_blueprint(routes_DescripCall,url_prefix="/fronted" )
-app.register_blueprint(routes_DescripPenthouses,url_prefix="/fronted")
-app.register_blueprint(routes_DescripStarTrek,url_prefix="/fronted")
-app.register_blueprint(routes_DescripDragonBallSuper,url_prefix="/fronted")
-app.register_blueprint(routes_DescripMandalorian,url_prefix="/fronted")
+app.register_blueprint(routes_CTicket, url_prefix="/fronted")
+app.register_blueprint(routes_Acerca, url_prefix="/fronted")
+app.register_blueprint(routes_AdminC, url_prefix="/fronted")
+app.register_blueprint(routes_AdminF,url_prefix="/fronted")
 
 
 #ubicacion del api
