@@ -1,29 +1,34 @@
 {% extends "Main/LayoutAcerca.html" %}
 {% block body %}
   <!-- NAV -->
-    <div class="nav-wrapper">
-        <div class="container">
-            <div class="nav">
-                <a href="./index.html" class="logo">
-                    <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
-                </a>
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="./index.html">Inicio</a></li>
-                    <li><a href="./Peliculas.html">Peliculas</a></li>
-                    <li><a href="IndexAcercaDe">Acerda de</a></li>
-                    <li>
-                        <a href="./main.html" class="btn btn-hover">
-                            <span>Iniciar sesion</span>
-                        </a>
-                    </li>
-                </ul>
-                <!-- MOBILE MENU TOGGLE -->
-                <div class="hamburger-menu" id="hamburger-menu">
-                    <div class="hamburger"></div>
-                </div>
+  <div class="nav-wrapper">
+    <div class="container">
+        <div class="nav">
+            <a href="#" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li id="usuario"><a href="indexMain">Inicio</a></li>
+                <li><a href="IndexAcercaDe">Acerca de</a></li>
+                <li><a href="indexMain">Peliculas</a></li>
+                <li>
+                    <a href="#"  id="user-menu" style="display: none;">
+                        <span id="user-name"></span>
+                        <i class="bx bx-chevron-down"></i>
+                    </a>
+                    <ul class="sub-menu" id="user-submenu">
+                        <li><a href="#" id="logout">Cerrar sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
             </div>
+            <!-- fin MENU PARA CELULAR -->
         </div>
     </div>
+</div>
     <!-- END NAV -->
     <br>
     <br>
