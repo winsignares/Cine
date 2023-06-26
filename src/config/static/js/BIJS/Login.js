@@ -1,22 +1,23 @@
 function valuesUser() {
-    const Email = document.getElementById('EmailUser').value
-    const Password = document.getElementById('PassUser').value
+    const Email = document.getElementById('EmailUser').value;
+    const Password = document.getElementById('PassUser').value;
 
-    console.log("getData.Email:'",Email,"'.and.Password:'",Password,"'")
+    console.log("getData.Email:'", Email, "'.and.Password:'", Password, "'");
 
-    console.log("Validando User|...")
-    axios.post('/fronted/validarUsuarioslg',{
-        correo_electronico : Email,
-        contrasena : Password
+    console.log("Validando User|...");
+    axios.post('/fronted/validarUsuarioslg', {
+        correo_electronico: Email,
+        contrasena: Password
     })
-    
-    .then(function(res){      
-        data = res.data  
-        window.location.href = res.data.nav
+    .then(function(res) {
+        data = res.data;
+        // Guardar el token en el localStorage
+        localStorage.setItem('token', data.nav);
+        window.location.href = data.nav;
     })
     .catch((err) => {
         console.log(err);
-    })
+    });
 }
 function valuesRegister() {
     const NameUsuario = document.getElementById('Nombre_user').value;
