@@ -9,20 +9,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
 </head>
 <body>
-<div class="nav-wrapper1">
-    <div class="container1">
+  <div class="nav-wrapper">
+    <div class="container">
         <div class="nav">
-            <a href="indexMain" class="logo">
+            <a href="#" class="logo">
                 <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="indexMain">Inicio</a></li>
-                <li><a href="./Peliculas.html">Peliculas</a></li>
-                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li id="usuario"><a href="#">Inicio</a></li>
+                <li><a href="IndexAcercaDe">Acerca de</a></li>
                 <li>
-                    <a href="./main.html" class="btn btn-hover">
-                        <span>Iniciar sesion</span>
+                    <a href="#"  id="user-menu" style="display: none;">
+                        <span id="user-name"></span>
+                        <i class="bx bx-chevron-down"></i>
                     </a>
+                    <ul class="sub-menu" id="user-submenu">
+                        <li><a href="#" id="logout">Cerrar sesión</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- MENU PARA CELULAR -->
