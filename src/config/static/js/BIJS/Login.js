@@ -10,15 +10,30 @@ function valuesUser() {
         contrasena: Password
     })
     .then(function(res) {
-        data = res.data;
+        const data = res.data;
+        // Extraer solo el token de la ruta
+        const token = extractTokenFromUrl(data.nav);
         // Guardar el token en el localStorage
-        localStorage.setItem('token', data.nav);
-        window.location.href = data.nav;
+        localStorage.setItem('token', token);
+        console.log("Token guardado en el localStorage:", token);
+        // Redirigir al usuario a la ubicación deseada
+        window.location.href = '/fronted/indexMain';
     })
     .catch((err) => {
         console.log(err);
     });
 }
+
+function extractTokenFromUrl(url) {
+    const tokenParam = 'token=';
+    const startIndex = url.indexOf(tokenParam);
+    if (startIndex !== -1) {
+        const tokenStartIndex = startIndex + tokenParam.length;
+        return url.substring(tokenStartIndex);
+    }
+    return '';
+}
+
 function valuesRegister() {
     const NameUsuario = document.getElementById('Nombre_user').value;
     const RolUsuario = document.getElementById('Rol_user').value;

@@ -6,6 +6,7 @@ from Model.Asientos import asientos
 from Model.Compras import compras
 from Model.peliculas import peliculas
 from Model.Salas import salas
+from Model.Usuarios import usuarios
 
 
 
@@ -82,4 +83,17 @@ def obtener_asientos():
         })
 
     return jsonify(resultado)
+    
+@routes_asientos.route('/obtener_id_usuario', methods=['GET'])
+def obtener_id_usuario():
+    token = request.args.get('token')  # Obtener el token de la solicitud GET
 
+    # Realizar una consulta a la base de datos para encontrar el registro con el token proporcionado
+    usuario = usuarios.query.filter_by(token=token).first()
+
+    if usuario:
+        id_usuario = usuario.id  # Obtener el nombre del usuario
+
+        return jsonify({'id_usuario': id_usuario})
+    else:
+        return jsonify({'error': 'Token de usuario inválido'})
