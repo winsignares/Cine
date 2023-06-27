@@ -4,6 +4,7 @@ class tickets(db.Model):
     __tablename__ = "tbltickets"
 
     id = db.Column(db.Integer, primary_key=True)
+    id_usuario = db.Column(db.Integer, db.ForeignKey('tblusuarios.id'))
     id_compra = db.Column(db.Integer, db.ForeignKey('tblcompras.id'))
     id_funcion = db.Column(db.Integer, db.ForeignKey('tblfunciones.id'))
     id_asiento = db.Column(db.Integer, db.ForeignKey('tblasientos.id'))

@@ -42,3 +42,57 @@ function sendNewPeliculas() {
     console.error('Error:', error);
   });
 }
+
+
+window.onload = function() {
+  cargarDatosTabla();
+};
+
+function cargarDatosTabla() {
+  axios.get('/fronted/mostrar_pelicula')
+    .then(function(response) {
+      var peliculas = response.data;
+      var tableBody = document.getElementById('peliculas-lista');
+
+      peliculas.forEach(function(pelicula) {
+        var row = document.createElement('tr');
+
+        var idCell = document.createElement('td');
+        idCell.innerText = pelicula.id; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(idCell);
+
+        var tituloCell = document.createElement('td');
+        tituloCell.innerText = pelicula.titulo; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(tituloCell);
+
+        var generoCell = document.createElement('td');
+        generoCell.innerText = pelicula.genero; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(generoCell);
+
+        var duracionCell = document.createElement('td');
+        duracionCell.innerText = pelicula.duracion; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(duracionCell);
+
+        var sinopsisCell = document.createElement('td');
+        sinopsisCell.innerText = pelicula.sinopsis; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(sinopsisCell);
+
+        var directorCell = document.createElement('td');
+        directorCell.innerText = pelicula.director; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(directorCell);
+
+        var imagenCell = document.createElement('td');
+        imagenCell.innerText = pelicula.imagen; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(imagenCell);
+
+        var trailerCell = document.createElement('td');
+        trailerCell.innerText = pelicula.video; // Asegúrate de utilizar el nombre de la propiedad correcto
+        row.appendChild(trailerCell);
+
+        tableBody.appendChild(row);
+      });
+    })
+    .catch(function(error) {
+      console.log('Error al obtener los datos:', error);
+    });
+}

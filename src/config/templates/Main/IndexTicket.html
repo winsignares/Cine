@@ -1,0 +1,59 @@
+{% extends "Main/LayoutTicket.html" %}
+{% block body %}
+<div class="nav-wrapper">
+    <div class="container">
+        <div class="nav">
+            <a href="#" class="logo">
+                <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="indexMain">Inicio</a></li>
+                <li><a href="indexMain">Peliculas</a></li>
+                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li>
+                    <a href="./main.html" class="btn btn-hover">
+                        <span>Iniciar sesion</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- MENU PARA CELULAR -->
+            <div class="hamburger-menu" id="hamburger-menu">
+                <div class="hamburger"></div>
+            </div>
+            <!-- fin MENU PARA CELULAR -->
+        </div>
+    </div>
+</div>
+<div class="card" id="contenedor_ticket">
+    <title>Generador de Ticket de Cine</title>
+    <div class="container" id="formulario">
+        <div class="card" id="formulario">
+            <h3 class="card-title">Generador de Ticket de Cine</h3>
+            <form id="ticketForm">
+                <div class="form-group">
+                    <label for="Usuario">Usuario</label>
+                    <input type="text" class="form-control" id="Usuario" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="funcion">Funcion:</label>
+                    <input type="text" class="form-control" id="id_funcion" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="funcion">Sala:</label>
+                    <input type="text" class="form-control" id="id_sala" required readonly>
+                </div>
+                <div class="form-group">
+                    <label for="Cticket">Cantidad de tickets:</label>
+                    <input type="text" class="form-control" id="ticket" required readonly>
+                </div>
+                <button type="submit" class="btn btn-primary">Generar Ticket</button>
+            </form>
+            <div id="ticketResult" style="display: none;">
+                <h5>Ticket Generado:</h5>
+                <div id="ticketDetails"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</div>
+{% endblock %}

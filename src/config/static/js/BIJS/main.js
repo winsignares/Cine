@@ -10,23 +10,44 @@ function addPelis() {
     window.location.href = url
   }
   
-function showNameUser() {
-  itemValues = sessionStorage.getItem('token',  token)
-  axios.get('/fronted/nameUser', {
-    'item':itemValues
-  })
-  .then(function(res){ 
-    const user = res.data.nameUser
-    const newNameUser = document.getElementById("Update-nameUser")
-    newNameUser.innerHTML = `
-    <span id="Update-nameUser" class="user-name" onclick="toggleDropdown()">${user}</span>
-    `
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+  function replaceLoginWithUsername() {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+        axios.get('/fronted/obtener_nombre_usuario', {
+            params: {
+                token: token
+            }
+        })
+        .then(function(res) {
+            const nombreUsuario = res.data.nombre_usuario;
+            const userNameElement = document.getElementById('user-name');
+            userNameElement.textContent = nombreUsuario;
+
+            const userMenu = document.getElementById('user-menu');
+            const userSubmenu = document.getElementById('user-submenu');
+            userMenu.style.display = 'block';
+            userMenu.addEventListener('click', function() {
+                userSubmenu.classList.toggle('show');
+            });
+
+            const logoutLink = document.getElementById('logout');
+            logoutLink.addEventListener('click', logout);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
 }
 
-sessionStorage.setItem('token', token);
+function logout() {
+    localStorage.removeItem('token');
+    window.location.href = 'http://127.0.0.1:5000/';
+}
 
-window.onload = showNameUser()
+document.getElementById('user-menu').addEventListener('click', function() {
+    const userSubmenu = document.getElementById('user-submenu');
+    userSubmenu.classList.toggle('show');
+});
+
+replaceLoginWithUsername();

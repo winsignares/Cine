@@ -1,37 +1,9 @@
-{% extends "Main/LayoutMainLogin.html" %}
+{% extends "Main/LayoutAdmin.html" %}
 {% block body %}
-<<<<<<< HEAD
-  <title>Administrador de Cine</title>
-<link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
-  <h1>Administrador de Cine</h1>
-
-  
-  <div class="form-container">
-    <h2>PELICULAS </h2>
-    
-    <h2>Agregar Película</h2>
-    <form id="formulario">
-        <!--EMPIEZO DESDE AQUI-->
-        
-        <div class="ID">
-      <div class="form-group">
-        <div class="ID_text">
-        <labe class="Busqueda">Busqueda por ID:</label>
-        </div>
-        <input type="text" class="Mondongo"  placeholder="Escribe..." id="id">
-      </div>
-    </div>
-    <!------>
-    <div class="Titulo">
-      <div class="form-group">
-        <label class="titulo">Título pelicula:  </label>
-
-        <input type="text" class="Sopa" placeholder="Escribe..." id="titulo">
-=======
   <title>PELICULAS - ADMIN</title>
   <link rel="stylesheet" href="{{url_for('static', filename='/css/Tabla-Guardar.css')}}">
   <div>
-  <h1>PELICULAS - ADMIN</h1>
+  <h1>FUNCIONES - ADMIN</h1>
   <div class="nav">
     <a href="#" class="logo">
         
@@ -53,7 +25,7 @@
 </div>
   </div>
   <div class="form-container">
-    <h2>PELICULAS</h2>
+    <h2>FUNCIONES</h2>
     
     <form class="formulario" id="formulario">
       <div class="ID">
@@ -63,92 +35,46 @@
           </div>
           <input type="text" class="Mondongo" placeholder="Escribe..." id="id">
         </div>
->>>>>>> luisD
-      </div>
-      
-      <h3>GUARDAR NUEVAS PELICULAS</h3>
-      
-      <div class="form-group-horizontal">
-        <div class="form-group">
-          <label class="Titulo">Titulo:</label>
-          <input type="text" class="Titulo" placeholder="Escribe..." id="titulo">
-        </div>
-
-        <div class="form-group">
-          <label class="Genero" >Genero</label>
-          <input type="text" class="Genero" placeholder="Escribe..." id="genero">
-        </div>
-        <div class="form-group">
-          <label class="Duración">Duración:</label>
-          <input type="text" class="Duracion" placeholder="Escribe..." id="duracion">
-        </div>
-      </div>
-      
-      <div class="form-group-horizontal">
-
-        <div class="form-group">
-          <label>Sinopsis:</label>
-          <input type="text" class="Sinopsis" placeholder="Escribe..." id="sinopsis">
-        </div>
-        <div class="form-group">
-          <label>Director:</label>
-          <input type="text" class="Director" placeholder="Escribe..." id="director">
-        </div>
-        <div class="form-group">
-          <label>Img - link:</label>
-          <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
-        </div>
-        <div class="form-group">
-          <label>Trailer - link:</label>
-          <input type="text" class="Video" placeholder="Escribe..." id="video">
-        </div>
-      </div>
-<<<<<<< HEAD
-       <!------>
-      <div class="form-group">
-        <label>Sinopsis:</label>
-        <input type="text"class="Sinopsis"  placeholder="Escribe..." id="sinopsis"></input>
-      </div>
-       <!------>
-      <div class="form-group">
-        <label>Director:</label>
-        <input type="text" class="Director" placeholder="Escribe..."  id="director">
-      </div>
-       <!------>
-      <div class="form-group">
-        <label>Imagen:</label>
-        <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
-      </div>
-       <!------>
-      <button type="submit">Agregar</button>
-=======
       </div>
       <div class="form-group-horizontal">
-      <button class="button-agregar"  onclick="sendNewPeliculas()" type="submit">AGREGAR</button>
->>>>>>> luisD
+        <div class="form-group">
+          <label>ID Pelicula:</label>
+          <input type="text" class="IDPelicula" placeholder="Escribe..." id="id_pelicula">
+        </div>
+        <div class="form-group">
+          <label>ID Sala:</label>
+          <input type="text" class="IDSala" placeholder="Escribe..." id="id_sala">
+        </div>
+      </div>  
+      <div class="form-group-horizontal">
+        <div class="form-group">
+          <label>Fecha:</label>
+          <input type="text" class="Fecha" placeholder="Escribe..." id="fecha">
+        </div>
+        <div class="form-group">
+          <label>Precio:</label>
+          <input type="text" class="Precio" placeholder="Escribe..." id="precio">
+        </div>
+      </div>
+      
+      <div class="form-group-horizontal">
+      <button class="button-agregar"  onclick="sendNewFunciones()" type="submit">AGREGAR</button>
     </form>
   </div>
 
   <div class="table-container">
-    <h2>Películas</h2>
+    <h2>Funciones</h2>
     <table>
       <thead>
         <tr>
           <th>ID</th>
-          <th>Título</th>
-          <th>Género</th>
-          <th>Duración</th>
-          <th>Sinopsis</th>
-          <th>Director</th>
-<<<<<<< HEAD
-          <th>Imagen</th>
-=======
-          <th>Img - link</th>
-          <th>Trailer</th>
->>>>>>> luisD
+          <th>ID Pelicula</th>
+          <th>ID Sala</th>
+          <th>Fecha</th>
+          <th>Precio</th>
         </tr>
       </thead>
-      <tbody id="peliculas-lista">
+      <tbody id="funciones-lista">
         <!-- Aquí se agregarán las filas dinámicamente -->
       </tbody>
     </table>
@@ -192,8 +118,8 @@
           </div>
         </div>
       </div>
-      <script src="{{url_for('static', filename='/js/BIJS/Tabla-Guardar.js')}}"></script> 
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <script src="{{url_for('static', filename='/js/BIJS/AdminFunciones.js')}}"></script> 
     </div>
   </footer>
 
