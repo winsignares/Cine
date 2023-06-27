@@ -95,3 +95,18 @@ def generar_token(correo_electronico):
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
     
     return token
+
+
+@routes_mainlogin.route('/obtener_nombre_usuario', methods=['GET'])
+def obtener_nombre_usuario():
+    token = request.args.get('token')  # Obtener el token de la solicitud GET
+
+    # Realizar una consulta a la base de datos para encontrar el registro con el token proporcionado
+    usuario = usuarios.query.filter_by(token=token).first()
+
+    if usuario:
+        nombre_usuario = usuario.nombre  # Obtener el nombre del usuario
+
+        return jsonify({'nombre_usuario': nombre_usuario})
+    else:
+        return jsonify({'error': 'Token de usuario inválido'})

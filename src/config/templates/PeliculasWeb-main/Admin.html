@@ -10,9 +10,9 @@
     </a>
     <ul class="nav-menu" id="nav-menu">
         <li id="usuario"><a href="#">Inicio</a></li>
-        <li><a href="./Peliculas.html">Peliculas</a></li>
-        <li><a href="indexAdminF">Acerca de</a></li>
-        <li><a href="indexAdminC">Administrador</a></li>
+        <li><a href="indexAdmin">Peliculas</a></li>
+        <li><a href="indexAdminF">Funciones</a></li>
+        <li><a href="indexAdminC">Compras</a></li>
         <li>
           
         </li>
@@ -42,12 +42,12 @@
       <div class="form-group-horizontal">
         <div class="form-group">
           <label class="Titulo">Titulo:</label>
-          <input type="text" class="Titulo" placeholder="Escribe..." id="duracion">
+          <input type="text" class="Titulo" placeholder="Escribe..." id="titulo">
         </div>
 
         <div class="form-group">
           <label class="Genero" >Genero</label>
-          <input type="text" class="Genero" placeholder="Escribe..." id="sinopsis">
+          <input type="text" class="Genero" placeholder="Escribe..." id="genero">
         </div>
         <div class="form-group">
           <label class="Duración">Duración:</label>
@@ -68,6 +68,10 @@
         <div class="form-group">
           <label>Img - link:</label>
           <input type="text" class="Imagen" placeholder="Escribe..." id="imagen">
+        </div>
+        <div class="form-group">
+          <label>Trailer - link:</label>
+          <input type="text" class="Video" placeholder="Escribe..." id="video">
         </div>
       </div>
       </div>
@@ -135,6 +139,7 @@
           </div>
         </div>
       </div>
+      <script src="{{url_for('static', filename='/js/BIJS/Tabla-Guardar.js')}}"></script> 
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </div>
   </footer>
