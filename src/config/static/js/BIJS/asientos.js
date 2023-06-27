@@ -1,3 +1,4 @@
+// Función para auto-rellenar los campos no editables
 function autoRellenarInputsNoEditables() {
   const urlParams = new URLSearchParams(window.location.search);
   const peli = urlParams.get('movie');
@@ -65,86 +66,7 @@ container.addEventListener('click', (e) => {
 movieSelect.addEventListener('change', (e) => {
   // Aquí puedes realizar cualquier acción cuando cambie la selección de película
 });
-
-//Guardar compra
-// Obtén una referencia al formulario
-const ticketForm = document.getElementById('ticketForm');
-
-// Agrega un evento de escucha para el evento de envío del formulario
-ticketForm.addEventListener('submit', function (event) {
-event.preventDefault(); // Evita que el formulario se envíe y recargue la página
-saveTicket(); // Guarda el ticket utilizando Axios
-});
-
-// Función para guardar el ticket
-function saveTicket() {
-  const token = localStorage.getItem('token');
-  if (!token) {
-    console.error('No se encontró un token en el sessionStorage');
-    alert('No se encontró un token en el sessionStorage. Por favor, inicia sesión nuevamente.'); // Mostrar mensaje de error al usuario
-    return;
-  }
-
-  axios.get(`/fronted/obtener_id_usuario?token=${token}`)
-    .then(function (response) {
-      if (response.data.hasOwnProperty('id_usuario')) {
-        const id_usuarios = response.data.id_usuario;
-        const id_funcion = document.getElementById('id_funcion').value;
-        const cantidad_tickets = selectedSeats.length;
-        const total_pagado = document.getElementById('total').value;
-        const fecha_compra = new Date().toISOString(); // Fecha actual
-
-        const ticketData = {
-          id_usuarios,
-          id_funcion,
-          cantidad_tickets,
-          total_pagado,
-          fecha_compra,
-        };
-
-        axios.post('/fronted/save_compras', ticketData)
-          .then(function (response) {
-            console.log('Ticket guardado:', response.data);
-            alert('El ticket se ha guardado correctamente.'); // Mostrar mensaje de éxito al usuario
-            compraGuardada = true; // Establecer la variable compraGuardada en true
-            window.location.href = 'CTicket'; // Redirigir al archivo "indexMain.html"
-          })
-          .catch(function (error) {
-            console.error('Error al guardar el ticket:', error);
-            alert('Hubo un error al guardar el ticket. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
-          });
-      } else {
-        console.error('No se pudo obtener el ID del usuario');
-        alert('No se pudo obtener el ID del usuario. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
-      }
-    })
-    .catch(function (error) {
-      console.error('Error al obtener el ID del usuario:', error);
-      alert('Hubo un error al obtener el ID del usuario. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
-    });
-}
-
-
-// asientos 
-function obtenerAsientosSeleccionados() {
-var asientosSeleccionados = [];
-var asientos = document.getElementsByClassName('seat');
-
-for (var i = 0; i < asientos.length; i++) {
-  var asiento = asientos[i];
-  if (asiento.classList.contains('selected')) {
-    var asientoSeleccionado = {
-      id: asiento.getAttribute('data-id'),
-      numero: asiento.id
-    };
-    asientosSeleccionados.push(asientoSeleccionado);
-  }
-}
-
-return asientosSeleccionados;
-}
-
-
+// Función para guardar los asientos
 function saveAsientos() {
   const asientosSeleccionados = obtenerAsientosSeleccionados(); // Obtén los asientos seleccionados
   const idSala = document.getElementById('id_sala').value; // Obtén el ID de la sala
@@ -193,3 +115,68 @@ function saveAsientos() {
   // Redirigir al siguiente HTML con los parámetros de la URL
   window.location.href = 'CTicket?' + urlParams.toString();
 }
+
+// Función para guardar el ticket
+function saveTicket() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    console.error('No se encontró un token en el sessionStorage');
+    alert('No se encontró un token en el sessionStorage. Por favor, inicia sesión nuevamente.'); // Mostrar mensaje de error al usuario
+    return;
+  }
+
+  axios.get(`/fronted/obtener_id_usuario?token=${token}`)
+    .then(function (response) {
+      if (response.data.hasOwnProperty('id_usuario')) {
+        const id_usuarios = response.data.id_usuario;
+        const id_funcion = document.getElementById('id_funcion').value;
+        const cantidad_tickets = selectedSeats.length;
+        const total_pagado = document.getElementById('total').value;
+        const fecha_compra = new Date().toISOString(); // Fecha actual
+
+        const ticketData = {
+          id_usuarios,
+          id_funcion,
+          cantidad_tickets,
+          total_pagado,
+          fecha_compra,
+        };
+
+        axios.post('/fronted/guardar_tickets', ticketData) // Reemplaza '/ruta/guardar_tickets' con la ruta correcta para guardar los tickets
+          .then(function (response) {
+            console.log('Ticket guardado:', response.data);
+            const compraId = response.data.id; // Obtén el ID de la compra guardada
+
+            // Resto del código...
+
+            // Redirigir al archivo "CTicket" con el ID de la compra en la URL
+            localStorage.setItem('compraId', compraId);
+          })
+          .catch(function (error) {
+            console.error('Error al guardar el ticket:', error);
+            alert('Hubo un error al guardar el ticket. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
+          });
+      } else {
+        console.error('No se pudo obtener el ID del usuario');
+        alert('No se pudo obtener el ID del usuario. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
+      }
+    })
+    .catch(function (error) {
+      console.error('Error al obtener el ID del usuario:', error);
+      alert('Hubo un error al obtener el ID del usuario. Por favor, intenta nuevamente.'); // Mostrar mensaje de error al usuario
+    });
+}
+
+//Guardar compra
+// Obtén una referencia al formulario
+const ticketForm = document.getElementById('ticketForm');
+
+// Agrega un evento de escucha para el evento de envío del formulario
+ticketForm.addEventListener('submit', function (e) {
+  e.preventDefault(); // Evita el envío del formulario
+
+  // Resto del código...
+
+  // Guardar el ticket
+  saveTicket();
+});

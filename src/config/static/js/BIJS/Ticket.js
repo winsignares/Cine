@@ -19,6 +19,8 @@ function autoRellenarInputsNoEditables() {
       });
   }
   
+  window.onload = autoRellenarInputsNoEditables;    
+  
   window.onload = autoRellenarInputsNoEditables;
 
    // Lógica JavaScript para obtener y mostrar los asientos comprados

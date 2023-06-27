@@ -14,6 +14,7 @@
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
             <!---ESTE ES EL CSS DE ASIENTOS-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='/css/CTicket.css')}}">
+    
     </head>
     <body>
         {% block body %}
@@ -22,7 +23,8 @@
            
 
         <!--MIS SCRIPTS-->
-
+        <script src="{{url_for('static', filename='/js/BIJS/main.js')}}"></script>
+        <script src="{{url_for('static', filename='/js/BIJS/Ticket.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     </body>
 </html>

@@ -49,7 +49,7 @@ def savecompras():
     new_compra = compras(id_usuarios, id_funcion, cantidad_tickets, total_pagado, fecha_compra)
     db.session.add(new_compra)
     db.session.commit()
-    return '/Tcompra'
+    return jsonify({'id': new_compra.id})
 
 #guardar asiento 
 @routes_asientos.route('/save_asiento', methods=['POST'] )
@@ -97,3 +97,34 @@ def obtener_id_usuario():
         return jsonify({'id_usuario': id_usuario})
     else:
         return jsonify({'error': 'Token de usuario inválido'})
+    
+@routes_asientos.route('/guardar_tickets', methods=['POST'])
+def guardar_tickets():
+    datos_ticket = request.get_json()
+
+    # Obtener los datos del ticket desde el cuerpo de la solicitud
+    id_usuarios = datos_ticket['id_usuarios']
+    id_funcion = datos_ticket['id_funcion']
+    cantidad_tickets = datos_ticket['cantidad_tickets']
+    total_pagado = datos_ticket['total_pagado']
+    fecha_compra = datos_ticket['fecha_compra']
+
+    # Crear un nuevo registro de ticket en la tabla tblcompras
+    nuevo_ticket = compras(
+        id_usuarios=id_usuarios,
+        id_funcion=id_funcion,
+        cantidad_tickets=cantidad_tickets,
+        total_pagado=total_pagado,
+        fecha_compra=fecha_compra
+    )
+
+    db.session.add(nuevo_ticket)
+    db.session.commit()
+
+    # Obtener el ID del ticket recién creado
+    id_ticket = nuevo_ticket.id
+
+    # Resto del código...
+
+    # Retornar la respuesta con el ID del ticket
+    return jsonify({'id_ticket': id_ticket})
