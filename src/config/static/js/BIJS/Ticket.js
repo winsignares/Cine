@@ -1,84 +1,80 @@
-function autoRellenarInputsNoEditables() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const peli = urlParams.get('movie');
+function imprimirTickets(tickets) {
+    const ticketDetails = document.getElementById("ticketDetails");
+    ticketDetails.innerHTML = "";
   
-    axios.get(`/fronted/buscarfunciones?titulo=${peli}`)
-      .then(function (response) {
-        const tickets = response.data;
+    for (let i = 0; i < tickets.length; i++) {
+      const ticket = tickets[i];
+      
+      const ticketInfo = document.createElement("div");
+      ticketInfo.classList.add("ticket-info");
   
-        if (tickets.length > 0) {
-          const ticket = tickets[0];
+      const ticketId = document.createElement("p");
+      ticketId.textContent = "ID del Ticket: " + ticket.id;
   
-          document.getElementById('id_sala').value = ticket.id_sala;
-          document.getElementById('id_funcion').value = ticket.id;
-          document.getElementById('pelicula').value = peli;
-        }
-      })
-      .catch(function (error) {
-        console.error('Error al obtener los datos del ticket:', error);
-      });
+      const compraId = document.createElement("p");
+      compraId.textContent = "ID de la Compra: " + ticket.id_compra;
+  
+      const funcionId = document.createElement("p");
+      funcionId.textContent = "ID de la Función: " + ticket.id_funcion;
+  
+      const asientoId = document.createElement("p");
+      asientoId.textContent = "ID del Asiento: " + ticket.id_asiento;
+  
+      const fechaEmision = document.createElement("p");
+      fechaEmision.textContent = "Fecha de Emisión: " + ticket.fecha_emision;
+  
+      ticketInfo.appendChild(ticketId);
+      ticketInfo.appendChild(compraId);
+      ticketInfo.appendChild(funcionId);
+      ticketInfo.appendChild(asientoId);
+      ticketInfo.appendChild(fechaEmision);
+  
+      ticketDetails.appendChild(ticketInfo);
+    }
+  
+    const ticketResult = document.getElementById("ticketResult");
+    ticketResult.style.display = "block";
   }
-  
-  window.onload = autoRellenarInputsNoEditables;
 
-   // Lógica JavaScript para obtener y mostrar los asientos comprados
-   document.addEventListener('DOMContentLoaded', () => {
-    const userId = 1; // ID del usuario
-    const funcionId = 2; // ID de la función
+  const ticketForm = document.getElementById("ticketForm");
 
-    const obtenerAsientosComprados = async () => {
-        try {
-            const response = await axios.get('/asientos_comprados', {
-                params: {
-                    user_id: userId,
-                    funcion_id: funcionId
-                }
-            });
+ticketForm.addEventListener("submit", function(event) {
+  event.preventDefault();
 
-            const asientosComprados = response.data;
+  const idUsuario = document.getElementById("id_usuario").value;
+  const idCompra = document.getElementById("id_compra").value;
 
-            const ticketDetails = document.getElementById('ticketDetails');
-
-            asientosComprados.forEach(asiento => {
-                const card = document.createElement('div');
-                card.classList.add('card');
-
-                const cardBody = document.createElement('div');
-                cardBody.classList.add('card-body');
-
-                const cardTitle = document.createElement('h5');
-                cardTitle.classList.add('card-title');
-                cardTitle.textContent = `Asiento ID: ${asiento.id}`;
-
-                const cardText1 = document.createElement('p');
-                cardText1.classList.add('card-text');
-                cardText1.textContent = `Número: ${asiento.numero}`;
-
-                const cardText2 = document.createElement('p');
-                cardText2.classList.add('card-text');
-                cardText2.textContent = `Estado: ${asiento.estado}`;
-
-                cardBody.appendChild(cardTitle);
-                cardBody.appendChild(cardText1);
-                cardBody.appendChild(cardText2);
-
-                card.appendChild(cardBody);
-
-                ticketDetails.appendChild(card);
-            });
-
-            // Mostrar el resultado de los asientos comprados
-            const ticketResult = document.getElementById('ticketResult');
-            ticketResult.style.display = 'block';
-
-        } catch (error) {
-            console.error('Error al obtener los asientos comprados:', error);
-        }
-    };
-
-    const ticketForm = document.getElementById('ticketForm');
-    ticketForm.addEventListener('submit', event => {
-        event.preventDefault();
-        obtenerAsientosComprados();
+  // Realiza la solicitud GET al servidor
+  axios.get(`/crear_ticketes?id_usuario=${idUsuario}&id_compra=${idCompra}`)
+    .then(response => {
+      const tickets = response.data;
+      
+      // Imprime los tickets
+      imprimirTickets(tickets);
+    })
+    .catch(error => {
+      console.error(error);
     });
 });
+
+function autoRellenarUsuario() {
+    // Verificar si el token está almacenado en el localStorage
+    if (localStorage.getItem("token")) {
+      // Obtener el token del localStorage
+      const token = localStorage.getItem("token");
+  
+      // Decodificar el token para obtener el ID de usuario
+      const decodedToken = jwt_decode(token);
+  
+      // Obtener el ID de usuario del token decodificado
+      const idUsuario = decodedToken.id_usuario;
+  
+      // Rellenar el campo de ID de usuario en el formulario
+      const usuarioInput = document.getElementById("id_usuario");
+      usuarioInput.value = idUsuario;
+    }
+  }
+  
+  // Llamar a la función para auto-rellenar el campo de usuario al cargar la página
+  window.addEventListener("DOMContentLoaded", autoRellenarUsuario);
+  

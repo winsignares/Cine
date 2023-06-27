@@ -1,4 +1,4 @@
-{% extends "Main/LayoutDescripcion.html" %}
+{% extends "Main/layoutDescripcion.html" %}
 {% block body %}
 <head>
     <title>
@@ -9,20 +9,24 @@
     <link rel="stylesheet" href="{{url_for('static', filename='/css/app.css')}}">
 </head>
 <body>
-<div class="nav-wrapper1">
-    <div class="container1">
+  <div class="nav-wrapper">
+    <div class="container">
         <div class="nav">
-            <a href="indexMain" class="logo">
+            <a href="#" class="logo">
                 <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li><a href="indexMain">Inicio</a></li>
-                <li><a href="./Peliculas.html">Peliculas</a></li>
-                <li><a href="./acercaDe.html">Acerca de</a></li>
+                <li id="usuario"><a href="indexMain">Inicio</a></li>
+                <li><a href="IndexAcercaDe">Acerca de</a></li>
+                <li><a href="indexMain">Peliculas</a></li>
                 <li>
-                    <a href="./main.html" class="btn btn-hover">
-                        <span>Iniciar sesion</span>
+                    <a href="#"  id="user-menu" style="display: none;">
+                        <span id="user-name"></span>
+                        <i class="bx bx-chevron-down"></i>
                     </a>
+                    <ul class="sub-menu" id="user-submenu">
+                        <li><a href="#" id="logout">Cerrar sesión</a></li>
+                    </ul>
                 </li>
             </ul>
             <!-- MENU PARA CELULAR -->
@@ -82,49 +86,4 @@
       </div>
       <div id="video" ></div>
   </div>
-  
-<!-- FOOTER SECTION -->
-<footer class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-4 col-md-6 col-sm-12">
-                <div class="content">
-                    <a href="#" class="logo">
-                        <i class='bx bx-movie-play bx-tada main-color'></i>Pe<span class="main-color">lic</span>ulas
-                    </a>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut veniam ex quos hic id nobis
-                        beatae earum sapiente! Quod ipsa exercitationem officiis non error illum minima iusto et.
-                        Dolores, quibusdam?
-                    </p>
-                </div>
-            </div>
-            <div class="col-8 col-md-6 col-sm-12">
-                <div class="row">
-                    <div class="col-3 col-md-6 col-sm-6">
-                        <div class="content">
-                            <p><b>Help</b></p>
-                            <ul class="footer-menu">
-                                <li><a href="/acercaDe.html">ACERCA DE NOSOTROS</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="social-list">
-                        <a href="#" onclick="prueba('facebook')" class="social-item">
-                            <i class="bx bxl-facebook"></i>
-                        </a>
-                        <a href="#" class="social-item">
-                            <i class="bx bxl-twitter"></i>
-                        </a>
-                        <a href="#" class="social-item">
-                            <i class="bx bxl-instagram"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</footer>
-<!-- END FOOTER SECTION -->
 {% endblock %}
